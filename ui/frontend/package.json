@@ -1,0 +1,24 @@
+{
+  "name": "frontend",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.17.0",
+    "babel-core": "^6.26.0",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-react": "^6.24.1",
+    "fuse-box": "^2.4.0",
+    "http-proxy-middleware": "^0.17.4",
+    "moment": "^2.19.1",
+    "polished": "^1.8.1",
+    "react": "^16.0",
+    "react-dom": "^16.0.0",
+    "react-json-tree": "^0.11.0",
+    "react-object-editor": "^0.1.2",
+    "react-router-dom": "^4.2.2",
+    "styled-components": "^2.2.2",
+    "styled-system": "^1.0.8"
+  }
+}

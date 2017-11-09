@@ -1,0 +1,6 @@
+data/
+node_modules/
+yarn-error.log
+ui/frontend/.fusebox
+ui/frontend/node_modules/
+ui/backend/node_modules/
