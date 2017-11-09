@@ -25,7 +25,9 @@ module.exports = {
       name: "worker",
       watch: [__dirname + "/src"],
       script: "bin/worker.js",
-      args: "--elastic",
+      cwd: "./example",
+      args: "queue.config.js --elastic",
+      mode: "cluster",
       instances: 4
     }
   ]

@@ -1,8 +1,12 @@
 {
   "name": "thanqueue",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "main": "index.js",
   "license": "MIT",
+  "bin": {
+    "thanqueue": "bin/worker.js"
+  },
+  "files": ["src/", "bin/", "lua/"],
   "dependencies": {
     "elasticsearch": "^13.3.1",
     "ioredis": "^3.2.1",
@@ -12,11 +16,12 @@
     "pg": "^7.3.0"
   },
   "scripts": {
-    "worker": "node bin/worker.js",
+    "worker": "node bin/worker.js example/queue.config.js",
     "dashboard": "yarn frontend-dev & yarn backend-dev",
     "frontend-dev": "cd ui/frontend && node fuse-dev",
     "frontend": "cd ui/frontend && node fuse",
     "backend-dev": "cd ui/backend && nodemon",
-    "backend": "cd ui/backend && node"
+    "backend": "cd ui/backend && node",
+    "spawn": "node example/spawn.js"
   }
 }

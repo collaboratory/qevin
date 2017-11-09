@@ -1,6 +1,21 @@
 const Worker = require("../src/worker");
 const moment = require("moment");
+const path = require("path");
+const fs = require("fs");
 const argv = require("minimist")(process.argv.slice(2));
+
+if (!argv._.length) {
+  console.log(argv);
+  throw new Error("thanqueue config file not provided");
+}
+
+const configPath = path.resolve(argv._.shift());
+if (!fs.existsSync(configPath)) {
+  throw new Error("thanqueue config file not found: " + configPath);
+}
+
+console.log("Loading queue configuration at '" + configPath + "'");
+const config = require(configPath);
 
 const sync = argv.pgsql
   ? require("../src/sync/pgsql")()
@@ -17,32 +32,13 @@ const queue = new Worker(
 );
 
 async function main() {
-  queue.addJobHandlers({
-    test1: async (job, done) => {
-      console.log("JOB:test1", job.data);
-      done({
-        rand: Math.random() * 1000 + job.data.a + job.data.b + job.data.c
-      });
-    },
-    test2: async (job, done) => {
-      console.log("JOB:test2", job.data);
-      done({
-        rand: Math.random() * job.data.a * job.data.b * job.data.c
-      });
-    },
-    test3: async (job, done) => {
-      console.log("JOB:test3", job.data);
-      const rand = [];
-      for (let i = 0; i < 100; i++) {
-        rand.push(Math.random() * job.data.a * job.data.b * job.data.c);
-      }
-      done({
-        rand
-      });
-    }
-  });
+  console.log("Initializing queue...");
+  config(queue);
 
+  console.log("Scanning for stalled jobs");
   await queue.scan();
+
+  console.log("Queue listening...");
   await queue.listen();
 }
 main();
