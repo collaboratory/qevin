@@ -1,35 +1,19 @@
+const moment = require("moment");
 class Job {
-  constructor(
-    type,
-    data,
-    priority = 1,
-    timeout = 30000,
-    retries = 3,
-    delay = 0,
-    queue = false
-  ) {
-    this.id = false;
-    this.type = type;
-    this.data = data;
-    this.priority = priority;
-    this.timeout = timeout;
-    this.retries = retries;
-    this.delay = delay;
-    this.queue = queue;
-    this.status = "pending";
-    this.started_at = null;
-    this.completed_at = null;
-    this.result = false;
+  constructor(config = {}, emitter = false) {
+    this.hydrate(config);
+    this.emitter = emitter;
   }
 
-  static fromJSON(json, queue = false) {
-    const job = new Job(false, false, false, false, false, false, queue);
-    job.hydrate(json);
-    return job;
+  hydrate(config) {
+    Object.keys(config).forEach(key => {
+      this[key] = config[key];
+    });
   }
 
-  toJSON() {
-    return {
+  toJSON(stringify = false) {
+    const res = {};
+    const json = {
       id: this.id,
       type: this.type,
       data: this.data,
@@ -42,33 +26,38 @@ class Job {
       completed_at: this.completed_at,
       result: this.result
     };
+    Object.keys(json).forEach(key => {
+      if (json[key] !== undefined) {
+        res[key] = json[key];
+      }
+    });
+
+    return stringify ? JSON.stringify(res) : res;
   }
 
-  hydrate(data) {
-    Object.keys(data).forEach(key => {
-      this[key] = data[key];
-    });
-    return this;
+  async complete(result = {}) {
+    this.result = result;
+    this.status = "complete";
+    this.completed_at = moment.unix();
+    return await this.save();
+  }
+
+  async fail(err = null) {
+    this.error = err;
+    this.status = "failed";
+    this.failed_at = moment.unix();
+    return await this.save();
+  }
+
+  async start() {
+    this.status = "active";
+    this.started_at = moment.unix();
+    return await this.save();
   }
 
   async save() {
-    if (!this.id) {
-      return await this.queue
-        .create(this.type, JSON.stringify(this.toJSON()))
-        .then(res => {
-          const data = JSON.parse(res);
-          this.queue.publish(
-            "queue",
-            JSON.stringify({
-              type: "job:created",
-              job: data
-            })
-          );
-          return this.hydrate(data);
-        });
-    }
-
-    return await this.queue.set(`queue:job:${this.id}`, ...this.toJSON());
+    console.log("Emitting job:save");
+    return await this.emitter.emit("job:save", this);
   }
 }
 

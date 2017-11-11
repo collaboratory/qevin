@@ -1,5 +1,5 @@
 local id = redis.call('get', 'queue:index');
-local job = cjson.decode(KEYS[2]);
+local job = cjson.decode(KEYS[1]);
 if id then
   job.id = id + 1;
 else

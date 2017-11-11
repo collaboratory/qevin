@@ -1,6 +1,8 @@
 const Redis = require("ioredis");
 const Job = require("./job");
 const fs = require("fs");
+const mitt = require("mitt");
+const moment = require("moment");
 
 class Connector {
   constructor(connector_config = {}) {
@@ -9,12 +11,13 @@ class Connector {
     this.sub = new Redis(connector_config);
     this.sub.subscribe("queue");
     this.sub.on("message", this.messageHandler.bind(this));
+    this.emitter = mitt();
 
-    this.pub.defineCommand("create", {
-      lua: fs.readFileSync(__dirname + "/../lua/create.lua", {
+    this.pub.defineCommand("register", {
+      lua: fs.readFileSync(__dirname + "/../lua/register.lua", {
         encoding: "utf8"
       }),
-      numberOfKeys: 2
+      numberOfKeys: 1
     });
 
     this.pub.defineCommand("sort", {
@@ -23,38 +26,51 @@ class Connector {
       }),
       numberOfKeys: 1
     });
+
+    this.emitter.on("job:save", this.onSaveEmit.bind(this));
+  }
+
+  async onSaveEmit(job) {
+    if (job.id) {
+      return await this.save(job);
+    } else {
+      return await this.register(job);
+    }
+  }
+
+  create(config = {}) {
+    return new Job(config, this.emitter);
+  }
+
+  async createAndSave(config = {}) {
+    const job = this.create(config);
+    const saved = await this.register(job);
+    return saved;
+  }
+
+  async register(job) {
+    job.created_at = moment();
+    const json = job.toJSON(true);
+    const res = await this.pub.register(json);
+    if (res) {
+      try {
+        job.hydrate(JSON.parse(res));
+        this.emitter.emit("job:saved", job);
+        return job;
+      } catch (e) {}
+    }
+    return false;
+  }
+
+  async save(job) {
+    job.updated_at = moment();
+    await this.pub.set(`queue:job:${job.id}`, job.toJSON());
+    this.emitter.emit("job:saved", job);
   }
 
   async sort(config = {}) {
     const json = await this.pub.sort(JSON.stringify(config));
-    console.log("Sort", config, json);
     return JSON.parse(json);
-  }
-
-  create(type, data, priority = 1, timeout = 30, retries = 3, delay = 0) {
-    const job = new Job(
-      type,
-      data,
-      priority,
-      timeout,
-      retries,
-      delay,
-      this.pub
-    );
-    return job;
-  }
-
-  async createAndSave(
-    type,
-    data,
-    priority = 1,
-    timeout = 30,
-    retries = 3,
-    delay = 0
-  ) {
-    const job = this.create(type, data, priority, timeout, retries, delay);
-    await job.save();
-    return job;
   }
 
   async messageHandler(channel, message) {

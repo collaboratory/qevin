@@ -5,11 +5,13 @@ const logger = require("koa-logger");
 const versioned = require("koa-versioned").default;
 
 const redis = require("./middleware/redis");
+const es = require("./middleware/elasticsearch");
 
 const app = new Koa();
 app.use(logger());
 app.use(bodyParser());
 app.use(redis);
+app.use(es);
 
 const router = new Router();
 app.use(

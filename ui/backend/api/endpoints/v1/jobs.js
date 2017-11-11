@@ -62,22 +62,20 @@ module.exports.default = (router, v) => {
       const page = ctx.query.page || 1;
       const pageSize = ctx.query.pageSize || 25;
 
-      const total = await knex
-        .table("queue_jobs")
-        .where("status", "complete")
-        .count()
-        .first();
-
-      const records = await knex
-        .table("queue_jobs")
-        .where("status", "complete")
-        .limit(pageSize)
-        .offset((page - 1) * pageSize);
+      const records = await ctx.es.search({
+        index: "jobs",
+        body: {
+          query: {
+            match: {
+              status: "completed"
+            }
+          }
+        }
+      });
 
       ctx.body = {
         records,
-        page,
-        pages: Math.max(Math.ceil(total.count / pageSize), 1)
+        page
       };
     })
     .get(v("/job/:id"), async (ctx, next) => {

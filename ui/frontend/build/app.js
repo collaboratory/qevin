@@ -91,6 +91,11 @@ var App = function (_Component) {
               _Nav.Nav,
               null,
               _react2.default.createElement(
+                _Nav.NavBrand,
+                null,
+                "ThanQueue"
+              ),
+              _react2.default.createElement(
                 _Nav.NavLink,
                 { to: "/" },
                 "Overview"
@@ -218,6 +223,14 @@ var _axios = require("axios");
 
 var _axios2 = _interopRequireDefault(_axios);
 
+var _Table = require("../components/Table");
+
+var _reactRouterDom = require("react-router-dom");
+
+var _propTypes = require("prop-types");
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -273,6 +286,8 @@ var Overview = function (_Component) {
   }, {
     key: "render",
     value: function render() {
+      var _this2 = this;
+
       return _react2.default.createElement(
         "div",
         null,
@@ -281,91 +296,101 @@ var Overview = function (_Component) {
           null,
           "Loading"
         ) : _react2.default.createElement(
-          "table",
+          _Table.Table,
           { cellPadding: 8, cellSpacing: 0, border: 1 },
           _react2.default.createElement(
-            "tbody",
+            _Table.TBody,
             null,
             _react2.default.createElement(
-              "tr",
+              _Table.Row,
               null,
               _react2.default.createElement(
-                "th",
+                _Table.HCol,
                 null,
                 "Next Job ID"
               ),
               _react2.default.createElement(
-                "td",
+                _Table.Col,
                 null,
                 this.state.data.index
               )
             ),
             _react2.default.createElement(
-              "tr",
-              null,
+              _Table.Row,
+              { onClick: function onClick(e) {
+                  return _this2.props.history.push("/pending");
+                } },
               _react2.default.createElement(
-                "th",
+                _Table.HCol,
                 null,
                 "Pending Jobs"
               ),
               _react2.default.createElement(
-                "td",
+                _Table.Col,
                 null,
                 this.state.data.pending
               )
             ),
             _react2.default.createElement(
-              "tr",
-              null,
+              _Table.Row,
+              { onClick: function onClick(e) {
+                  return _this2.props.history.push("/active");
+                } },
               _react2.default.createElement(
-                "th",
+                _Table.HCol,
                 null,
                 "Active Jobs"
               ),
               _react2.default.createElement(
-                "td",
+                _Table.Col,
                 null,
                 this.state.data.active
               )
             ),
             _react2.default.createElement(
-              "tr",
-              null,
+              _Table.Row,
+              { onClick: function onClick(e) {
+                  return _this2.props.history.push("/failed");
+                } },
               _react2.default.createElement(
-                "th",
+                _Table.HCol,
                 null,
                 "Failed Jobs"
               ),
               _react2.default.createElement(
-                "td",
+                _Table.Col,
                 null,
                 this.state.data.failed
               )
             ),
             _react2.default.createElement(
-              "tr",
-              null,
+              _Table.Row,
+              { onClick: function onClick(e) {
+                  return _this2.props.history.push("/completed");
+                } },
               _react2.default.createElement(
-                "th",
+                _Table.HCol,
                 null,
                 "Completed Jobs"
               ),
               _react2.default.createElement(
-                "td",
+                _Table.Col,
                 null,
                 this.state.data.complete
               )
             ),
             _react2.default.createElement(
-              "tr",
-              null,
+              _Table.Row,
+              { onClick: function onClick(e) {
+                  return _this2.props.history.push("/workers");
+                } },
               _react2.default.createElement(
-                "th",
+                _Table.HCol,
                 null,
                 "Workers"
               ),
               _react2.default.createElement(
-                "td",
+                _Table.Col,
                 null,
                 this.state.data.workers
               )
@@ -379,7 +404,45 @@ var Overview = function (_Component) {
   return Overview;
 }(_react.Component);
 
-exports.default = Overview;
+exports.default = (0, _reactRouterDom.withRouter)(Overview);
+});
+___scope___.file("components/Table.jsx", function(exports, require, module, __filename, __dirname){
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.HCol = exports.Col = exports.THead = exports.TBody = exports.Row = exports.Table = undefined;
+
+var _templateObject = _taggedTemplateLiteral(["\n  border: 1px solid #ccc;\n  border-right: none;\n  margin: 8px;\n  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.15);\n"], ["\n  border: 1px solid #ccc;\n  border-right: none;\n  margin: 8px;\n  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.15);\n"]),
+    _templateObject2 = _taggedTemplateLiteral(["cursor: pointer;"], ["cursor: pointer;"]),
+    _templateObject3 = _taggedTemplateLiteral(["\n  ", ":hover {\n    background: #eee;\n  }\n"], ["\n  ", ":hover {\n    background: #eee;\n  }\n"]),
+    _templateObject4 = _taggedTemplateLiteral([""], [""]),
+    _templateObject5 = _taggedTemplateLiteral(["\n  padding: 8px 20px;\n  border-bottom: 1px solid #ccc;\n  border-right: 1px solid #ccc;\n"], ["\n  padding: 8px 20px;\n  border-bottom: 1px solid #ccc;\n  border-right: 1px solid #ccc;\n"]),
+    _templateObject6 = _taggedTemplateLiteral(["font-weight: bold;"], ["font-weight: bold;"]);
+
+var _react = require("react");
+
+var _react2 = _interopRequireDefault(_react);
+
+var _styledComponents = require("styled-components");
+
+var _styledComponents2 = _interopRequireDefault(_styledComponents);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
+var Table = exports.Table = _styledComponents2.default.table(_templateObject);
+
+var Row = exports.Row = _styledComponents2.default.tr(_templateObject2);
+var TBody = exports.TBody = _styledComponents2.default.tbody(_templateObject3, Row);
+var THead = exports.THead = _styledComponents2.default.thead(_templateObject4);
+
+var Col = exports.Col = _styledComponents2.default.td(_templateObject5);
+
+var HCol = exports.HCol = Col.extend(_templateObject6);
 });
 ___scope___.file("routes/Pending.jsx", function(exports, require, module, __filename, __dirname){
 
@@ -821,44 +884,6 @@ var Paginator = function (_Component) {
 
 exports.default = Paginator;
 });
-___scope___.file("components/Table.jsx", function(exports, require, module, __filename, __dirname){
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.HCol = exports.Col = exports.THead = exports.TBody = exports.Row = exports.Table = undefined;
-
-var _templateObject = _taggedTemplateLiteral(["\n  border: 1px solid #ccc;\n  border-right: none;\n  margin: 8px;\n  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.15);\n"], ["\n  border: 1px solid #ccc;\n  border-right: none;\n  margin: 8px;\n  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.15);\n"]),
-    _templateObject2 = _taggedTemplateLiteral(["cursor: pointer;"], ["cursor: pointer;"]),
-    _templateObject3 = _taggedTemplateLiteral(["\n  ", ":hover {\n    background: #eee;\n  }\n"], ["\n  ", ":hover {\n    background: #eee;\n  }\n"]),
-    _templateObject4 = _taggedTemplateLiteral([""], [""]),
-    _templateObject5 = _taggedTemplateLiteral(["\n  padding: 8px 20px;\n  border-bottom: 1px solid #ccc;\n  border-right: 1px solid #ccc;\n"], ["\n  padding: 8px 20px;\n  border-bottom: 1px solid #ccc;\n  border-right: 1px solid #ccc;\n"]),
-    _templateObject6 = _taggedTemplateLiteral(["font-weight: bold;"], ["font-weight: bold;"]);
-
-var _react = require("react");
-
-var _react2 = _interopRequireDefault(_react);
-
-var _styledComponents = require("styled-components");
-
-var _styledComponents2 = _interopRequireDefault(_styledComponents);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
-
-var Table = exports.Table = _styledComponents2.default.table(_templateObject);
-
-var Row = exports.Row = _styledComponents2.default.tr(_templateObject2);
-var TBody = exports.TBody = _styledComponents2.default.tbody(_templateObject3, Row);
-var THead = exports.THead = _styledComponents2.default.thead(_templateObject4);
-
-var Col = exports.Col = _styledComponents2.default.td(_templateObject5);
-
-var HCol = exports.HCol = Col.extend(_templateObject6);
-});
 ___scope___.file("routes/Active.jsx", function(exports, require, module, __filename, __dirname){
 
 "use strict";
@@ -1276,10 +1301,11 @@ ___scope___.file("components/Nav.jsx", function(exports, require, module, __file
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.Nav = exports.NavLink = undefined;
+exports.Nav = exports.NavBrand = exports.NavLink = undefined;
 
-var _templateObject = _taggedTemplateLiteral(["\n  padding: 8px 20px;\n  line-height: 24px;\n  font-weight: bold;\n  text-decoration: none;\n  color: white;\n"], ["\n  padding: 8px 20px;\n  line-height: 24px;\n  font-weight: bold;\n  text-decoration: none;\n  color: white;\n"]),
-    _templateObject2 = _taggedTemplateLiteral(["\n  width: 100%;\n  background-color: rgb(50, 75, 155);\n  color: white;\n"], ["\n  width: 100%;\n  background-color: rgb(50, 75, 155);\n  color: white;\n"]);
+var _templateObject = _taggedTemplateLiteral(["\n  padding: 8px 20px;\n  line-height: 40px;\n  font-weight: bold;\n  text-decoration: none;\n  color: white;\n  margin-right: 4px;\n\n  &:hover {\n    background-color: rgba(255, 255, 255, 0.25);\n  }\n"], ["\n  padding: 8px 20px;\n  line-height: 40px;\n  font-weight: bold;\n  text-decoration: none;\n  color: white;\n  margin-right: 4px;\n\n  &:hover {\n    background-color: rgba(255, 255, 255, 0.25);\n  }\n"]),
+    _templateObject2 = _taggedTemplateLiteral(["\n  padding: 8px 30px 8px 20px;\n  line-height: 22px;\n  font-size: 18px;\n  font-weight: bold;\n  display: inline-block;\n  margin: 0;\n  float: left;\n"], ["\n  padding: 8px 30px 8px 20px;\n  line-height: 22px;\n  font-size: 18px;\n  font-weight: bold;\n  display: inline-block;\n  margin: 0;\n  float: left;\n"]),
+    _templateObject3 = _taggedTemplateLiteral(["\n  width: 100%;\n  background-color: rgb(50, 75, 155);\n  color: white;\n  height: 42px;\n  text-align: right;\n"], ["\n  width: 100%;\n  background-color: rgb(50, 75, 155);\n  color: white;\n  height: 42px;\n  text-align: right;\n"]);
 
 var _styledComponents = require("styled-components");
 
@@ -1293,7 +1319,9 @@ function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defi
 
 var NavLink = exports.NavLink = (0, _styledComponents2.default)(_reactRouterDom.Link)(_templateObject);
 
-var Nav = exports.Nav = _styledComponents2.default.div(_templateObject2);
+var NavBrand = exports.NavBrand = _styledComponents2.default.h1(_templateObject2);
+
+var Nav = exports.Nav = _styledComponents2.default.div(_templateObject3);
 });
 return ___scope___.entry = "app.js";
 });

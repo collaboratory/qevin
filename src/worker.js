@@ -39,75 +39,55 @@ class Worker {
       }),
       numberOfKeys: 1
     });
+
+    this.connector.emitter.on("job:saved", async job => {
+      await this.sync(job);
+    });
   }
 
-  async work(type) {
+  async claim(type) {
     this.debug(`\t[WORK] ${type}`);
     const job_str = await this.connector.pub.work(type, moment().unix());
     if (job_str) {
-      const job = Job.fromJSON(JSON.parse(job_str), this.connector.pub);
-      if (job_str && job) {
-        await this.connector.pub.publish(
-          "queue",
-          JSON.stringify({
-            type: "job:started",
-            job: job.toJSON()
-          })
-        );
-        this.debug(`\t[SYNC] ${JSON.stringify(job)}`);
-        return await this.sync(job);
-      }
+      return new Job(JSON.parse(job_str), this.connector.emitter);
     }
 
     return false;
   }
 
-  async fail(job, remove = true) {
-    await this.connector.pub.fail(parseInt(job.id), remove ? 1 : 0);
-    await this.connector.pub.publish(
-      "queue",
-      JSON.stringify({
-        type: "job:failed",
-        job: job.toJSON()
-      })
-    );
+  async process(type, shouldThrow = true) {
+    if (this.jobHandlers.has(type)) {
+      const handle = this.jobHandlers.get(type);
+      const job = await this.claim(type);
+      if (job) {
+        console.log("Starting job");
+        await job.start();
+        await handle(job)
+          .then(result => {
+            console.log("Job completed", job.id, result);
+            return job.complete(result);
+          })
+          .catch(err => {
+            console.log("Job failed");
+            return job.fail(err);
+          });
 
-    return await this.sync(job);
-  }
+        return job;
+      }
 
-  async complete(job, remove = true) {
-    job.status = "complete";
-    job.completed_at = moment().unix();
-    await this.save(job, false);
-    await this.connector.pub.publish(
-      "queue",
-      JSON.stringify({
-        type: "job:complete",
-        job: job.toJSON()
-      })
-    );
-
-    return await this.connector.pub.complete(parseInt(job.id), remove ? 1 : 0);
-  }
-
-  async save(job, publish = true) {
-    const json = job.toJSON();
-    if (publish) {
-      await this.connector.pub.publish(
-        "queue",
-        JSON.stringify({
-          type: "job:saved",
-          job: json
-        })
-      );
+      return null;
     }
 
-    await this.sync(job);
+    if (shouldThrow) {
+      throw new Error("Job handler not registered for type " + type);
+    }
 
-    return await this.connector.pub.set(
-      `queue:job:${job.id}`,
-      JSON.stringify(json)
-    );
+    return false;
+  }
+
+  async save(job) {
+    await this.pub.set(`queue:job:${job.id}`, ...job.toJSON());
+    return await this.sync(job);
   }
 
   async sync(job) {
@@ -141,36 +121,25 @@ class Worker {
     });
   }
 
-  listen() {
+  listen(scanInterval = 1000) {
     if (!this.listening) {
-      this.connector.addMessageHandler("job:created", async msg => {
-        this.debug(`\t[JOB CREATED]`);
-        if (this.jobHandlers.has(msg.job.type)) {
-          const handler = this.jobHandlers.get(msg.job.type);
-          await this.work(msg.job.type)
-            .then(job => {
-              if (job) {
-                handler(job, data => {
-                  job.result = data;
-                  this.complete(job);
-                });
-              }
-            })
-            .catch(err => {});
-        }
-      });
-
       this.interval = setInterval(() => {
-        this.connector.pub.timeout(moment().unix()).then(timed_out => {
-          if (timed_out > 0) {
-            console.log(`WARNING: ${timed_out} job(s) timed out.`);
-          }
-          this.scan();
-        });
-      }, 3000);
+        if (!this.scanning) {
+          this.connector.pub.timeout(moment().unix()).then(timed_out => {
+            if (timed_out > 0) {
+              console.log(`WARNING: ${timed_out} job(s) timed out.`);
+            }
+            this.scan();
+          });
+        }
+      }, scanInterval);
 
       this.listening = true;
     }
+  }
+
+  stopListening() {
+    clearInterval(this.interval);
   }
 
   async scan() {
@@ -180,17 +149,7 @@ class Worker {
         let matched = false;
         for (let [type, handler] of this.jobHandlers) {
           this.debug(`\t[SCANNING] ${type}`);
-          await this.work(type)
-            .then(job => {
-              if (job) {
-                matched = true;
-                handler(job, data => {
-                  job.result = data;
-                  this.complete(job);
-                });
-              }
-            })
-            .catch(err => {});
+          await this.process(type, true);
         }
         if (!matched) {
           this.scanning = false;

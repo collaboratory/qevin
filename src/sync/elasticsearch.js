@@ -2,8 +2,14 @@ const Elasticsearch = require("elasticsearch");
 const moment = require("moment");
 
 module.exports = function(es_config) {
+  console.log("Loading ES sync");
   const sync = [];
   const es = new Elasticsearch.Client(es_config);
+
+  const interval = setInterval(() => {
+    checkFlush(true);
+  }, 10000);
+
   return async job => {
     await upsert(job.toJSON());
     return job;
@@ -12,7 +18,17 @@ module.exports = function(es_config) {
   async function upsert(job) {
     const { id, type, status, ...data } = job;
 
+    console.log("Upserting job", id);
+
     try {
+      sync.push({
+        delete: {
+          _index: "jobs",
+          _type: type,
+          _id: id
+        }
+      });
+
       sync.push({
         index: {
           _index: "jobs",
@@ -23,10 +39,12 @@ module.exports = function(es_config) {
 
       sync.push({
         indexed_at: moment(),
+        id,
+        type,
         ...data
       });
 
-      await checkFlush();
+      return await checkFlush();
     } catch (e) {
       console.log("Error", e);
       return false;
@@ -34,12 +52,10 @@ module.exports = function(es_config) {
   }
 
   async function checkFlush(force = false) {
-    return sync.length >= 1000 || (sync.length && force)
-      ? await es.bulk({ body: sync.splice(0, sync.length) })
-      : false;
-  }
+    if (sync.length >= 1000 || (sync.length && force)) {
+      return await es.bulk({ body: sync.splice(0, sync.length) });
+    }
 
-  const saveInterval = setInterval(() => {
-    checkFlush(true);
-  }, 10000);
+    return false;
+  }
 };

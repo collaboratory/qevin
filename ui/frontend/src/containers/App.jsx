@@ -31,7 +31,7 @@ const Content = styled.div`
 `;
 
 import Routes from "../routes";
-import { Nav, NavLink } from "../components/Nav";
+import { Nav, NavLink, NavBrand } from "../components/Nav";
 
 export default class App extends Component {
   render() {
@@ -40,6 +40,7 @@ export default class App extends Component {
         <HashRouter>
           <Content>
             <Nav>
+              <NavBrand>ThanQueue</NavBrand>
               <NavLink to="/">Overview</NavLink>
               <NavLink to="/pending">Pending Jobs</NavLink>
               <NavLink to="/active">Active Jobs</NavLink>
