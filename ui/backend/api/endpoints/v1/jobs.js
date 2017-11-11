@@ -59,23 +59,35 @@ module.exports.default = (router, v) => {
       };
     })
     .get(v("/jobs/complete"), async (ctx, next) => {
-      const page = ctx.query.page || 1;
-      const pageSize = ctx.query.pageSize || 25;
+      let { search, page, pageSize } = ctx.query;
+      page = page || 1;
+      pageSize = pageSize || 25;
 
-      const records = await ctx.es.search({
+      const response = await ctx.es.search({
         index: "jobs",
         body: {
+          from: (page - 1) * pageSize,
+          size: pageSize,
           query: {
             match: {
-              status: "completed"
+              status: "complete"
             }
           }
         }
       });
 
+      const records = response.hits.hits.map(hit => {
+        return {
+          score: hit._score,
+          ...hit._source
+        };
+      });
+
       ctx.body = {
-        records,
-        page
+        page,
+        pageSize,
+        total: response.hits.total,
+        records
       };
     })
     .get(v("/job/:id"), async (ctx, next) => {

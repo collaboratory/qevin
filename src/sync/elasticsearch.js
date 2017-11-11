@@ -18,8 +18,6 @@ module.exports = function(es_config) {
   async function upsert(job) {
     const { id, type, status, ...data } = job;
 
-    console.log("Upserting job", id);
-
     try {
       sync.push({
         delete: {
@@ -38,9 +36,10 @@ module.exports = function(es_config) {
       });
 
       sync.push({
-        indexed_at: moment(),
+        indexed_at: moment().unix(),
         id,
         type,
+        status,
         ...data
       });
 

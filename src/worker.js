@@ -41,6 +41,9 @@ class Worker {
     });
 
     this.connector.emitter.on("job:saved", async job => {
+      if (job.status == "complete") {
+        await this.connector.pub.complete(job.id, 1);
+      }
       await this.sync(job);
     });
   }
@@ -60,15 +63,12 @@ class Worker {
       const handle = this.jobHandlers.get(type);
       const job = await this.claim(type);
       if (job) {
-        console.log("Starting job");
         await job.start();
         await handle(job)
           .then(result => {
-            console.log("Job completed", job.id, result);
             return job.complete(result);
           })
           .catch(err => {
-            console.log("Job failed");
             return job.fail(err);
           });
 
@@ -96,7 +96,6 @@ class Worker {
     }
 
     if (this.config && this.config.sync) {
-      console.log("Syncing job #" + job.id);
       return await this.config.sync(job);
     }
 
@@ -121,16 +120,15 @@ class Worker {
     });
   }
 
-  listen(scanInterval = 1000) {
+  listen(scanInterval = 10000) {
     if (!this.listening) {
-      this.interval = setInterval(() => {
+      this.interval = setInterval(async () => {
         if (!this.scanning) {
-          this.connector.pub.timeout(moment().unix()).then(timed_out => {
-            if (timed_out > 0) {
-              console.log(`WARNING: ${timed_out} job(s) timed out.`);
-            }
-            this.scan();
-          });
+          const timed_out = await this.connector.pub.timeout(moment().unix());
+          if (timed_out > 0) {
+            console.log(`WARNING: ${timed_out} job(s) timed out.`);
+          }
+          await this.scan();
         }
       }, scanInterval);
 
@@ -149,7 +147,10 @@ class Worker {
         let matched = false;
         for (let [type, handler] of this.jobHandlers) {
           this.debug(`\t[SCANNING] ${type}`);
-          await this.process(type, true);
+          let matching = await this.process(type, true);
+          if (matching) {
+            matched = true;
+          }
         }
         if (!matched) {
           this.scanning = false;

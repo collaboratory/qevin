@@ -7,7 +7,9 @@ class Job {
 
   hydrate(config) {
     Object.keys(config).forEach(key => {
-      this[key] = config[key];
+      if (config[key] !== undefined) {
+        this[key] = config[key];
+      }
     });
   }
 
@@ -38,25 +40,24 @@ class Job {
   async complete(result = {}) {
     this.result = result;
     this.status = "complete";
-    this.completed_at = moment.unix();
+    this.completed_at = moment().unix();
     return await this.save();
   }
 
   async fail(err = null) {
     this.error = err;
     this.status = "failed";
-    this.failed_at = moment.unix();
+    this.failed_at = moment().unix();
     return await this.save();
   }
 
   async start() {
     this.status = "active";
-    this.started_at = moment.unix();
+    this.started_at = moment().unix();
     return await this.save();
   }
 
   async save() {
-    console.log("Emitting job:save");
     return await this.emitter.emit("job:save", this);
   }
 }

@@ -50,10 +50,12 @@ class Connector {
 
   async register(job) {
     job.created_at = moment();
+    job.status = "pending";
     const json = job.toJSON(true);
     const res = await this.pub.register(json);
     if (res) {
       try {
+        console.log(res);
         job.hydrate(JSON.parse(res));
         this.emitter.emit("job:saved", job);
         return job;
