@@ -22,7 +22,7 @@ module.exports = function(es_config) {
       sync.push({
         delete: {
           _index: "jobs",
-          _type: type,
+          _type: "job",
           _id: id
         }
       });
@@ -30,7 +30,7 @@ module.exports = function(es_config) {
       sync.push({
         index: {
           _index: "jobs",
-          _type: type,
+          _type: "job",
           _id: id
         }
       });
