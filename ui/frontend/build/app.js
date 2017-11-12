@@ -440,7 +440,7 @@ var _templateObject = _taggedTemplateLiteral(["\n  height: ", ";\n  border: 1px 
     _templateObject2 = _taggedTemplateLiteral(["\n  cursor: pointer;\n  background: ", ";\n"], ["\n  cursor: pointer;\n  background: ", ";\n"]),
     _templateObject3 = _taggedTemplateLiteral(["\n  ", ":hover {\n    background: #eee;\n  }\n"], ["\n  ", ":hover {\n    background: #eee;\n  }\n"]),
     _templateObject4 = _taggedTemplateLiteral([""], [""]),
-    _templateObject5 = _taggedTemplateLiteral(["\n  padding: 8px 20px;\n  white-space: normal;\n  word-wrap: break-word;\n  border-bottom: 1px solid #ccc;\n  border-right: 1px solid #ccc;\n  line-height: 24px;\n  max-height: 48px;\n"], ["\n  padding: 8px 20px;\n  white-space: normal;\n  word-wrap: break-word;\n  border-bottom: 1px solid #ccc;\n  border-right: 1px solid #ccc;\n  line-height: 24px;\n  max-height: 48px;\n"]),
+    _templateObject5 = _taggedTemplateLiteral(["\n  padding: 8px 20px;\n  white-space: normal;\n  border-bottom: 1px solid #ccc;\n  border-right: 1px solid #ccc;\n  line-height: 24px;\n  max-height: 48px;\n  white-space: nowrap;\n  &:last-child {\n    word-wrap: break-word;\n  }\n"], ["\n  padding: 8px 20px;\n  white-space: normal;\n  border-bottom: 1px solid #ccc;\n  border-right: 1px solid #ccc;\n  line-height: 24px;\n  max-height: 48px;\n  white-space: nowrap;\n  &:last-child {\n    word-wrap: break-word;\n  }\n"]),
     _templateObject6 = _taggedTemplateLiteral(["font-weight: bold;"], ["font-weight: bold;"]);
 
 var _react = require("react");
