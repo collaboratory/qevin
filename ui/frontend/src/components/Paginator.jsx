@@ -27,7 +27,13 @@ const Left = styled.div`
 const Center = styled.div`
   float: left;
   width: 33%;
+  line-height: 18px;
   text-align: center;
+`;
+
+const InputContainer = styled.div`
+  line-height: 35px;
+  display: inline-block;
 `;
 
 const Right = styled.div`
@@ -38,6 +44,10 @@ const Right = styled.div`
 
 export default class Paginator extends Component {
   setPage(page) {
+    if (!page || isNaN(page)) {
+      page = "";
+    }
+
     this.setState({
       page
     });
@@ -48,8 +58,7 @@ export default class Paginator extends Component {
   }
 
   onPageInput = e => {
-    const page = parseInt(e.target.value);
-    this.setPage(page);
+    return this.setPage(parseInt(e.target.value));
   };
 
   componentWillMount() {
@@ -97,11 +106,13 @@ export default class Paginator extends Component {
               Previous
             </Page>
           ) : null}
-          <Input
-            type="text"
-            value={this.state.page}
-            onChange={this.onPageInput}
-          />
+          <InputContainer>
+            <Input
+              type="text"
+              value={this.state.page}
+              onChange={this.onPageInput}
+            />
+          </InputContainer>
           {this.props.pages > this.props.page ? (
             <Page onClick={e => this.setPage(this.props.page + 1)}>Next</Page>
           ) : null}

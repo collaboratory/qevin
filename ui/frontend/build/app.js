@@ -436,11 +436,11 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.HCol = exports.Col = exports.THead = exports.TBody = exports.Row = exports.Table = undefined;
 
-var _templateObject = _taggedTemplateLiteral(["\n  border: 1px solid #ccc;\n  border-right: none;\n  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.15);\n  overflow: hidden;\n  margin: 0;\n  padding: 0;\n  word-break: break-word;\n"], ["\n  border: 1px solid #ccc;\n  border-right: none;\n  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.15);\n  overflow: hidden;\n  margin: 0;\n  padding: 0;\n  word-break: break-word;\n"]),
+var _templateObject = _taggedTemplateLiteral(["\n  height: ", ";\n  border: 1px solid #ccc;\n  margin: 0;\n  padding: 0;\n  word-break: break-word;\n"], ["\n  height: ", ";\n  border: 1px solid #ccc;\n  margin: 0;\n  padding: 0;\n  word-break: break-word;\n"]),
     _templateObject2 = _taggedTemplateLiteral(["\n  cursor: pointer;\n  background: ", ";\n"], ["\n  cursor: pointer;\n  background: ", ";\n"]),
     _templateObject3 = _taggedTemplateLiteral(["\n  ", ":hover {\n    background: #eee;\n  }\n"], ["\n  ", ":hover {\n    background: #eee;\n  }\n"]),
     _templateObject4 = _taggedTemplateLiteral([""], [""]),
-    _templateObject5 = _taggedTemplateLiteral(["\n  padding: 8px 20px;\n  border-bottom: 1px solid #ccc;\n  border-right: 1px solid #ccc;\n  white-space: normal;\n  word-wrap: break-word;\n"], ["\n  padding: 8px 20px;\n  border-bottom: 1px solid #ccc;\n  border-right: 1px solid #ccc;\n  white-space: normal;\n  word-wrap: break-word;\n"]),
+    _templateObject5 = _taggedTemplateLiteral(["\n  padding: 8px 20px;\n  white-space: normal;\n  word-wrap: break-word;\n  border-bottom: 1px solid #ccc;\n  border-right: 1px solid #ccc;\n  line-height: 24px;\n  max-height: 48px;\n"], ["\n  padding: 8px 20px;\n  white-space: normal;\n  word-wrap: break-word;\n  border-bottom: 1px solid #ccc;\n  border-right: 1px solid #ccc;\n  line-height: 24px;\n  max-height: 48px;\n"]),
     _templateObject6 = _taggedTemplateLiteral(["font-weight: bold;"], ["font-weight: bold;"]);
 
 var _react = require("react");
@@ -455,7 +455,9 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
-var Table = exports.Table = _styledComponents2.default.table(_templateObject);
+var Table = exports.Table = _styledComponents2.default.table(_templateObject, function (props) {
+  return props.fullHeight ? "100%" : "auto";
+});
 
 var Row = exports.Row = _styledComponents2.default.tr(_templateObject2, function (props) {
   return props.tinted ? "#ececec" : "#fff";
@@ -761,10 +763,10 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _templateObject = _taggedTemplateLiteral(["\n  ", ";\n"], ["\n  ", ";\n"]),
+var _templateObject = _taggedTemplateLiteral(["\n  width: calc(100vw - 56px);\n  height: calc(100vh - 96px);\n"], ["\n  width: calc(100vw - 56px);\n  height: calc(100vh - 96px);\n"]),
     _templateObject2 = _taggedTemplateLiteral(["\n  position: relative;\n  width: 100%;\n  height: 100%;\n"], ["\n  position: relative;\n  width: 100%;\n  height: 100%;\n"]),
-    _templateObject3 = _taggedTemplateLiteral(["\n  height: 42px;\n  position: absolute;\n  left: 0;\n  top: 0;\n  width: 100%;\n  background: #efefef;\n  border: 1px solid #ccc;\n  z-index: 1;\n"], ["\n  height: 42px;\n  position: absolute;\n  left: 0;\n  top: 0;\n  width: 100%;\n  background: #efefef;\n  border: 1px solid #ccc;\n  z-index: 1;\n"]),
-    _templateObject4 = _taggedTemplateLiteral(["\n  position: absolute;\n  left: 0;\n  bottom: 0;\n  height: 36px;\n  width: 100%;\n  background: #efefef;\n  border: 1px solid #ccc;\n  z-index: 1;\n"], ["\n  position: absolute;\n  left: 0;\n  bottom: 0;\n  height: 36px;\n  width: 100%;\n  background: #efefef;\n  border: 1px solid #ccc;\n  z-index: 1;\n"]),
+    _templateObject3 = _taggedTemplateLiteral(["\n  height: 42px;\n  position: absolute;\n  left: 0;\n  top: 0;\n  width: calc(100% - 2px);\n  background: #efefef;\n  border: 1px solid #ccc;\n  z-index: 1;\n"], ["\n  height: 42px;\n  position: absolute;\n  left: 0;\n  top: 0;\n  width: calc(100% - 2px);\n  background: #efefef;\n  border: 1px solid #ccc;\n  z-index: 1;\n"]),
+    _templateObject4 = _taggedTemplateLiteral(["\n  position: absolute;\n  left: 0;\n  bottom: 0;\n  height: 36px;\n  width: calc(100% - 2px);\n  background: #efefef;\n  border: 1px solid #ccc;\n  z-index: 1;\n"], ["\n  position: absolute;\n  left: 0;\n  bottom: 0;\n  height: 36px;\n  width: calc(100% - 2px);\n  background: #efefef;\n  border: 1px solid #ccc;\n  z-index: 1;\n"]),
     _templateObject5 = _taggedTemplateLiteral(["\n  position: absolute;\n  left: 0;\n  top: 43px;\n  height: calc(100% - 78px);\n  width: 100%;\n  overflow: auto;\n"], ["\n  position: absolute;\n  left: 0;\n  top: 43px;\n  height: calc(100% - 78px);\n  width: 100%;\n  overflow: auto;\n"]);
 
 var _react = require("react");
@@ -811,9 +813,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
-var BaseContainer = _styledComponents2.default.div(_templateObject, function (props) {
-  return !props.loading ? "\n  width: calc(100vw - 56px);\n  height: calc(100vh - 96px);\n  " : null;
-});
+var BaseContainer = _styledComponents2.default.div(_templateObject);
 
 var Container = _styledComponents2.default.div(_templateObject2);
 
@@ -882,20 +882,28 @@ var JobList = function (_Component) {
       });
     }, 200), _this.onSearchChange = function (e) {
       _this.setState({
+        page: 1,
+        loading: true,
         search: e.target.value
+      }, function () {
+        if (_this.props.onSearchChange) {
+          _this.props.onSearchChange(e);
+        }
+        _this.loadJobs();
       });
-      if (_this.props.onSearchChange) {
-        _this.props.onSearchChange(e);
-      }
-      _this.loadJobs();
     }, _this.onStatusChange = function (e) {
       _this.setState({
-        status: e.target.value
+        status: e.target.value,
+        loading: true
       });
       if (_this.props.onStatusChange) {
         _this.props.onStatusChange(e);
       }
       _this.props.history.push("/jobs/" + e.target.value);
+    }, _this.onPageChange = function (page) {
+      _this.setState({ page: page, loading: true }, function () {
+        _this.loadJobs();
+      });
     }, _temp), _possibleConstructorReturn(_this, _ret);
   }
 
@@ -951,7 +959,7 @@ var JobList = function (_Component) {
       return _react2.default.createElement(
         BaseContainer,
         { loading: this.state.loading },
-        this.state.loading ? _react2.default.createElement(_Loading2.default, null) : _react2.default.createElement(
+        _react2.default.createElement(
           Container,
           null,
           _react2.default.createElement(
@@ -1011,7 +1019,13 @@ var JobList = function (_Component) {
             null,
             _react2.default.createElement(
               _Table.Table,
-              { cellPadding: 8, cellSpacing: 0, border: 1, width: "100%" },
+              {
+                fullHeight: this.state.loading,
+                cellPadding: 8,
+                cellSpacing: 0,
+                border: 1,
+                width: "100%"
+              },
               _react2.default.createElement(
                 _Table.THead,
                 null,
@@ -1040,10 +1054,22 @@ var JobList = function (_Component) {
                   })
                 )
               ),
-              _react2.default.createElement(
+              this.state.loading ? _react2.default.createElement(
                 _Table.TBody,
                 null,
-                this.state.data.records && this.state.data.records.length ? this.state.data.records.map(function (job) {
+                _react2.default.createElement(
+                  "tr",
+                  null,
+                  _react2.default.createElement(
+                    _Table.Col,
+                    { colSpan: colCount },
+                    _react2.default.createElement(_Loading2.default, null)
+                  )
+                )
+              ) : _react2.default.createElement(
+                _Table.TBody,
+                null,
+                this.state.data.records && this.state.data.records.length ? [this.state.data.records.map(function (job) {
                   return job ? _react2.default.createElement(
                     _Table.Row,
                     {
@@ -1065,7 +1091,7 @@ var JobList = function (_Component) {
                       );
                     })
                   ) : null;
-                }) : _react2.default.createElement(
+                }), _react2.default.createElement(_Table.Row, null)] : _react2.default.createElement(
                   _Table.Row,
                   null,
                   _react2.default.createElement(
@@ -1080,13 +1106,11 @@ var JobList = function (_Component) {
           _react2.default.createElement(
             Footer,
             null,
-            this.state.data.records && this.state.data.records.length ? _react2.default.createElement(_Paginator2.default, {
-              onPageChange: function onPageChange(page) {
-                return _this2.setState({ page: page });
-              },
+            _react2.default.createElement(_Paginator2.default, {
+              onPageChange: this.onPageChange,
               page: this.state.data.page,
               pages: this.state.data.pages
-            }) : null
+            })
           )
         )
       );
@@ -1111,8 +1135,9 @@ var _createClass = function () { function defineProperties(target, props) { for 
 var _templateObject = _taggedTemplateLiteral(["\n  line-height: 16px;\n  position: relative;\n"], ["\n  line-height: 16px;\n  position: relative;\n"]),
     _templateObject2 = _taggedTemplateLiteral(["\n  display: inline-block;\n  padding: 4px 10px;\n  margin: 4px;\n  cursor: pointer;\n  border-radius: 4px;\n  border: 1px solid #ccc;\n  background: #fff;\n  color: ", ";\n  user-select: none;\n"], ["\n  display: inline-block;\n  padding: 4px 10px;\n  margin: 4px;\n  cursor: pointer;\n  border-radius: 4px;\n  border: 1px solid #ccc;\n  background: #fff;\n  color: ", ";\n  user-select: none;\n"]),
     _templateObject3 = _taggedTemplateLiteral(["\n  float: left;\n  width: 33%;\n"], ["\n  float: left;\n  width: 33%;\n"]),
-    _templateObject4 = _taggedTemplateLiteral(["\n  float: left;\n  width: 33%;\n  text-align: center;\n"], ["\n  float: left;\n  width: 33%;\n  text-align: center;\n"]),
-    _templateObject5 = _taggedTemplateLiteral(["\n  float: right;\n  width: 33%;\n  text-align: right;\n"], ["\n  float: right;\n  width: 33%;\n  text-align: right;\n"]);
+    _templateObject4 = _taggedTemplateLiteral(["\n  float: left;\n  width: 33%;\n  line-height: 18px;\n  text-align: center;\n"], ["\n  float: left;\n  width: 33%;\n  line-height: 18px;\n  text-align: center;\n"]),
+    _templateObject5 = _taggedTemplateLiteral(["\n  line-height: 35px;\n  display: inline-block;\n"], ["\n  line-height: 35px;\n  display: inline-block;\n"]),
+    _templateObject6 = _taggedTemplateLiteral(["\n  float: right;\n  width: 33%;\n  text-align: right;\n"], ["\n  float: right;\n  width: 33%;\n  text-align: right;\n"]);
 
 var _react = require("react");
 
@@ -1144,7 +1169,9 @@ var Left = _styledComponents2.default.div(_templateObject3);
 
 var Center = _styledComponents2.default.div(_templateObject4);
 
-var Right = _styledComponents2.default.div(_templateObject5);
+var InputContainer = _styledComponents2.default.div(_templateObject5);
+
+var Right = _styledComponents2.default.div(_templateObject6);
 
 var Paginator = function (_Component) {
   _inherits(Paginator, _Component);
@@ -1161,14 +1188,17 @@ var Paginator = function (_Component) {
     }
 
     return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Paginator.__proto__ || Object.getPrototypeOf(Paginator)).call.apply(_ref, [this].concat(args))), _this), _this.onPageInput = function (e) {
-      var page = parseInt(e.target.value);
-      _this.setPage(page);
+      return _this.setPage(parseInt(e.target.value));
     }, _temp), _possibleConstructorReturn(_this, _ret);
   }
 
   _createClass(Paginator, [{
     key: "setPage",
     value: function setPage(page) {
+      if (!page || isNaN(page)) {
+        page = "";
+      }
+
       this.setState({
         page: page
       });
@@ -1234,11 +1264,15 @@ var Paginator = function (_Component) {
               } },
             "Previous"
           ) : null,
-          _react2.default.createElement(_Form.Input, {
-            type: "text",
-            value: this.state.page,
-            onChange: this.onPageInput
-          }),
+          _react2.default.createElement(
+            InputContainer,
+            null,
+            _react2.default.createElement(_Form.Input, {
+              type: "text",
+              value: this.state.page,
+              onChange: this.onPageInput
+            })
+          ),
           this.props.pages > this.props.page ? _react2.default.createElement(
             Page,
             { onClick: function onClick(e) {
