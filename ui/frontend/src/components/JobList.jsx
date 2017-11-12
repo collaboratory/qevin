@@ -188,6 +188,9 @@ class JobList extends Component {
                   value={this.state.status}
                   onChange={this.onStatusChange}
                 >
+                  <option readOnly value="">
+                    All Statuses
+                  </option>
                   <option readOnly value="pending">
                     Pending
                   </option>

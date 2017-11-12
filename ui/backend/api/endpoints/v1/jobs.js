@@ -1,7 +1,7 @@
 const knex = require("database");
 module.exports.default = (router, v) => {
   router
-    .get(v("/jobs/:status"), async (ctx, next) => {
+    .get(v("/jobs/:status?"), async (ctx, next) => {
       let { search, page, pageSize } = ctx.query;
       let { status } = ctx.params;
       page = page || 1;
@@ -13,16 +13,18 @@ module.exports.default = (router, v) => {
           from: (page - 1) * pageSize,
           size: pageSize,
           query: {
-            bool: {
-              filter: {
-                terms: {
-                  status: [status]
-                }
-              }
-            }
+            bool: {}
           }
         }
       };
+
+      if (status) {
+        query.body.query.bool.filter = {
+          terms: {
+            status: [status]
+          }
+        };
+      }
 
       if (search) {
         query.body.query.bool.must = {

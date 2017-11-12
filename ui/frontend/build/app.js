@@ -992,6 +992,11 @@ var JobList = function (_Component) {
                   },
                   _react2.default.createElement(
                     "option",
+                    { readOnly: true, value: "" },
+                    "All Statuses"
+                  ),
+                  _react2.default.createElement(
+                    "option",
                     { readOnly: true, value: "pending" },
                     "Pending"
                   ),
