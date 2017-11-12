@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import styled from "styled-components";
+import { Input } from "./Form";
 
 const Container = styled.div`
-  border: 1px solid #ccc;
-  margin: 8px;
+  line-height: 16px;
   position: relative;
 `;
 
@@ -13,7 +13,8 @@ const Page = styled.div`
   margin: 4px;
   cursor: pointer;
   border-radius: 4px;
-  border: 1px solid #eee;
+  border: 1px solid #ccc;
+  background: #fff;
   color: ${props => (props.active ? "blue" : "black")};
   user-select: none;
 `;
@@ -96,7 +97,7 @@ export default class Paginator extends Component {
               Previous
             </Page>
           ) : null}
-          <input
+          <Input
             type="text"
             value={this.state.page}
             onChange={this.onPageInput}

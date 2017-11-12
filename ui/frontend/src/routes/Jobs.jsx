@@ -4,14 +4,20 @@ import moment from "moment";
 
 import JobList from "../components/JobList";
 
-export default class Completed extends Component {
+export default class Jobs extends Component {
   render() {
+    const { match } = this.props;
     return (
       <JobList
+        status={match.params.status || null}
         columns={[
           {
             field: "type",
             label: "Type"
+          },
+          {
+            field: "status",
+            label: "Status"
           },
           {
             field: "data.started_at",
@@ -30,7 +36,7 @@ export default class Completed extends Component {
             format: f => JSON.stringify(f.result).substr(0, 55)
           }
         ]}
-        endpoint="/api/jobs/complete"
+        endpoint="/api/jobs"
       />
     );
   }

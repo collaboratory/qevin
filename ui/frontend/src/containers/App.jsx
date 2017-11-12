@@ -3,6 +3,9 @@ import { HashRouter } from "react-router-dom";
 import styled, { injectGlobal, css } from "styled-components";
 import reset from "styled-reset";
 
+import { Nav, NavLink, NavBrand } from "../components/Nav";
+import Routes from "../routes";
+
 const baseStyles = () =>
   injectGlobal`
     ${reset};
@@ -15,6 +18,13 @@ const baseStyles = () =>
       margin: 0;
       font-family: "Open Sans", "Menlo", sans-serif;
       font-size: 12px;
+      overflow: hidden;
+    }
+
+    #app {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
     }
   `;
 
@@ -26,16 +36,15 @@ const Container = styled.div`
 `;
 
 const Content = styled.div`
-  margin: 20px;
   background-color: white;
   box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.15);
   border-radius: 4px;
   border: 1px solid rgb(50, 75, 155);
-  overflow: hidden;
+  margin: 20px;
+  width: calc(100% - 40px);
+  max-height: calc(100% - 40px);
+  position: relative;
 `;
-
-import Routes from "../routes";
-import { Nav, NavLink, NavBrand } from "../components/Nav";
 
 export default class App extends Component {
   render() {
@@ -47,10 +56,10 @@ export default class App extends Component {
             <Nav>
               <NavBrand>ThanQueue</NavBrand>
               <NavLink to="/">Overview</NavLink>
-              <NavLink to="/pending">Pending Jobs</NavLink>
-              <NavLink to="/active">Active Jobs</NavLink>
-              <NavLink to="/failed">Failed Jobs</NavLink>
-              <NavLink to="/completed">Completed Jobs</NavLink>
+              <NavLink to="/jobs/pending">Pending Jobs</NavLink>
+              <NavLink to="/jobs/active">Active Jobs</NavLink>
+              <NavLink to="/jobs/failed">Failed Jobs</NavLink>
+              <NavLink to="/jobs/complete">Completed Jobs</NavLink>
               <NavLink to="/logs">Logs</NavLink>
             </Nav>
             <Routes />
