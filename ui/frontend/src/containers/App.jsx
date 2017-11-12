@@ -1,18 +1,22 @@
 import React, { Component } from "react";
 import { HashRouter } from "react-router-dom";
 import styled, { injectGlobal, css } from "styled-components";
+import reset from "styled-reset";
 
-injectGlobal(css`
-  html,
-  body {
-    width: 100%;
-    height: 100%;
-    padding: 0;
-    margin: 0;
-    font-family: "Open Sans", "Menlo", sans-serif;
-    font-size: 12px;
-  }
-`);
+const baseStyles = () =>
+  injectGlobal`
+    ${reset};
+
+    html,
+    body {
+      width: 100%;
+      height: 100%;
+      padding: 0;
+      margin: 0;
+      font-family: "Open Sans", "Menlo", sans-serif;
+      font-size: 12px;
+    }
+  `;
 
 const Container = styled.div`
   width: 100vw;
@@ -35,6 +39,7 @@ import { Nav, NavLink, NavBrand } from "../components/Nav";
 
 export default class App extends Component {
   render() {
+    baseStyles();
     return (
       <Container>
         <HashRouter>

@@ -13,20 +13,17 @@ module.exports = {
       }
     },
     {
-      name: "frontend",
-      watch: [__dirname + "/ui/frontend"],
-      ignore_watch: [
-        __dirname + "/ui/frontend/build",
-        __dirname + "/ui/frontend/.fusebox"
-      ],
-      script: "scripts/frontend.sh"
-    },
-    {
       name: "worker",
       watch: [__dirname + "/src"],
       script: "bin/worker.js",
       cwd: "./example",
       args: "queue.config.js --elastic"
+    },
+    {
+      name: "frontend",
+      watch: [__dirname + "/src"],
+      script: "fuse.js",
+      cwd: "./ui/frontend"
     }
   ]
 };

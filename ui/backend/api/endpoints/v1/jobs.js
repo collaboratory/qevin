@@ -63,19 +63,32 @@ module.exports.default = (router, v) => {
       page = page || 1;
       pageSize = pageSize || 25;
 
-      const response = await ctx.es.search({
+      const query = {
         index: "jobs",
         body: {
           from: (page - 1) * pageSize,
           size: pageSize,
           query: {
-            match: {
-              status: "complete"
+            bool: {
+              filter: {
+                terms: {
+                  status: ["complete"]
+                }
+              }
             }
           }
         }
-      });
+      };
 
+      if (search) {
+        query.body.query.bool.must = {
+          wildcard: {
+            _all: search + "*"
+          }
+        };
+      }
+
+      const response = await ctx.es.search(query);
       const records = response.hits.hits.map(hit => {
         return {
           score: hit._score,
@@ -86,7 +99,7 @@ module.exports.default = (router, v) => {
       ctx.body = {
         page,
         pageSize,
-        total: response.hits.total,
+        pages: Math.ceil(response.hits.total / pageSize),
         records
       };
     })

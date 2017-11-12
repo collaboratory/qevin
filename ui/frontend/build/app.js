@@ -30,7 +30,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _templateObject = _taggedTemplateLiteral(["\n  html,\n  body {\n    width: 100%;\n    height: 100%;\n    padding: 0;\n    margin: 0;\n    font-family: \"Open Sans\", \"Menlo\", sans-serif;\n    font-size: 12px;\n  }\n"], ["\n  html,\n  body {\n    width: 100%;\n    height: 100%;\n    padding: 0;\n    margin: 0;\n    font-family: \"Open Sans\", \"Menlo\", sans-serif;\n    font-size: 12px;\n  }\n"]),
+var _templateObject = _taggedTemplateLiteral(["\n    ", ";\n\n    html,\n    body {\n      width: 100%;\n      height: 100%;\n      padding: 0;\n      margin: 0;\n      font-family: \"Open Sans\", \"Menlo\", sans-serif;\n      font-size: 12px;\n    }\n  "], ["\n    ", ";\n\n    html,\n    body {\n      width: 100%;\n      height: 100%;\n      padding: 0;\n      margin: 0;\n      font-family: \"Open Sans\", \"Menlo\", sans-serif;\n      font-size: 12px;\n    }\n  "]),
     _templateObject2 = _taggedTemplateLiteral(["\n  width: 100vw;\n  height: 100vh;\n  background-color: #eee;\n  position: absolute;\n"], ["\n  width: 100vw;\n  height: 100vh;\n  background-color: #eee;\n  position: absolute;\n"]),
     _templateObject3 = _taggedTemplateLiteral(["\n  margin: 20px;\n  background-color: white;\n  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.15);\n  border-radius: 4px;\n  border: 1px solid rgb(50, 75, 155);\n  overflow: hidden;\n"], ["\n  margin: 20px;\n  background-color: white;\n  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.15);\n  border-radius: 4px;\n  border: 1px solid rgb(50, 75, 155);\n  overflow: hidden;\n"]);
 
@@ -43,6 +43,10 @@ var _reactRouterDom = require("react-router-dom");
 var _styledComponents = require("styled-components");
 
 var _styledComponents2 = _interopRequireDefault(_styledComponents);
+
+var _styledReset = require("styled-reset");
+
+var _styledReset2 = _interopRequireDefault(_styledReset);
 
 var _routes = require("../routes");
 
@@ -60,7 +64,9 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
-(0, _styledComponents.injectGlobal)((0, _styledComponents.css)(_templateObject));
+var baseStyles = function baseStyles() {
+  return (0, _styledComponents.injectGlobal)(_templateObject, _styledReset2.default);
+};
 
 var Container = _styledComponents2.default.div(_templateObject2);
 
@@ -78,6 +84,7 @@ var App = function (_Component) {
   _createClass(App, [{
     key: "render",
     value: function render() {
+      baseStyles();
       return _react2.default.createElement(
         Container,
         null,
@@ -415,11 +422,11 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.HCol = exports.Col = exports.THead = exports.TBody = exports.Row = exports.Table = undefined;
 
-var _templateObject = _taggedTemplateLiteral(["\n  border: 1px solid #ccc;\n  border-right: none;\n  margin: 8px;\n  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.15);\n"], ["\n  border: 1px solid #ccc;\n  border-right: none;\n  margin: 8px;\n  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.15);\n"]),
-    _templateObject2 = _taggedTemplateLiteral(["cursor: pointer;"], ["cursor: pointer;"]),
+var _templateObject = _taggedTemplateLiteral(["\n  border: 1px solid #ccc;\n  border-right: none;\n  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.15);\n  overflow: hidden;\n  margin: 0;\n  padding: 0;\n  word-break: break-word;\n"], ["\n  border: 1px solid #ccc;\n  border-right: none;\n  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.15);\n  overflow: hidden;\n  margin: 0;\n  padding: 0;\n  word-break: break-word;\n"]),
+    _templateObject2 = _taggedTemplateLiteral(["\n  cursor: pointer;\n  background: ", ";\n"], ["\n  cursor: pointer;\n  background: ", ";\n"]),
     _templateObject3 = _taggedTemplateLiteral(["\n  ", ":hover {\n    background: #eee;\n  }\n"], ["\n  ", ":hover {\n    background: #eee;\n  }\n"]),
     _templateObject4 = _taggedTemplateLiteral([""], [""]),
-    _templateObject5 = _taggedTemplateLiteral(["\n  padding: 8px 20px;\n  border-bottom: 1px solid #ccc;\n  border-right: 1px solid #ccc;\n"], ["\n  padding: 8px 20px;\n  border-bottom: 1px solid #ccc;\n  border-right: 1px solid #ccc;\n"]),
+    _templateObject5 = _taggedTemplateLiteral(["\n  padding: 8px 20px;\n  border-bottom: 1px solid #ccc;\n  border-right: 1px solid #ccc;\n  white-space: normal;\n  word-wrap: break-word;\n"], ["\n  padding: 8px 20px;\n  border-bottom: 1px solid #ccc;\n  border-right: 1px solid #ccc;\n  white-space: normal;\n  word-wrap: break-word;\n"]),
     _templateObject6 = _taggedTemplateLiteral(["font-weight: bold;"], ["font-weight: bold;"]);
 
 var _react = require("react");
@@ -436,7 +443,9 @@ function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defi
 
 var Table = exports.Table = _styledComponents2.default.table(_templateObject);
 
-var Row = exports.Row = _styledComponents2.default.tr(_templateObject2);
+var Row = exports.Row = _styledComponents2.default.tr(_templateObject2, function (props) {
+  return props.tinted ? "#ececec" : "#fff";
+});
 var TBody = exports.TBody = _styledComponents2.default.tbody(_templateObject3, Row);
 var THead = exports.THead = _styledComponents2.default.thead(_templateObject4);
 
@@ -526,11 +535,17 @@ var _axios = require("axios");
 
 var _axios2 = _interopRequireDefault(_axios);
 
+var _debounce = require("debounce");
+
+var _debounce2 = _interopRequireDefault(_debounce);
+
 var _Paginator = require("./Paginator");
 
 var _Paginator2 = _interopRequireDefault(_Paginator);
 
 var _Table = require("./Table");
+
+var _Form = require("./Form");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -558,14 +573,16 @@ var JobList = function (_Component) {
       data: {},
       loading: true,
       sorting: {},
-      filters: {}
-    }, _this.loadJobs = function () {
+      filters: {},
+      search: ""
+    }, _this.loadJobs = (0, _debounce2.default)(function () {
       var page = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : null;
 
       return _axios2.default.get(_this.props.endpoint, {
         params: {
           page: parseInt(page ? page : _this.state.data.page || 1),
           pageSize: parseInt(_this.props.pageSize || 25),
+          search: _this.state.search,
           sorting: _this.state.sorting,
           filters: _this.state.filters
         }
@@ -584,6 +601,16 @@ var JobList = function (_Component) {
           error: err
         });
       });
+    }, 200), _this.onSearchChange = function (e) {
+      _this.setState({
+        search: e.target.value
+      });
+
+      if (_this.props.onSearchChange) {
+        _this.props.onSearchChange(e);
+      }
+
+      _this.loadJobs();
     }, _temp), _possibleConstructorReturn(_this, _ret);
   }
 
@@ -600,8 +627,8 @@ var JobList = function (_Component) {
     }
   }, {
     key: "formatCol",
-    value: function formatCol(col, value) {
-      return col.format ? col.format(value) : value;
+    value: function formatCol(col, job) {
+      return col.format ? col.format(job, col) : job[col.field];
     }
   }, {
     key: "sortToggle",
@@ -630,10 +657,25 @@ var JobList = function (_Component) {
           null,
           _react2.default.createElement(
             _Table.Table,
-            { cellPadding: 8, cellSpacing: 0, border: 1 },
+            { cellPadding: 8, cellSpacing: 0, border: 1, width: "100%" },
             _react2.default.createElement(
               _Table.THead,
               null,
+              _react2.default.createElement(
+                _Table.Row,
+                { tinted: true },
+                _react2.default.createElement(
+                  _Table.Col,
+                  { colSpan: this.props.columns.length + 1 },
+                  _react2.default.createElement(_Form.Input, {
+                    label: "Search",
+                    type: "text",
+                    name: "search",
+                    value: this.state.search,
+                    onChange: this.onSearchChange
+                  })
+                )
+              ),
               _react2.default.createElement(
                 _Table.Row,
                 null,
@@ -649,6 +691,7 @@ var JobList = function (_Component) {
                     _Table.HCol,
                     {
                       key: col.field,
+                      width: col.width || "auto",
                       onClick: function onClick(e) {
                         return _this2.sortToggle(col.field);
                       }
@@ -679,7 +722,7 @@ var JobList = function (_Component) {
                     return _react2.default.createElement(
                       _Table.Col,
                       { key: col.field + "." + job.id },
-                      _this2.formatCol(col, (0, _lodash.get)(job, col.field))
+                      _this2.formatCol(col, job)
                     );
                   })
                 ) : null;
@@ -884,6 +927,59 @@ var Paginator = function (_Component) {
 
 exports.default = Paginator;
 });
+___scope___.file("components/Form.jsx", function(exports, require, module, __filename, __dirname){
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.Input = exports.StyledInput = exports.Label = exports.InputContainer = undefined;
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var _templateObject = _taggedTemplateLiteral(["line-height: 24px;"], ["line-height: 24px;"]),
+    _templateObject2 = _taggedTemplateLiteral(["\n  padding: 0 20px 0 0;\n  font-weight: bold;\n"], ["\n  padding: 0 20px 0 0;\n  font-weight: bold;\n"]),
+    _templateObject3 = _taggedTemplateLiteral(["\n  border-radius: 4px;\n  border: 1px solid #ccc;\n  padding: 4px 8px;\n"], ["\n  border-radius: 4px;\n  border: 1px solid #ccc;\n  padding: 4px 8px;\n"]);
+
+var _react = require("react");
+
+var _react2 = _interopRequireDefault(_react);
+
+var _styledComponents = require("styled-components");
+
+var _styledComponents2 = _interopRequireDefault(_styledComponents);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _objectWithoutProperties(obj, keys) { var target = {}; for (var i in obj) { if (keys.indexOf(i) >= 0) continue; if (!Object.prototype.hasOwnProperty.call(obj, i)) continue; target[i] = obj[i]; } return target; }
+
+function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
+var InputContainer = exports.InputContainer = _styledComponents2.default.div(_templateObject);
+var Label = exports.Label = _styledComponents2.default.label(_templateObject2);
+var StyledInput = exports.StyledInput = _styledComponents2.default.input(_templateObject3);
+
+var Input = function Input(_ref) {
+  var name = _ref.name,
+      label = _ref.label,
+      value = _ref.value,
+      onChange = _ref.onChange,
+      props = _objectWithoutProperties(_ref, ["name", "label", "value", "onChange"]);
+
+  return _react2.default.createElement(
+    InputContainer,
+    null,
+    _react2.default.createElement(
+      Label,
+      { htmlFor: name },
+      label
+    ),
+    _react2.default.createElement(StyledInput, _extends({ name: name, value: value, onChange: onChange }, props))
+  );
+};
+exports.Input = Input;
+});
 ___scope___.file("routes/Active.jsx", function(exports, require, module, __filename, __dirname){
 
 "use strict";
@@ -1077,13 +1173,20 @@ var Completed = function (_Component) {
           field: "data.started_at",
           label: "Start Time",
           format: function format(f) {
-            return _moment2.default.unix(f).format("h:m:ssA MM/DD/YYYY");
+            return (0, _moment2.default)(f.started_at).format("h:mm:ssA MM/DD/YYYY");
           }
         }, {
           field: "data.completed_at",
           label: "End Time",
           format: function format(f) {
-            return _moment2.default.unix(f).format("h:m:ssA MM/DD/YYYY");
+            return (0, _moment2.default)(f.completed_at).format("h:mm:ssA MM/DD/YYYY");
+          }
+        }, {
+          feld: "data.result",
+          label: "Result",
+          width: "50%",
+          format: function format(f) {
+            return JSON.stringify(f.result).substr(0, 55);
           }
         }],
         endpoint: "/api/jobs/complete"

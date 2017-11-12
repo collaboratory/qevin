@@ -2,9 +2,11 @@ import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 import { get } from "lodash";
 import http from "axios";
+import debounce from "debounce";
 
 import Paginator from "./Paginator";
 import { Table, THead, TBody, Col, HCol, Row } from "./Table";
+import { Input } from "./Form";
 
 class JobList extends Component {
   interval = false;
@@ -12,7 +14,8 @@ class JobList extends Component {
     data: {},
     loading: true,
     sorting: {},
-    filters: {}
+    filters: {},
+    search: ""
   };
 
   componentDidMount() {
@@ -24,12 +27,13 @@ class JobList extends Component {
     clearInterval(this.interval);
   }
 
-  loadJobs = (page = null) => {
+  loadJobs = debounce((page = null) => {
     return http
       .get(this.props.endpoint, {
         params: {
           page: parseInt(page ? page : this.state.data.page || 1),
           pageSize: parseInt(this.props.pageSize || 25),
+          search: this.state.search,
           sorting: this.state.sorting,
           filters: this.state.filters
         }
@@ -49,10 +53,22 @@ class JobList extends Component {
           error: err
         });
       });
+  }, 200);
+
+  onSearchChange = e => {
+    this.setState({
+      search: e.target.value
+    });
+
+    if (this.props.onSearchChange) {
+      this.props.onSearchChange(e);
+    }
+
+    this.loadJobs();
   };
 
-  formatCol(col, value) {
-    return col.format ? col.format(value) : value;
+  formatCol(col, job) {
+    return col.format ? col.format(job, col) : job[col.field];
   }
 
   sortToggle(field) {
@@ -70,13 +86,25 @@ class JobList extends Component {
           <strong>Loading</strong>
         ) : (
           <div>
-            <Table cellPadding={8} cellSpacing={0} border={1}>
+            <Table cellPadding={8} cellSpacing={0} border={1} width="100%">
               <THead>
+                <Row tinted>
+                  <Col colSpan={this.props.columns.length + 1}>
+                    <Input
+                      label="Search"
+                      type="text"
+                      name="search"
+                      value={this.state.search}
+                      onChange={this.onSearchChange}
+                    />
+                  </Col>
+                </Row>
                 <Row>
                   <HCol onClick={e => this.sortToggle("id")}>Job ID</HCol>
                   {this.props.columns.map(col => (
                     <HCol
                       key={col.field}
+                      width={col.width || "auto"}
                       onClick={e => this.sortToggle(col.field)}
                     >
                       {col.label}
@@ -98,7 +126,7 @@ class JobList extends Component {
                           <HCol>{job.id}</HCol>
                           {this.props.columns.map(col => (
                             <Col key={`${col.field}.${job.id}`}>
-                              {this.formatCol(col, get(job, col.field))}
+                              {this.formatCol(col, job)}
                             </Col>
                           ))}
                         </Row>
