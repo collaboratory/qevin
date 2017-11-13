@@ -53,11 +53,12 @@ module.exports.default = (router, v) => {
       const { id } = ctx.params;
       const record = await ctx.es.get({
         index: "jobs",
+        type: "job",
         id: id
       });
 
       ctx.body = {
-        ...record
+        ...record._source
       };
     });
 };
