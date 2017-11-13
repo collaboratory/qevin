@@ -11,7 +11,9 @@ module.exports = function(es_config) {
   }, 10000);
 
   return async job => {
-    await upsert(job.toJSON());
+    if (job.type !== "ping") {
+      await upsert(job.toJSON());
+    }
     return job;
   };
 
