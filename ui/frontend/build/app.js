@@ -236,6 +236,9 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
+var _templateObject = _taggedTemplateLiteral(["\n  color: ", ";\n"], ["\n  color: ", ";\n"]),
+    _templateObject2 = _taggedTemplateLiteral(["\n  margin-top: 80px;\n  font-size: 36px;\n  text-align: center;\n"], ["\n  margin-top: 80px;\n  font-size: 36px;\n  text-align: center;\n"]);
+
 var _react = require("react");
 
 var _react2 = _interopRequireDefault(_react);
@@ -244,7 +247,17 @@ var _axios = require("axios");
 
 var _axios2 = _interopRequireDefault(_axios);
 
+var _styledComponents = require("styled-components");
+
+var _styledComponents2 = _interopRequireDefault(_styledComponents);
+
+var _Loading = require("../components/Loading");
+
+var _Loading2 = _interopRequireDefault(_Loading);
+
 var _Table = require("../components/Table");
+
+var _gridStyled = require("grid-styled");
 
 var _reactRouterDom = require("react-router-dom");
 
@@ -260,11 +273,34 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
+function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
+var StatusColor = _styledComponents2.default.span(_templateObject, function (props) {
+  return !props.ping ? "red" : props.ping > 150 ? "orange" : "green";
+});
+
+var StatusHeading = _styledComponents2.default.h1(_templateObject2);
+
+var Status = function Status(_ref) {
+  var ping = _ref.ping;
+  return _react2.default.createElement(
+    StatusHeading,
+    null,
+    "Service Status:",
+    " ",
+    _react2.default.createElement(
+      StatusColor,
+      { ping: ping },
+      ping ? "Online" : "Offline"
+    )
+  );
+};
+
 var Overview = function (_Component) {
   _inherits(Overview, _Component);
 
   function Overview() {
-    var _ref;
+    var _ref2;
 
     var _temp, _this, _ret;
 
@@ -274,7 +310,7 @@ var Overview = function (_Component) {
       args[_key] = arguments[_key];
     }
 
-    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Overview.__proto__ || Object.getPrototypeOf(Overview)).call.apply(_ref, [this].concat(args))), _this), _this.interval = false, _this.state = {
+    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref2 = Overview.__proto__ || Object.getPrototypeOf(Overview)).call.apply(_ref2, [this].concat(args))), _this), _this.interval = false, _this.state = {
       loading: true
     }, _this.loadStatus = function () {
       return _axios2.default.get("/api/status").then(function (res) {
@@ -297,7 +333,7 @@ var Overview = function (_Component) {
     key: "componentDidMount",
     value: function componentDidMount() {
       this.loadStatus();
-      this.interval = setInterval(this.loadStatus, 2000);
+      this.interval = setInterval(this.loadStatus, 5000);
     }
   }, {
     key: "componentWillUnmount",
@@ -312,110 +348,119 @@ var Overview = function (_Component) {
       return _react2.default.createElement(
         "div",
         null,
-        this.state.loading ? _react2.default.createElement(
-          "strong",
+        this.state.loading ? _react2.default.createElement(_Loading2.default, null) : _react2.default.createElement(
+          _gridStyled.Flex,
           null,
-          "Loading"
-        ) : _react2.default.createElement(
-          _Table.Table,
-          { cellPadding: 8, cellSpacing: 0, border: 1 },
           _react2.default.createElement(
-            _Table.TBody,
-            null,
+            _gridStyled.Box,
+            { width: 1 / 4 },
             _react2.default.createElement(
-              _Table.Row,
-              null,
+              _Table.Table,
+              { cellPadding: 8, cellSpacing: 0, border: 1, width: "100%" },
               _react2.default.createElement(
-                _Table.HCol,
+                _Table.TBody,
                 null,
-                "Next Job ID"
-              ),
-              _react2.default.createElement(
-                _Table.Col,
-                null,
-                this.state.data.index
-              )
-            ),
-            _react2.default.createElement(
-              _Table.Row,
-              { onClick: function onClick(e) {
-                  return _this2.props.history.push("/pending");
-                } },
-              _react2.default.createElement(
-                _Table.HCol,
-                null,
-                "Pending Jobs"
-              ),
-              _react2.default.createElement(
-                _Table.Col,
-                null,
-                this.state.data.pending
-              )
-            ),
-            _react2.default.createElement(
-              _Table.Row,
-              { onClick: function onClick(e) {
-                  return _this2.props.history.push("/active");
-                } },
-              _react2.default.createElement(
-                _Table.HCol,
-                null,
-                "Active Jobs"
-              ),
-              _react2.default.createElement(
-                _Table.Col,
-                null,
-                this.state.data.active
-              )
-            ),
-            _react2.default.createElement(
-              _Table.Row,
-              { onClick: function onClick(e) {
-                  return _this2.props.history.push("/failed");
-                } },
-              _react2.default.createElement(
-                _Table.HCol,
-                null,
-                "Failed Jobs"
-              ),
-              _react2.default.createElement(
-                _Table.Col,
-                null,
-                this.state.data.failed
-              )
-            ),
-            _react2.default.createElement(
-              _Table.Row,
-              { onClick: function onClick(e) {
-                  return _this2.props.history.push("/completed");
-                } },
-              _react2.default.createElement(
-                _Table.HCol,
-                null,
-                "Completed Jobs"
-              ),
-              _react2.default.createElement(
-                _Table.Col,
-                null,
-                this.state.data.complete
-              )
-            ),
-            _react2.default.createElement(
-              _Table.Row,
-              { onClick: function onClick(e) {
-                  return _this2.props.history.push("/workers");
-                } },
-              _react2.default.createElement(
-                _Table.HCol,
-                null,
-                "Workers"
-              ),
-              _react2.default.createElement(
-                _Table.Col,
-                null,
-                this.state.data.workers
+                _react2.default.createElement(
+                  _Table.Row,
+                  null,
+                  _react2.default.createElement(
+                    _Table.HCol,
+                    null,
+                    "Next Job ID"
+                  ),
+                  _react2.default.createElement(
+                    _Table.Col,
+                    null,
+                    this.state.data.index
+                  )
+                ),
+                _react2.default.createElement(
+                  _Table.Row,
+                  { onClick: function onClick(e) {
+                      return _this2.props.history.push("/pending");
+                    } },
+                  _react2.default.createElement(
+                    _Table.HCol,
+                    null,
+                    "Pending Jobs"
+                  ),
+                  _react2.default.createElement(
+                    _Table.Col,
+                    null,
+                    this.state.data.pending
+                  )
+                ),
+                _react2.default.createElement(
+                  _Table.Row,
+                  { onClick: function onClick(e) {
+                      return _this2.props.history.push("/active");
+                    } },
+                  _react2.default.createElement(
+                    _Table.HCol,
+                    null,
+                    "Active Jobs"
+                  ),
+                  _react2.default.createElement(
+                    _Table.Col,
+                    null,
+                    this.state.data.active
+                  )
+                ),
+                _react2.default.createElement(
+                  _Table.Row,
+                  { onClick: function onClick(e) {
+                      return _this2.props.history.push("/failed");
+                    } },
+                  _react2.default.createElement(
+                    _Table.HCol,
+                    null,
+                    "Failed Jobs"
+                  ),
+                  _react2.default.createElement(
+                    _Table.Col,
+                    null,
+                    this.state.data.failed
+                  )
+                ),
+                _react2.default.createElement(
+                  _Table.Row,
+                  { onClick: function onClick(e) {
+                      return _this2.props.history.push("/completed");
+                    } },
+                  _react2.default.createElement(
+                    _Table.HCol,
+                    null,
+                    "Completed Jobs"
+                  ),
+                  _react2.default.createElement(
+                    _Table.Col,
+                    null,
+                    this.state.data.complete
+                  )
+                ),
+                _react2.default.createElement(
+                  _Table.Row,
+                  { onClick: function onClick(e) {
+                      return _this2.props.history.push("/workers");
+                    } },
+                  _react2.default.createElement(
+                    _Table.HCol,
+                    null,
+                    "Workers"
+                  ),
+                  _react2.default.createElement(
+                    _Table.Col,
+                    null,
+                    this.state.data.workers
+                  )
+                )
               )
             )
+          ),
+          _react2.default.createElement(
+            _gridStyled.Box,
+            { width: 3 / 4 },
+            _react2.default.createElement(Status, { ping: this.state.data.ping })
           )
         )
       );
@@ -426,6 +471,45 @@ var Overview = function (_Component) {
 }(_react.Component);
 
 exports.default = (0, _reactRouterDom.withRouter)(Overview);
+});
+___scope___.file("components/Loading.jsx", function(exports, require, module, __filename, __dirname){
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _templateObject = _taggedTemplateLiteral(["\n  text-align: center;\n\n  span {\n    position: relative;\n    top: 156px;\n    font-size: 18px;\n    font-weight: bold;\n    color: rgba(255, 255, 255, 0.45);\n    z-index: 1;\n  }\n"], ["\n  text-align: center;\n\n  span {\n    position: relative;\n    top: 156px;\n    font-size: 18px;\n    font-weight: bold;\n    color: rgba(255, 255, 255, 0.45);\n    z-index: 1;\n  }\n"]);
+
+var _react = require("react");
+
+var _react2 = _interopRequireDefault(_react);
+
+var _styledComponents = require("styled-components");
+
+var _styledComponents2 = _interopRequireDefault(_styledComponents);
+
+var _styledSpinkit = require("styled-spinkit");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
+var Container = _styledComponents2.default.div(_templateObject);
+
+exports.default = function () {
+  return _react2.default.createElement(
+    Container,
+    null,
+    _react2.default.createElement(
+      "span",
+      null,
+      "LOADING"
+    ),
+    _react2.default.createElement(_styledSpinkit.RotaingPlaneLoading, { color: "#ddd", size: 100 })
+  );
+};
 });
 ___scope___.file("components/Table.jsx", function(exports, require, module, __filename, __dirname){
 
@@ -1386,45 +1470,6 @@ var Select = function Select(_ref2) {
   );
 };
 exports.Select = Select;
-});
-___scope___.file("components/Loading.jsx", function(exports, require, module, __filename, __dirname){
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _templateObject = _taggedTemplateLiteral(["\n  text-align: center;\n\n  span {\n    position: relative;\n    top: 156px;\n    font-size: 18px;\n    font-weight: bold;\n    color: rgba(255, 255, 255, 0.45);\n    z-index: 1;\n  }\n"], ["\n  text-align: center;\n\n  span {\n    position: relative;\n    top: 156px;\n    font-size: 18px;\n    font-weight: bold;\n    color: rgba(255, 255, 255, 0.45);\n    z-index: 1;\n  }\n"]);
-
-var _react = require("react");
-
-var _react2 = _interopRequireDefault(_react);
-
-var _styledComponents = require("styled-components");
-
-var _styledComponents2 = _interopRequireDefault(_styledComponents);
-
-var _styledSpinkit = require("styled-spinkit");
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
-
-var Container = _styledComponents2.default.div(_templateObject);
-
-exports.default = function () {
-  return _react2.default.createElement(
-    Container,
-    null,
-    _react2.default.createElement(
-      "span",
-      null,
-      "LOADING"
-    ),
-    _react2.default.createElement(_styledSpinkit.RotaingPlaneLoading, { color: "#ddd", size: 100 })
-  );
-};
 });
 return ___scope___.entry = "app.js";
 });

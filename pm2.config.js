@@ -17,7 +17,8 @@ module.exports = {
       watch: [__dirname + "/src"],
       script: "bin/worker.js",
       cwd: "./example",
-      args: "queue.config.js --elastic"
+      args: "queue.config.js --elastic",
+      instances: 2
     },
     {
       name: "frontend",

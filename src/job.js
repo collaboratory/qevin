@@ -1,6 +1,7 @@
 const moment = require("moment");
 class Job {
   constructor(config = {}, emitter = false) {
+    this.callbacks = [];
     this.hydrate(config);
     this.emitter = emitter;
   }
@@ -40,25 +41,25 @@ class Job {
   async complete(result = {}) {
     this.result = result;
     this.status = "complete";
-    this.completed_at = moment().unix();
-    return await this.save();
+    this.completed_at = moment().format("x");
+    return await this.save("complete");
   }
 
   async fail(err = null) {
     this.error = err;
     this.status = "failed";
-    this.failed_at = moment().unix();
-    return await this.save();
+    this.failed_at = moment().format("x");
+    return await this.save("fail");
   }
 
   async start() {
     this.status = "active";
-    this.started_at = moment().unix();
-    return await this.save();
+    this.started_at = moment().format("x");
+    return await this.save("start");
   }
 
-  async save() {
-    return await this.emitter.emit("job:save", this);
+  async save(action = "save") {
+    return await this.emitter.emit(`job:${action}`, this);
   }
 }
 

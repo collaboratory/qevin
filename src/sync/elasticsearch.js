@@ -36,7 +36,7 @@ module.exports = function(es_config) {
       });
 
       sync.push({
-        indexed_at: moment().unix(),
+        indexed_at: moment().format("x"),
         id,
         type,
         status,

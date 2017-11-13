@@ -46,11 +46,18 @@ class Worker {
       }
       await this.sync(job);
     });
+
+    // Add the ping job handler
+    this.addJobHandler("ping", async job => {
+      return {
+        pong: moment().format("x")
+      };
+    });
   }
 
   async claim(type) {
     this.debug(`\t[WORK] ${type}`);
-    const job_str = await this.connector.pub.work(type, moment().unix());
+    const job_str = await this.connector.pub.work(type, moment().format("x"));
     if (job_str) {
       return new Job(JSON.parse(job_str), this.connector.emitter);
     }
@@ -120,11 +127,13 @@ class Worker {
     });
   }
 
-  listen(scanInterval = 10000) {
+  listen(scanInterval = 500) {
     if (!this.listening) {
       this.interval = setInterval(async () => {
         if (!this.scanning) {
-          const timed_out = await this.connector.pub.timeout(moment().unix());
+          const timed_out = await this.connector.pub.timeout(
+            moment().format("x")
+          );
           if (timed_out > 0) {
             console.log(`WARNING: ${timed_out} job(s) timed out.`);
           }

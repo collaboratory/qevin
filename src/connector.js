@@ -7,6 +7,7 @@ const moment = require("moment");
 class Connector {
   constructor(connector_config = {}) {
     this.messageHandlers = new Map();
+    this.completeHandlers = new Map();
     this.pub = new Redis(connector_config);
     this.sub = new Redis(connector_config);
     this.sub.subscribe("queue");
@@ -27,15 +28,37 @@ class Connector {
       numberOfKeys: 1
     });
 
-    this.emitter.on("job:save", this.onSaveEmit.bind(this));
-  }
+    const saveJob = async job => {
+      return await (job.id ? this.save(job) : this.register(job));
+    };
 
-  async onSaveEmit(job) {
-    if (job.id) {
-      return await this.save(job);
-    } else {
-      return await this.register(job);
-    }
+    const emitAndSaveJob = type => {
+      return async job => {
+        await this.pub.publish(
+          "queue",
+          JSON.stringify({
+            type: `job:${type}`,
+            job: job.toJSON()
+          })
+        );
+        return await saveJob(job);
+      };
+    };
+
+    this.emitter.on("job:save", saveJob);
+    this.emitter.on("job:start", emitAndSaveJob("start"));
+    this.emitter.on("job:complete", emitAndSaveJob("complete"));
+    this.emitter.on("job:fail", emitAndSaveJob("fail"));
+
+    this.addMessageHandler("job:complete", async msg => {
+      const { job } = msg;
+      if (this.completeHandlers.has(job.id)) {
+        let handlers = this.completeHandlers.get(parseInt(job.id));
+        for (let index in handlers) {
+          await handlers[index](job);
+        }
+      }
+    });
   }
 
   create(config = {}) {
@@ -76,7 +99,12 @@ class Connector {
   }
 
   async messageHandler(channel, message) {
-    const msg = JSON.parse(message);
+    let msg;
+    try {
+      msg = JSON.parse(message);
+    } catch (e) {
+      msg = false;
+    }
 
     if (!msg || !msg.type) {
       return;
@@ -97,11 +125,21 @@ class Connector {
   }
 
   addMessageHandler(type, handler) {
+    console.log("type", type);
     if (!this.messageHandlers.has(type)) {
       this.messageHandlers.set(type, []);
     }
 
     this.messageHandlers.get(type).push(handler);
+  }
+
+  onComplete(id, handler) {
+    id = parseInt(id);
+    if (!this.completeHandlers.has(id)) {
+      this.completeHandlers.set(id, []);
+    }
+
+    this.completeHandlers.get(id).push(handler);
   }
 }
 

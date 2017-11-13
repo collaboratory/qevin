@@ -28550,6 +28550,2509 @@ function isSlowBuffer (obj) {
 });
 return ___scope___.entry = "index.js";
 });
+FuseBox.pkg("styled-spinkit", {}, function(___scope___){
+___scope___.file("lib/index.js", function(exports, require, module, __filename, __dirname){
+
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.RotaingPlaneLoading = exports.DoubleDounceLoading = exports.WaveLoading = exports.WanderingCubes = exports.FoldingCube = exports.ThreeBounce = exports.FadingCircle = exports.Pulse = exports.CubeGrid = exports.Circle = exports.ChasingDots = undefined;
+
+var _ChasingDots = require('./ChasingDots');
+
+var _ChasingDots2 = _interopRequireDefault(_ChasingDots);
+
+var _FadingCircle = require('./FadingCircle');
+
+var _FadingCircle2 = _interopRequireDefault(_FadingCircle);
+
+var _ThreeBounce = require('./ThreeBounce');
+
+var _ThreeBounce2 = _interopRequireDefault(_ThreeBounce);
+
+var _Circle = require('./Circle');
+
+var _Circle2 = _interopRequireDefault(_Circle);
+
+var _FoldingCube = require('./FoldingCube');
+
+var _FoldingCube2 = _interopRequireDefault(_FoldingCube);
+
+var _WanderingCubes = require('./WanderingCubes');
+
+var _WanderingCubes2 = _interopRequireDefault(_WanderingCubes);
+
+var _CubeGrid = require('./CubeGrid');
+
+var _CubeGrid2 = _interopRequireDefault(_CubeGrid);
+
+var _Pulse = require('./Pulse');
+
+var _Pulse2 = _interopRequireDefault(_Pulse);
+
+var _WaveLoading = require('./WaveLoading');
+
+var _WaveLoading2 = _interopRequireDefault(_WaveLoading);
+
+var _DoubleDounceLoading = require('./DoubleDounceLoading');
+
+var _DoubleDounceLoading2 = _interopRequireDefault(_DoubleDounceLoading);
+
+var _RotaingPlaneLoading = require('./RotaingPlaneLoading');
+
+var _RotaingPlaneLoading2 = _interopRequireDefault(_RotaingPlaneLoading);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.ChasingDots = _ChasingDots2.default;
+exports.Circle = _Circle2.default;
+exports.CubeGrid = _CubeGrid2.default;
+exports.Pulse = _Pulse2.default;
+exports.FadingCircle = _FadingCircle2.default;
+exports.ThreeBounce = _ThreeBounce2.default;
+exports.FoldingCube = _FoldingCube2.default;
+exports.WanderingCubes = _WanderingCubes2.default;
+exports.WaveLoading = _WaveLoading2.default;
+exports.DoubleDounceLoading = _DoubleDounceLoading2.default;
+exports.RotaingPlaneLoading = _RotaingPlaneLoading2.default;
+});
+___scope___.file("lib/ChasingDots/index.js", function(exports, require, module, __filename, __dirname){
+
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _styles = require('./styles');
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var ChangeDots = function (_React$PureComponent) {
+  _inherits(ChangeDots, _React$PureComponent);
+
+  function ChangeDots() {
+    _classCallCheck(this, ChangeDots);
+
+    return _possibleConstructorReturn(this, (ChangeDots.__proto__ || Object.getPrototypeOf(ChangeDots)).apply(this, arguments));
+  }
+
+  _createClass(ChangeDots, [{
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        _styles.StyledChangeDots,
+        this.props,
+        _react2.default.createElement(_styles.Child, null),
+        _react2.default.createElement(_styles.Child, { second: true })
+      );
+    }
+  }]);
+
+  return ChangeDots;
+}(_react2.default.PureComponent);
+
+ChangeDots.defaultProps = {
+  size: 40,
+  color: '#eee'
+};
+ChangeDots.displayName = '__styled-spinkit__ChangeDots';
+ChangeDots.propTypes = {
+  size: require('prop-types').number.isRequired,
+  color: require('prop-types').string.isRequired
+};
+exports.default = ChangeDots;
+});
+___scope___.file("lib/ChasingDots/styles.js", function(exports, require, module, __filename, __dirname){
+
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.StyledChangeDots = exports.Child = undefined;
+
+var _styledComponents = require('styled-components');
+
+var _styledComponents2 = _interopRequireDefault(_styledComponents);
+
+var _util = require('../util');
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var rotate = (0, _styledComponents.keyframes)(['100% {transform: rotate(360deg);}']);
+
+var bounce = (0, _styledComponents.keyframes)(['0%, 100% {transform: scale(0);}50% {transform: scale(1.0);}']);
+
+var duration = 2;
+
+var Child = exports.Child = _styledComponents2.default.div(['', 'display: inline-block;position: absolute;top: 0;border-radius: 100%;animation: ', ' ', 's infinite ease-in-out;', ''], (0, _util.size)('60%'), bounce, duration, function (p) {
+  return p.second && (0, _styledComponents.css)(['top: auto;bottom: 0;', ''], (0, _util.animationDelay)(-duration / 2));
+});
+
+var StyledChangeDots = exports.StyledChangeDots = _styledComponents2.default.div(['', '', 'position: relative;text-align: center;animation: ', ' ', 's infinite linear;> ', ' {', '}'], _util.propSize, _util.propMargin, rotate, duration, Child, _util.propBgColor);
+});
+___scope___.file("lib/util/index.js", function(exports, require, module, __filename, __dirname){
+
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.getRange = exports.propDelay = exports.animationDelay = exports.propMargin = exports.propBgColor = exports.propSize = exports.sizePx = exports.size = undefined;
+
+var _styledComponents = require('styled-components');
+
+function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
+
+var size = exports.size = function size(width) {
+  var height = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : width;
+  return (0, _styledComponents.css)(['width: ', ';height: ', ';'], width, height);
+};
+
+var sizePx = exports.sizePx = function sizePx(n) {
+  return size(n + 'px');
+};
+
+var propSize = exports.propSize = function propSize(_ref) {
+  var size = _ref.size;
+  return sizePx(size);
+};
+
+var propBgColor = exports.propBgColor = function propBgColor(_ref2) {
+  var color = _ref2.color;
+  return (0, _styledComponents.css)(['background-color: ', ';'], color);
+};
+
+var propMargin = exports.propMargin = function propMargin(_ref3) {
+  var _ref3$size = _ref3.size,
+      size = _ref3$size === undefined ? 0 : _ref3$size;
+  return (0, _styledComponents.css)(['margin: ', 'px auto;'], size);
+};
+
+var animationDelay = exports.animationDelay = function animationDelay(n) {
+  return (0, _styledComponents.css)(['animation-delay: ', 's;'], n);
+};
+
+var propDelay = exports.propDelay = function propDelay(_ref4) {
+  var delay = _ref4.delay;
+  return animationDelay(delay);
+};
+
+var getRange = exports.getRange = function getRange(n) {
+  return [].concat(_toConsumableArray(Array(n).keys()));
+};
+});
+___scope___.file("lib/FadingCircle/index.js", function(exports, require, module, __filename, __dirname){
+
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _roundTo = require('round-to');
+
+var _roundTo2 = _interopRequireDefault(_roundTo);
+
+var _util = require('../util');
+
+var _styles = require('./styles');
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var ForldingCircle = function (_React$PureComponent) {
+  _inherits(ForldingCircle, _React$PureComponent);
+
+  function ForldingCircle() {
+    _classCallCheck(this, ForldingCircle);
+
+    return _possibleConstructorReturn(this, (ForldingCircle.__proto__ || Object.getPrototypeOf(ForldingCircle)).apply(this, arguments));
+  }
+
+  _createClass(ForldingCircle, [{
+    key: 'render',
+    value: function render() {
+      var count = 12;
+      var range = 1.2;
+      var circles = (0, _util.getRange)(count).map(function (v) {
+        return _react2.default.createElement(_styles.Child, {
+          key: v,
+          rotate: (0, _roundTo2.default)(360 / count * v, 1),
+          delay: (0, _roundTo2.default)(range - range / count * v, 2)
+        });
+      });
+
+      return _react2.default.createElement(
+        _styles.StyledForldingCircle,
+        this.props,
+        circles
+      );
+    }
+  }]);
+
+  return ForldingCircle;
+}(_react2.default.PureComponent);
+
+ForldingCircle.defaultProps = {
+  size: 40,
+  color: '#333'
+};
+ForldingCircle.displayName = '__styled-spinkit__ForldingCircle';
+ForldingCircle.propTypes = {
+  size: require('prop-types').number.isRequired,
+  color: require('prop-types').string.isRequired
+};
+exports.default = ForldingCircle;
+});
+___scope___.file("lib/FadingCircle/styles.js", function(exports, require, module, __filename, __dirname){
+
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.StyledForldingCircle = exports.Child = undefined;
+
+var _styledComponents = require('styled-components');
+
+var _styledComponents2 = _interopRequireDefault(_styledComponents);
+
+var _util = require('../util');
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+// @Flow
+var opacity = (0, _styledComponents.keyframes)(['0%,39%,100% {opacity: 0;}40% {opacity: 1;}']);
+
+var Child = exports.Child = _styledComponents2.default.div(['', 'position: absolute;left: 0;top: 0;transform: rotate(', 'deg);&::before {content: \'\';display: block;margin: 0 auto;', 'border-radius: 100%;animation: ', ' 1.2s infinite ease-in-out both -', 's;}'], (0, _util.size)('100%'), function (p) {
+  return p.rotate;
+}, (0, _util.size)('15%'), opacity, function (p) {
+  return p.delay;
+});
+
+var StyledForldingCircle = exports.StyledForldingCircle = _styledComponents2.default.div(['', '', 'position: relative;> ', ' {&::before {', '}}'], _util.propSize, _util.propMargin, Child, _util.propBgColor);
+});
+___scope___.file("lib/ThreeBounce/index.js", function(exports, require, module, __filename, __dirname){
+
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _styles = require('./styles');
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var ThreeBounce = function (_React$PureComponent) {
+  _inherits(ThreeBounce, _React$PureComponent);
+
+  function ThreeBounce() {
+    _classCallCheck(this, ThreeBounce);
+
+    return _possibleConstructorReturn(this, (ThreeBounce.__proto__ || Object.getPrototypeOf(ThreeBounce)).apply(this, arguments));
+  }
+
+  _createClass(ThreeBounce, [{
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        _styles.StyledThreeBounce,
+        this.props,
+        _react2.default.createElement(_styles.Child, { delay: -0.32 }),
+        _react2.default.createElement(_styles.Child, { delay: -0.16 }),
+        _react2.default.createElement(_styles.Child, { delay: 0 })
+      );
+    }
+  }]);
+
+  return ThreeBounce;
+}(_react2.default.PureComponent);
+
+ThreeBounce.defaultProps = {
+  color: '#333',
+  size: 40
+};
+ThreeBounce.displayName = '__styled-spinkit__ThreeBounce';
+ThreeBounce.propTypes = {
+  size: require('prop-types').number.isRequired,
+  color: require('prop-types').string.isRequired
+};
+exports.default = ThreeBounce;
+});
+___scope___.file("lib/ThreeBounce/styles.js", function(exports, require, module, __filename, __dirname){
+
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.StyledThreeBounce = exports.Child = undefined;
+
+var _styledComponents = require('styled-components');
+
+var _styledComponents2 = _interopRequireDefault(_styledComponents);
+
+var _util = require('../util');
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var bounce = (0, _styledComponents.keyframes)(['0%,80%,100% {transform: scale(0);}40% {transform: scale(1);}']);
+
+var Child = exports.Child = _styledComponents2.default.div(['border-radius: 100%;display: inline-block;animation: ', ' 1.4s ease-in-out ', 's infinite both;'], bounce, function (p) {
+  return p.delay;
+});
+
+var StyledThreeBounce = exports.StyledThreeBounce = _styledComponents2.default.div(['width: ', 'px;', 'text-align: center;border-radius: 100%;> ', ' {', '', '}'], function (p) {
+  return p.size;
+}, _util.propMargin, Child, function (p) {
+  return (0, _util.sizePx)(p.size / 4);
+}, _util.propBgColor);
+});
+___scope___.file("lib/Circle/index.js", function(exports, require, module, __filename, __dirname){
+
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _roundTo = require('round-to');
+
+var _roundTo2 = _interopRequireDefault(_roundTo);
+
+var _util = require('../util');
+
+var _styles = require('./styles');
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Circle = function (_React$PureComponent) {
+  _inherits(Circle, _React$PureComponent);
+
+  function Circle() {
+    _classCallCheck(this, Circle);
+
+    return _possibleConstructorReturn(this, (Circle.__proto__ || Object.getPrototypeOf(Circle)).apply(this, arguments));
+  }
+
+  _createClass(Circle, [{
+    key: 'render',
+    value: function render() {
+      var count = 12;
+      var speed = 1.2;
+
+      var circles = (0, _util.getRange)(count).map(function (k) {
+        var transform = (0, _roundTo2.default)(360 / count * (k + 1), 1);
+        var delay = (0, _roundTo2.default)(-speed + speed / count * k, 1);
+        return _react2.default.createElement(_styles.Child, { key: delay, delay: delay, transform: transform });
+      });
+
+      return _react2.default.createElement(
+        _styles.StyledCircle,
+        this.props,
+        circles
+      );
+    }
+  }]);
+
+  return Circle;
+}(_react2.default.PureComponent);
+
+Circle.defaultProps = {
+  color: '#333',
+  size: 40
+};
+Circle.displayName = '__styled-spinkit__Circle';
+Circle.propTypes = {
+  size: require('prop-types').number.isRequired,
+  color: require('prop-types').string.isRequired
+};
+exports.default = Circle;
+});
+___scope___.file("lib/Circle/styles.js", function(exports, require, module, __filename, __dirname){
+
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.StyledCircle = exports.Child = undefined;
+
+var _styledComponents = require('styled-components');
+
+var _styledComponents2 = _interopRequireDefault(_styledComponents);
+
+var _util = require('../util');
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var scale = (0, _styledComponents.keyframes)(['0%,80%,100% {transform: scale(0);}40% {transform: scale(1);}']);
+
+var Child = exports.Child = _styledComponents2.default.div(['', 'position: absolute;top: 0;left: 0;transform: rotate(', 'deg);&::before {content: \'\';display: block;margin: 0 auto;', 'border-radius: 100%;animation: ', ' 1.2s ease-in-out ', 's infinite both;}'], (0, _util.size)('100%'), function (p) {
+  return p.transform;
+}, (0, _util.size)('15%'), scale, function (p) {
+  return p.delay;
+});
+
+var StyledCircle = exports.StyledCircle = _styledComponents2.default.div(['', '', ';position: relative;> ', ' {&::before {', '}}'], _util.propMargin, _util.propSize, Child, _util.propBgColor);
+});
+___scope___.file("lib/FoldingCube/index.js", function(exports, require, module, __filename, __dirname){
+
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _roundTo = require('round-to');
+
+var _roundTo2 = _interopRequireDefault(_roundTo);
+
+var _styles = require('./styles');
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var FoldingCube = function (_React$PureComponent) {
+  _inherits(FoldingCube, _React$PureComponent);
+
+  function FoldingCube() {
+    _classCallCheck(this, FoldingCube);
+
+    return _possibleConstructorReturn(this, (FoldingCube.__proto__ || Object.getPrototypeOf(FoldingCube)).apply(this, arguments));
+  }
+
+  _createClass(FoldingCube, [{
+    key: 'render',
+    value: function render() {
+      var duration = 2.4;
+      var range = duration / 2;
+      var cubeCount = 4;
+
+      var cubes = [0, 1, 3, 2].map(function (v) {
+        return _react2.default.createElement(_styles.Child, {
+          scale: 90 * v,
+          key: v,
+          delay: (0, _roundTo2.default)(range / cubeCount * v, 2),
+          duration: duration
+        });
+      });
+
+      return _react2.default.createElement(
+        _styles.StyledFoldingCube,
+        this.props,
+        cubes
+      );
+    }
+  }]);
+
+  return FoldingCube;
+}(_react2.default.PureComponent);
+
+FoldingCube.defaultProps = {
+  size: 40,
+  color: '#333'
+};
+FoldingCube.displayName = '__styled-spinkit__FoldingCube';
+FoldingCube.propTypes = {
+  size: require('prop-types').number.isRequired,
+  color: require('prop-types').string.isRequired
+};
+exports.default = FoldingCube;
+});
+___scope___.file("lib/FoldingCube/styles.js", function(exports, require, module, __filename, __dirname){
+
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.StyledFoldingCube = exports.Child = undefined;
+
+var _styledComponents = require('styled-components');
+
+var _styledComponents2 = _interopRequireDefault(_styledComponents);
+
+var _util = require('../util');
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var locate = (0, _styledComponents.keyframes)(['0%,10% {transform: perspective(140px) rotateX(-180deg);opacity: 0;}25%,75% {transform: perspective(140px) rotateX(0deg);opacity: 1;}90%,100% {transform: perspective(140px) rotateY(180deg);opacity: 0;}']);
+
+var Child = exports.Child = _styledComponents2.default.div(['float: left;', 'position: relative;transform: scale(1.1) rotateZ(', 'deg);&:before {content: \'\';position: absolute;top: 0;left: 0;', 'animation: ', ' ', 's infinite linear both ', 's;transform-origin: 100% 100%;}'], (0, _util.size)('50%'), function (p) {
+  return p.scale;
+}, (0, _util.size)('100%'), locate, function (p) {
+  return p.duration;
+}, function (p) {
+  return p.delay;
+});
+
+var StyledFoldingCube = exports.StyledFoldingCube = _styledComponents2.default.div(['', '', 'position: relative;transform: rotateZ(45deg);> ', ' {&:before {', '}}'], _util.propSize, _util.propMargin, Child, _util.propBgColor);
+});
+___scope___.file("lib/WanderingCubes/index.js", function(exports, require, module, __filename, __dirname){
+
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _roundTo = require('round-to');
+
+var _roundTo2 = _interopRequireDefault(_roundTo);
+
+var _styles = require('./styles');
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var WanderingCubes = function (_React$PureComponent) {
+  _inherits(WanderingCubes, _React$PureComponent);
+
+  function WanderingCubes() {
+    _classCallCheck(this, WanderingCubes);
+
+    return _possibleConstructorReturn(this, (WanderingCubes.__proto__ || Object.getPrototypeOf(WanderingCubes)).apply(this, arguments));
+  }
+
+  _createClass(WanderingCubes, [{
+    key: 'render',
+    value: function render() {
+      var speed = 1.8;
+      var cubeSize = (0, _roundTo2.default)(this.props.size / 4, 2); // eslint-disable-line react/prop-types
+
+      return _react2.default.createElement(
+        _styles.StyledWanderingCubes,
+        _extends({ speed: speed }, this.props),
+        _react2.default.createElement(_styles.Child, { delay: speed, size: cubeSize }),
+        _react2.default.createElement(_styles.Child, { delay: speed / 2, size: cubeSize })
+      );
+    }
+  }]);
+
+  return WanderingCubes;
+}(_react2.default.PureComponent);
+
+WanderingCubes.defaultProps = {
+  color: '#333',
+  size: 40
+};
+WanderingCubes.displayName = '__styled-spinkit__WanderingCubes';
+WanderingCubes.propTypes = {
+  size: require('prop-types').number.isRequired,
+  color: require('prop-types').string.isRequired
+};
+exports.default = WanderingCubes;
+});
+___scope___.file("lib/WanderingCubes/styles.js", function(exports, require, module, __filename, __dirname){
+
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.StyledWanderingCubes = exports.Child = undefined;
+
+var _styledComponents = require('styled-components');
+
+var _styledComponents2 = _interopRequireDefault(_styledComponents);
+
+var _roundTo = require('round-to');
+
+var _roundTo2 = _interopRequireDefault(_roundTo);
+
+var _util = require('../util');
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var createAnim = function createAnim() {
+  var cubeDistance = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 42;
+  return (0, _styledComponents.keyframes)(['0% {transform: rotate(0deg);}25% {transform: translateX(', 'px) rotate(-90deg) scale(0.5);}50% {/* Hack to make FF rotate in the right direction */transform: translateX(', 'px) translateY(', 'px) rotate(-179deg);}50.1% {transform: translateX(', 'px) translateY(', 'px) rotate(-180deg);}75% {transform: translateX(0) translateY(', 'px) rotate(-270deg) scale(0.5);}100% {transform: rotate(-360deg);}'], cubeDistance, cubeDistance, cubeDistance, cubeDistance, cubeDistance, cubeDistance);
+};
+var Child = exports.Child = _styledComponents2.default.div(['', 'position: absolute;top: 0;left: 0;', 'animation-timing-function: ease-in-out;animation-iteration-count: infinite;animation-fill-mode: both;'], _util.propSize, _util.propDelay);
+
+var StyledWanderingCubes = exports.StyledWanderingCubes = _styledComponents2.default.div(['margin: ', 'px auto;', 'text-align: center;font-size: 10px;position: relative;> ', ' {', 'animation-name: ', ';animation-duration: ', 's;}'], function (p) {
+  return (0, _roundTo2.default)(p.size * 0.8, 1);
+}, _util.propSize, Child, _util.propBgColor, function (p) {
+  return createAnim((0, _roundTo2.default)(p.size * 0.8, 1));
+}, function (p) {
+  return p.speed;
+});
+});
+___scope___.file("lib/CubeGrid/index.js", function(exports, require, module, __filename, __dirname){
+
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _roundTo = require('round-to');
+
+var _roundTo2 = _interopRequireDefault(_roundTo);
+
+var _styles = require('./styles');
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var CubeGrid = function (_React$PureComponent) {
+  _inherits(CubeGrid, _React$PureComponent);
+
+  function CubeGrid() {
+    _classCallCheck(this, CubeGrid);
+
+    return _possibleConstructorReturn(this, (CubeGrid.__proto__ || Object.getPrototypeOf(CubeGrid)).apply(this, arguments));
+  }
+
+  _createClass(CubeGrid, [{
+    key: 'render',
+    value: function render() {
+      var range = 0.4;
+      var cubes = [0.5, 0.75, 1, 0.25, 0.5, 0.75, 0, 0.25, 0.5].map(function (v) {
+        return (0, _roundTo2.default)(range * v, 2);
+      }).map(function (v, k) {
+        return _react2.default.createElement(_styles.Child, { key: k, delay: v });
+      });
+
+      return _react2.default.createElement(
+        _styles.StyledCubeGrid,
+        this.props,
+        cubes
+      );
+    }
+  }]);
+
+  return CubeGrid;
+}(_react2.default.PureComponent);
+
+CubeGrid.defaultProps = {
+  size: 40,
+  color: '#333'
+};
+CubeGrid.displayName = '__styled-spinkit__CubeGrid';
+CubeGrid.propTypes = {
+  size: require('prop-types').number.isRequired,
+  color: require('prop-types').string.isRequired
+};
+exports.default = CubeGrid;
+});
+___scope___.file("lib/CubeGrid/styles.js", function(exports, require, module, __filename, __dirname){
+
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.StyledCubeGrid = exports.Child = undefined;
+
+var _styledComponents = require('styled-components');
+
+var _styledComponents2 = _interopRequireDefault(_styledComponents);
+
+var _util = require('../util');
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var scale = (0, _styledComponents.keyframes)(['0%,70%,100% {transform: scale3d(1, 1, 1);}35% {transform: scale3d(0, 0, 1);}']);
+
+var Child = exports.Child = _styledComponents2.default.div(['', 'float: left;animation: ', ' 1.3s infinite ease-in-out ', 's;'], (0, _util.size)('33.33%'), scale, function (p) {
+  return p.delay;
+});
+
+var StyledCubeGrid = exports.StyledCubeGrid = _styledComponents2.default.div(['', '', '> ', ' {', '}'], _util.propSize, _util.propMargin, Child, _util.propBgColor);
+});
+___scope___.file("lib/Pulse/index.js", function(exports, require, module, __filename, __dirname){
+
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _styles = require('./styles');
+
+var _styles2 = _interopRequireDefault(_styles);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Pulse = function (_React$PureComponent) {
+  _inherits(Pulse, _React$PureComponent);
+
+  function Pulse() {
+    _classCallCheck(this, Pulse);
+
+    return _possibleConstructorReturn(this, (Pulse.__proto__ || Object.getPrototypeOf(Pulse)).apply(this, arguments));
+  }
+
+  _createClass(Pulse, [{
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(_styles2.default, this.props);
+    }
+  }]);
+
+  return Pulse;
+}(_react2.default.PureComponent);
+
+Pulse.defaultProps = {
+  size: 40,
+  color: '#333'
+};
+Pulse.displayName = '__styled-spinkit__Pulse';
+Pulse.propTypes = {
+  size: require('prop-types').number.isRequired,
+  color: require('prop-types').string.isRequired
+};
+exports.default = Pulse;
+});
+___scope___.file("lib/Pulse/styles.js", function(exports, require, module, __filename, __dirname){
+
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _styledComponents = require('styled-components');
+
+var _styledComponents2 = _interopRequireDefault(_styledComponents);
+
+var _util = require('../util');
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var scaleOut = (0, _styledComponents.keyframes)(['0% {transform: scale(0);}100% {opacity: 0;transform: scale(1);}']);
+
+var StyledPulse = _styledComponents2.default.div(['', '', '', 'border-radius: 100%;animation: ', ' 1s ease-in-out infinite;'], _util.propSize, _util.propBgColor, _util.propMargin, scaleOut);
+
+exports.default = StyledPulse;
+});
+___scope___.file("lib/WaveLoading/index.js", function(exports, require, module, __filename, __dirname){
+
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _roundTo = require('round-to');
+
+var _roundTo2 = _interopRequireDefault(_roundTo);
+
+var _util = require('../util');
+
+var _styles = require('./styles');
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Wave = function (_React$PureComponent) {
+  _inherits(Wave, _React$PureComponent);
+
+  function Wave() {
+    _classCallCheck(this, Wave);
+
+    return _possibleConstructorReturn(this, (Wave.__proto__ || Object.getPrototypeOf(Wave)).apply(this, arguments));
+  }
+
+  _createClass(Wave, [{
+    key: 'render',
+    value: function render() {
+      var speed = 1.2;
+      var rectCount = 5;
+      var delayRange = 0.4;
+
+      var rects = (0, _util.getRange)(rectCount).map(function (v) {
+        return _react2.default.createElement(_styles.Rect, {
+          delay: (0, _roundTo2.default)(-speed + delayRange / (rectCount - 1) * v, 1),
+          key: v
+        });
+      });
+
+      return _react2.default.createElement(
+        _styles.StyledWave,
+        _extends({ speed: speed }, this.props),
+        rects
+      );
+    }
+  }]);
+
+  return Wave;
+}(_react2.default.PureComponent);
+
+Wave.defaultProps = {
+  color: '#333',
+  size: 40
+};
+Wave.displayName = '__styled-spinkit__Wave';
+Wave.propTypes = {
+  size: require('prop-types').number.isRequired,
+  color: require('prop-types').string.isRequired
+};
+exports.default = Wave;
+});
+___scope___.file("lib/WaveLoading/styles.js", function(exports, require, module, __filename, __dirname){
+
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.StyledWave = exports.Rect = undefined;
+
+var _styledComponents = require('styled-components');
+
+var _styledComponents2 = _interopRequireDefault(_styledComponents);
+
+var _util = require('../util');
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var anim = (0, _styledComponents.keyframes)(['0%,40%,100% {transform: scaleY(0.4);}20% {transform: scaleY(1);}']);
+
+var Rect = exports.Rect = _styledComponents2.default.div(['', 'margin: 0 3px 0 0;display: inline-block;', ''], (0, _util.size)('7px', '100%'), _util.propDelay);
+
+var StyledWave = exports.StyledWave = _styledComponents2.default.div(['', '', 'text-align: center;font-size: 10px;> ', ' {', 'animation-name: ', ';animation-duration: ', 's;animation-timing-function: ease-in-out;animation-iteration-count: infinite;}'], _util.propMargin, function (p) {
+  return (0, _util.size)(p.size * 1.25 + 'px', p.size + 'px');
+}, Rect, _util.propBgColor, anim, function (p) {
+  return p.speed;
+});
+});
+___scope___.file("lib/DoubleDounceLoading/index.js", function(exports, require, module, __filename, __dirname){
+
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _styles = require('./styles');
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var DoubleBounce = function (_React$PureComponent) {
+  _inherits(DoubleBounce, _React$PureComponent);
+
+  function DoubleBounce() {
+    _classCallCheck(this, DoubleBounce);
+
+    return _possibleConstructorReturn(this, (DoubleBounce.__proto__ || Object.getPrototypeOf(DoubleBounce)).apply(this, arguments));
+  }
+
+  _createClass(DoubleBounce, [{
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        _styles.StyledDoubleBounce,
+        this.props,
+        _react2.default.createElement(_styles.Child, null),
+        _react2.default.createElement(_styles.Child, { isDelay: true })
+      );
+    }
+  }]);
+
+  return DoubleBounce;
+}(_react2.default.PureComponent);
+
+DoubleBounce.defaultProps = {
+  color: '#333',
+  size: 40
+};
+DoubleBounce.displayName = '__styled-spinkit__DoubleBounce';
+DoubleBounce.propTypes = {
+  size: require('prop-types').number.isRequired,
+  color: require('prop-types').string.isRequired
+};
+exports.default = DoubleBounce;
+});
+___scope___.file("lib/DoubleDounceLoading/styles.js", function(exports, require, module, __filename, __dirname){
+
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.StyledDoubleBounce = exports.Child = undefined;
+
+var _styledComponents = require('styled-components');
+
+var _styledComponents2 = _interopRequireDefault(_styledComponents);
+
+var _util = require('../util');
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var debounce = (0, _styledComponents.keyframes)(['0%,100% {transform: scale(0);}50% {transform: scale(1);}']);
+
+var Child = exports.Child = _styledComponents2.default.div(['', 'border-radius: 50%;position: absolute;opacity: 0.6;top: 0;left: 0;animation: ', ' 2s infinite ease-in-out;', ''], (0, _util.size)('100%'), debounce, function (p) {
+  return p.isDelay && (0, _util.animationDelay)(-1);
+});
+
+var StyledDoubleBounce = exports.StyledDoubleBounce = _styledComponents2.default.div(['', 'position: relative;', '> ', ' {', '}'], _util.propSize, _util.propMargin, Child, _util.propBgColor);
+});
+___scope___.file("lib/RotaingPlaneLoading/index.js", function(exports, require, module, __filename, __dirname){
+
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _styles = require('./styles');
+
+var _styles2 = _interopRequireDefault(_styles);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var speed = 1.2;
+
+var RotaingPlain = function (_React$PureComponent) {
+  _inherits(RotaingPlain, _React$PureComponent);
+
+  function RotaingPlain() {
+    _classCallCheck(this, RotaingPlain);
+
+    return _possibleConstructorReturn(this, (RotaingPlain.__proto__ || Object.getPrototypeOf(RotaingPlain)).apply(this, arguments));
+  }
+
+  _createClass(RotaingPlain, [{
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(_styles2.default, _extends({}, this.props, { speed: speed }));
+    }
+  }]);
+
+  return RotaingPlain;
+}(_react2.default.PureComponent);
+
+RotaingPlain.defaultProps = {
+  color: '#333',
+  size: 40
+};
+RotaingPlain.displayName = '__styled-spinkit__RotaingPlain';
+RotaingPlain.propTypes = {
+  size: require('prop-types').number.isRequired,
+  color: require('prop-types').string.isRequired
+};
+exports.default = RotaingPlain;
+});
+___scope___.file("lib/RotaingPlaneLoading/styles.js", function(exports, require, module, __filename, __dirname){
+
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _styledComponents = require('styled-components');
+
+var _styledComponents2 = _interopRequireDefault(_styledComponents);
+
+var _util = require('../util');
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var spin = (0, _styledComponents.keyframes)(['0% {transform: perspective(120px) rotateX(0deg) rotateY(0deg);}50% {transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg);}100% {transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);}']);
+
+var StyledRotaingPlain = _styledComponents2.default.div(['', '', '', 'animation: ', ' ', 's infinite ease-in-out;'], _util.propSize, _util.propBgColor, _util.propMargin, spin, function (p) {
+  return p.speed;
+});
+
+exports.default = StyledRotaingPlain;
+});
+return ___scope___.entry = "lib/index.js";
+});
+FuseBox.pkg("round-to", {}, function(___scope___){
+___scope___.file("index.js", function(exports, require, module, __filename, __dirname){
+
+'use strict';
+
+function round(fn, val, precision) {
+	if (typeof val !== 'number') {
+		throw new TypeError('Expected value to be a number');
+	}
+
+	if (!Number.isInteger(precision)) {
+		throw new TypeError('Expected precision to be an integer');
+	}
+
+	const exponent = precision > 0 ? 'e' : 'e-';
+	const exponentNeg = precision > 0 ? 'e-' : 'e';
+	precision = Math.abs(precision);
+
+	if (fn === 'round') {
+		return Number(Math.sign(val) * (Math.round(Math.abs(val) + exponent + precision) + exponentNeg + precision));
+	}
+
+	return Number(Math[fn](val + exponent + precision) + exponentNeg + precision);
+}
+
+module.exports = round.bind(null, 'round');
+module.exports.up = round.bind(null, 'ceil');
+module.exports.down = round.bind(null, 'floor');
+
+});
+return ___scope___.entry = "index.js";
+});
+FuseBox.pkg("grid-styled", {}, function(___scope___){
+___scope___.file("dist/index.js", function(exports, require, module, __filename, __dirname){
+
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _Box = require('./Box');
+
+Object.defineProperty(exports, 'Box', {
+  enumerable: true,
+  get: function get() {
+    return _interopRequireDefault(_Box).default;
+  }
+});
+
+var _Grid = require('./Grid');
+
+Object.defineProperty(exports, 'Grid', {
+  enumerable: true,
+  get: function get() {
+    return _interopRequireDefault(_Grid).default;
+  }
+});
+
+var _Flex = require('./Flex');
+
+Object.defineProperty(exports, 'Flex', {
+  enumerable: true,
+  get: function get() {
+    return _interopRequireDefault(_Flex).default;
+  }
+});
+
+var _Half = require('./Half');
+
+Object.defineProperty(exports, 'Half', {
+  enumerable: true,
+  get: function get() {
+    return _interopRequireDefault(_Half).default;
+  }
+});
+
+var _Third = require('./Third');
+
+Object.defineProperty(exports, 'Third', {
+  enumerable: true,
+  get: function get() {
+    return _interopRequireDefault(_Third).default;
+  }
+});
+
+var _Quarter = require('./Quarter');
+
+Object.defineProperty(exports, 'Quarter', {
+  enumerable: true,
+  get: function get() {
+    return _interopRequireDefault(_Quarter).default;
+  }
+});
+
+var _Golden = require('./Golden');
+
+Object.defineProperty(exports, 'Golden', {
+  enumerable: true,
+  get: function get() {
+    return _interopRequireDefault(_Golden).default;
+  }
+});
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+});
+___scope___.file("dist/Box.js", function(exports, require, module, __filename, __dirname){
+
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.order = exports.flex = undefined;
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _styledComponents = require('styled-components');
+
+var _styledComponents2 = _interopRequireDefault(_styledComponents);
+
+var _styledSystem = require('styled-system');
+
+var _propTypes = require('prop-types');
+
+var _tagHoc = require('tag-hoc');
+
+var _tagHoc2 = _interopRequireDefault(_tagHoc);
+
+var _propTypes2 = require('./propTypes');
+
+var _propTypes3 = _interopRequireDefault(_propTypes2);
+
+var _removeProps = require('./remove-props');
+
+var _removeProps2 = _interopRequireDefault(_removeProps);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var flex = exports.flex = (0, _styledSystem.responsiveStyle)('flex');
+var order = exports.order = (0, _styledSystem.responsiveStyle)('order');
+
+var Tag = (0, _tagHoc2.default)(_removeProps2.default);
+var Base = Tag('div');
+
+var Box = (0, _styledComponents2.default)(Base)([], { boxSizing: 'border-box' }, _styledSystem.width, _styledSystem.space, flex, order);
+Box.displayName = 'Box';
+
+var responsivePropType = (0, _propTypes.oneOfType)([_propTypes.number, _propTypes.string, _propTypes.array]);
+
+Box.propTypes = Object.assign({}, _propTypes3.default, {
+  flex: responsivePropType,
+  order: responsivePropType
+});
+
+exports.default = Box;
+});
+___scope___.file("dist/propTypes.js", function(exports, require, module, __filename, __dirname){
+
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _propTypes = require('prop-types');
+
+var responsivePropType = (0, _propTypes.oneOfType)([_propTypes.number, _propTypes.string, _propTypes.array]);
+
+var propTypes = {
+  width: responsivePropType,
+  fontSize: responsivePropType,
+  color: responsivePropType,
+  bg: responsivePropType,
+  m: responsivePropType,
+  mt: responsivePropType,
+  mr: responsivePropType,
+  mb: responsivePropType,
+  ml: responsivePropType,
+  mx: responsivePropType,
+  my: responsivePropType,
+  p: responsivePropType,
+  pt: responsivePropType,
+  pr: responsivePropType,
+  pb: responsivePropType,
+  pl: responsivePropType,
+  px: responsivePropType,
+  py: responsivePropType
+};
+
+exports.default = propTypes;
+});
+___scope___.file("dist/remove-props.js", function(exports, require, module, __filename, __dirname){
+
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = ['width', 'w', 'm', 'mt', 'mr', 'mb', 'ml', 'mx', 'my', 'p', 'pt', 'pr', 'pb', 'pl', 'px', 'py', 'flex', 'order', 'wrap', 'direction', 'align', 'justify', 'column'];
+});
+___scope___.file("dist/Grid.js", function(exports, require, module, __filename, __dirname){
+
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _styledComponents = require('styled-components');
+
+var _styledComponents2 = _interopRequireDefault(_styledComponents);
+
+var _Box = require('./Box');
+
+var _Box2 = _interopRequireDefault(_Box);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var align = function align(props) {
+  return { verticalAlign: props.align || 'top' };
+};
+
+var Grid = (0, _styledComponents2.default)(_Box2.default)([], {
+  display: 'inline-block'
+}, align);
+Grid.displayName = 'Grid';
+
+exports.default = Grid;
+});
+___scope___.file("dist/Flex.js", function(exports, require, module, __filename, __dirname){
+
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _styledComponents = require('styled-components');
+
+var _styledComponents2 = _interopRequireDefault(_styledComponents);
+
+var _styledSystem = require('styled-system');
+
+var _propTypes = require('prop-types');
+
+var _propTypes2 = require('./propTypes');
+
+var _propTypes3 = _interopRequireDefault(_propTypes2);
+
+var _Box = require('./Box');
+
+var _Box2 = _interopRequireDefault(_Box);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var wrap = (0, _styledSystem.responsiveStyle)('flex-wrap', 'wrap', 'wrap');
+var direction = (0, _styledSystem.responsiveStyle)('flex-direction', 'direction');
+var align = function align(props) {
+  return (0, _styledSystem.responsiveStyle)('align-items', 'align');
+};
+var justify = function justify(props) {
+  return (0, _styledSystem.responsiveStyle)('justify-content', 'justify');
+};
+var column = function column(props) {
+  return props.column ? 'flex-direction:column;' : null;
+};
+
+var Flex = (0, _styledComponents2.default)(_Box2.default)([], { display: 'flex' }, wrap, column, direction, align, justify);
+Flex.displayName = 'Flex';
+
+var responsivePropType = (0, _propTypes.oneOfType)([_propTypes.number, _propTypes.string, _propTypes.array, _propTypes.bool]);
+
+Flex.propTypes = Object.assign({}, _propTypes3.default, {
+  wrap: responsivePropType,
+  direction: responsivePropType,
+  align: responsivePropType,
+  justify: responsivePropType,
+  column: _propTypes.bool
+});
+
+exports.default = Flex;
+});
+___scope___.file("dist/Half.js", function(exports, require, module, __filename, __dirname){
+
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _Grid = require('./Grid');
+
+var _Grid2 = _interopRequireDefault(_Grid);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Half = function Half(props) {
+  return _react2.default.createElement(_Grid2.default, _extends({}, props, { width: [1, 1 / 2] }));
+};
+Half.displayName = 'Half';
+
+exports.default = Half;
+});
+___scope___.file("dist/Third.js", function(exports, require, module, __filename, __dirname){
+
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _Grid = require('./Grid');
+
+var _Grid2 = _interopRequireDefault(_Grid);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Third = function Third(props) {
+  return _react2.default.createElement(_Grid2.default, _extends({}, props, { width: [1, 1 / 3] }));
+};
+Third.displayName = 'Third';
+
+exports.default = Third;
+});
+___scope___.file("dist/Quarter.js", function(exports, require, module, __filename, __dirname){
+
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _Grid = require('./Grid');
+
+var _Grid2 = _interopRequireDefault(_Grid);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Quarter = function Quarter(props) {
+  return _react2.default.createElement(_Grid2.default, _extends({}, props, { width: [1, 1 / 4] }));
+};
+Quarter.displayName = 'Quarter';
+
+exports.default = Quarter;
+});
+___scope___.file("dist/Golden.js", function(exports, require, module, __filename, __dirname){
+
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.B = exports.A = exports.gb = exports.ga = exports.φ = undefined;
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _Grid = require('./Grid');
+
+var _Grid2 = _interopRequireDefault(_Grid);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var φ = exports.φ = (1 + Math.sqrt(5)) / 2;
+var ga = exports.ga = φ - 1;
+var gb = exports.gb = 1 - ga;
+
+var A = exports.A = function A(props) {
+  return _react2.default.createElement(_Grid2.default, _extends({}, props, { width: [1, ga] }));
+};
+var B = exports.B = function B(props) {
+  return _react2.default.createElement(_Grid2.default, _extends({}, props, { width: [1, gb] }));
+};
+
+var Golden = {
+  A: A,
+  B: B
+};
+Golden.displayName = 'Golden';
+
+exports.default = Golden;
+});
+return ___scope___.entry = "dist/index.js";
+});
+FuseBox.pkg("styled-system", {}, function(___scope___){
+___scope___.file("dist/index.js", function(exports, require, module, __filename, __dirname){
+
+'use strict';
+
+// core
+var space = require('./space');
+var width = require('./width');
+var fontSize = require('./font-size');
+var color = require('./color');
+
+// low-level style function creators
+var style = require('./style');
+var responsiveStyle = require('./responsive-style');
+var pseudoStyle = require('./pseudo-style');
+
+// extras
+var textAlign = require('./text-align');
+var fontWeight = require('./font-weight');
+var alignItems = require('./align-items');
+var justifyContent = require('./justify-content');
+var flexWrap = require('./flex-wrap');
+var flexDirection = require('./flex-direction');
+var flex = require('./flex');
+var alignSelf = require('./align-self');
+var borderRadius = require('./border-radius');
+var borderColor = require('./border-color');
+var borderWidth = require('./border-width');
+var boxShadow = require('./box-shadow');
+var hover = require('./hover');
+var focus = require('./focus');
+var active = require('./active');
+var disabled = require('./disabled');
+
+// other
+var theme = require('./theme');
+var propTypes = require('./prop-types');
+var cleanElement = require('./clean-element');
+var removeProps = require('./remove-props');
+var util = require('./util');
+var constants = require('./constants');
+
+module.exports = {
+  space: space,
+  width: width,
+  fontSize: fontSize,
+  color: color,
+  style: style,
+  responsiveStyle: responsiveStyle,
+  pseudoStyle: pseudoStyle,
+  textAlign: textAlign,
+  fontWeight: fontWeight,
+  alignItems: alignItems,
+  justifyContent: justifyContent,
+  flexWrap: flexWrap,
+  flexDirection: flexDirection,
+  flex: flex,
+  alignSelf: alignSelf,
+  borderRadius: borderRadius,
+  borderColor: borderColor,
+  borderWidth: borderWidth,
+  boxShadow: boxShadow,
+  hover: hover,
+  focus: focus,
+  active: active,
+  disabled: disabled,
+  theme: theme,
+  propTypes: propTypes,
+  cleanElement: cleanElement,
+  removeProps: removeProps,
+  util: util,
+  constants: constants
+};
+});
+___scope___.file("dist/space.js", function(exports, require, module, __filename, __dirname){
+
+'use strict';
+
+var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+var _require = require('./util'),
+    get = _require.get,
+    arr = _require.arr,
+    px = _require.px,
+    neg = _require.neg,
+    num = _require.num,
+    breaks = _require.breaks,
+    dec = _require.dec,
+    media = _require.media,
+    merge = _require.merge;
+
+var _require2 = require('./constants'),
+    space = _require2.space;
+
+var REG = /^[mp][trblxy]?$/;
+
+module.exports = function (props) {
+  var keys = Object.keys(props).filter(function (key) {
+    return REG.test(key);
+  }).sort();
+  var bp = breaks(props);
+  var sc = get(props, 'theme.space', space);
+
+  return keys.map(function (key) {
+    var val = props[key];
+    var p = getProperties(key);
+
+    if (!Array.isArray(val)) {
+      return p.reduce(function (a, b) {
+        return Object.assign(a, _defineProperty({}, b, mx(sc)(val)));
+      }, {});
+    }
+
+    return arr(val).map(mx(sc)).map(dec(p)).map(media(bp)).reduce(merge, {});
+  }).reduce(merge, {});
+};
+
+var mx = function mx(scale) {
+  return function (n) {
+    if (!num(n)) {
+      return n;
+    }
+
+    var value = scale[Math.abs(n)] || Math.abs(n);
+    if (!num(value)) {
+      return value;
+    }
+
+    return px(value * (neg(n) ? -1 : 1));
+  };
+};
+
+var getProperties = function getProperties(key) {
+  var _key$split = key.split(''),
+      _key$split2 = _slicedToArray(_key$split, 2),
+      a = _key$split2[0],
+      b = _key$split2[1];
+
+  var prop = properties[a];
+  var dirs = directions[b] || [''];
+  return dirs.map(function (dir) {
+    return prop + dir;
+  });
+};
+
+var properties = {
+  m: 'margin',
+  p: 'padding'
+};
+
+var directions = {
+  t: ['Top'],
+  r: ['Right'],
+  b: ['Bottom'],
+  l: ['Left'],
+  x: ['Left', 'Right'],
+  y: ['Top', 'Bottom']
+};
+});
+___scope___.file("dist/util.js", function(exports, require, module, __filename, __dirname){
+
+'use strict';
+
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
+
+var _require = require('./constants'),
+    breakpoints = _require.breakpoints;
+
+var is = function is(n) {
+  return n !== undefined && n !== null;
+};
+var num = function num(n) {
+  return typeof n === 'number' && !isNaN(n);
+};
+var px = function px(n) {
+  return num(n) ? n + 'px' : n;
+};
+var em = function em(n) {
+  return num(n) ? n + 'em' : n;
+};
+var neg = function neg(n) {
+  return n < 0;
+};
+var arr = function arr(n) {
+  return Array.isArray(n) ? n : [n];
+};
+
+var get = function get(obj, path, fallback) {
+  return path.split('.').reduce(function (a, b) {
+    return a && a[b] ? a[b] : null;
+  }, obj) || fallback;
+};
+
+var mq = function mq(n) {
+  return '@media screen and (min-width: ' + em(n) + ')';
+};
+
+var breaks = function breaks(props) {
+  return [null].concat(_toConsumableArray(get(props, 'theme.breakpoints', breakpoints).map(mq)));
+};
+
+var dec = function dec(props) {
+  return function (val) {
+    return arr(props).reduce(function (acc, prop) {
+      return acc[prop] = val, acc;
+    }, {});
+  };
+};
+
+var media = function media(bp) {
+  return function (d, i) {
+    return is(d) ? bp[i] ? _defineProperty({}, bp[i], d) : d : null;
+  };
+};
+
+var merge = function merge(a, b) {
+  return Object.assign({}, a, b, Object.keys(b).reduce(function (obj, key) {
+    return Object.assign(obj, _defineProperty({}, key, a[key] !== null && _typeof(a[key]) === 'object' ? merge(a[key], b[key]) : b[key]));
+  }, {}));
+};
+
+// keeping for backwards-compatibility only
+var idx = function idx(keys, obj) {
+  return get(obj, keys.join('.')) || null;
+};
+
+module.exports = {
+  get: get,
+  is: is,
+  px: px,
+  em: em,
+  neg: neg,
+  num: num,
+  arr: arr,
+  idx: idx,
+  breaks: breaks,
+  media: media,
+  dec: dec,
+  merge: merge,
+  mq: mq
+};
+});
+___scope___.file("dist/constants.js", function(exports, require, module, __filename, __dirname){
+
+"use strict";
+
+var breakpoints = [40, 52, 64];
+
+var space = [0, 8, 16, 32, 64];
+
+var fontSizes = [12, 14, 16, 20, 24, 32, 48, 64, 72];
+
+module.exports = {
+  breakpoints: breakpoints,
+  space: space,
+  fontSizes: fontSizes
+};
+});
+___scope___.file("dist/width.js", function(exports, require, module, __filename, __dirname){
+
+'use strict';
+
+var _require = require('./util'),
+    is = _require.is,
+    arr = _require.arr,
+    num = _require.num,
+    px = _require.px,
+    breaks = _require.breaks,
+    dec = _require.dec,
+    media = _require.media,
+    merge = _require.merge;
+
+module.exports = function (props) {
+  var n = is(props.width) ? props.width : props.width || props.w;
+  if (!is(n)) return null;
+
+  if (!Array.isArray(n)) {
+    return {
+      width: wx(n)
+    };
+  }
+
+  var bp = breaks(props);
+
+  return n.map(wx).map(dec('width')).map(media(bp)).reduce(merge, {});
+};
+
+var wx = function wx(n) {
+  return !num(n) || n > 1 ? px(n) : n * 100 + '%';
+};
+});
+___scope___.file("dist/font-size.js", function(exports, require, module, __filename, __dirname){
+
+'use strict';
+
+var _require = require('./util'),
+    get = _require.get,
+    is = _require.is,
+    arr = _require.arr,
+    num = _require.num,
+    px = _require.px,
+    breaks = _require.breaks,
+    dec = _require.dec,
+    media = _require.media,
+    merge = _require.merge;
+
+var _require2 = require('./constants'),
+    fontSizes = _require2.fontSizes;
+
+module.exports = function (props) {
+  var n = is(props.fontSize) ? props.fontSize : props.fontSize || props.f;
+  if (!is(n)) return null;
+
+  var scale = get(props, 'theme.fontSizes', fontSizes);
+
+  if (!Array.isArray(n)) {
+    return {
+      fontSize: fx(scale)(n)
+    };
+  }
+
+  var bp = breaks(props);
+
+  return n.map(fx(scale)).map(dec('fontSize')).map(media(bp)).reduce(merge, {});
+};
+
+var fx = function fx(scale) {
+  return function (n) {
+    return num(n) ? px(scale[n] || n) : n;
+  };
+};
+});
+___scope___.file("dist/color.js", function(exports, require, module, __filename, __dirname){
+
+'use strict';
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+var _require = require('./util'),
+    get = _require.get,
+    breaks = _require.breaks,
+    merge = _require.merge,
+    arr = _require.arr,
+    dec = _require.dec,
+    media = _require.media;
+
+var REG = /^color|bg$/;
+
+module.exports = function (props) {
+  var keys = Object.keys(props).filter(function (key) {
+    return REG.test(key);
+  });
+  var bp = breaks(props);
+  var palette = get(props, 'theme.colors', {});
+
+  return keys.map(function (key) {
+    var val = props[key];
+    var prop = properties[key] || key;
+
+    if (!Array.isArray(val)) {
+      return _defineProperty({}, prop, cx(palette)(val));
+    }
+
+    return val.map(cx(palette)).map(dec(prop)).map(media(bp)).reduce(merge, {});
+  }).reduce(merge, {});
+};
+
+var cx = function cx(obj) {
+  return function (n) {
+    return get(obj, n + '', n);
+  };
+};
+
+var properties = {
+  bg: 'backgroundColor'
+};
+});
+___scope___.file("dist/style.js", function(exports, require, module, __filename, __dirname){
+
+'use strict';
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+var _require = require('./util'),
+    get = _require.get,
+    is = _require.is,
+    px = _require.px;
+
+module.exports = function (_ref) {
+  var key = _ref.key,
+      prop = _ref.prop,
+      cssProperty = _ref.cssProperty,
+      numberToPx = _ref.numberToPx;
+  return function (props) {
+    var n = props[prop];
+    if (!is(n)) return null;
+    var val = get(props, ['theme', key, n].join('.'), n);
+    var value = numberToPx ? px(val) : val;
+
+    return _defineProperty({}, cssProperty || prop, value);
+  };
+};
+});
+___scope___.file("dist/responsive-style.js", function(exports, require, module, __filename, __dirname){
+
+'use strict';
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+var _require = require('./util'),
+    get = _require.get,
+    is = _require.is,
+    arr = _require.arr,
+    num = _require.num,
+    px = _require.px,
+    breaks = _require.breaks,
+    dec = _require.dec,
+    media = _require.media,
+    merge = _require.merge;
+
+module.exports = function () {
+  for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+    args[_key] = arguments[_key];
+  }
+
+  return function (props) {
+    // support for legacy API
+    var arg = args[0],
+        _prop = args[1],
+        _bool = args[2];
+
+    var _ref = typeof arg === 'string' ? { cssProperty: arg, prop: _prop, boolValue: _bool } : arg,
+        cssProperty = _ref.cssProperty,
+        prop = _ref.prop,
+        boolValue = _ref.boolValue,
+        key = _ref.key,
+        numberToPx = _ref.numberToPx;
+
+    prop = prop || cssProperty;
+    var n = props[prop];
+    if (!is(n)) return null;
+
+    var bp = breaks(props);
+    var scale = get(props, ['theme', key || prop].join('.'), {});
+    var sx = function sx(val) {
+      return get(scale, '' + val, numberToPx ? px(val) : val);
+    };
+
+    if (!Array.isArray(n)) {
+      return _defineProperty({}, cssProperty, sx(bool(boolValue)(n)));
+    }
+
+    var val = arr(n);
+    return val.map(bool(boolValue)).map(sx).map(dec(cssProperty)).map(media(bp)).reduce(merge, {});
+  };
+};
+
+var bool = function bool(val) {
+  return function (n) {
+    return n === true ? val : n;
+  };
+};
+});
+___scope___.file("dist/pseudo-style.js", function(exports, require, module, __filename, __dirname){
+
+'use strict';
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+var _require = require('./util'),
+    get = _require.get,
+    px = _require.px;
+
+module.exports = function (pseudoclass, prop) {
+  return function () {
+    var keys = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+    return function (props) {
+      var style = props[prop || pseudoclass];
+      var numberToPx = keys.numberToPx || {};
+      for (var key in style) {
+        var toPx = numberToPx[key];
+
+        if (!keys[key] && !toPx) continue;
+        var themeKey = [keys[key], style[key]].join('.');
+        style[key] = get(props.theme, themeKey, style[key]);
+
+        if (toPx) style[key] = px(style[key]);
+      }
+
+      return _defineProperty({}, '&:' + pseudoclass, style);
+    };
+  };
+};
+});
+___scope___.file("dist/text-align.js", function(exports, require, module, __filename, __dirname){
+
+'use strict';
+
+var responsiveStyle = require('./responsive-style');
+module.exports = responsiveStyle('textAlign', 'align');
+});
+___scope___.file("dist/font-weight.js", function(exports, require, module, __filename, __dirname){
+
+'use strict';
+
+var style = require('./style');
+
+module.exports = style({
+  prop: 'fontWeight',
+  key: 'fontWeights'
+});
+});
+___scope___.file("dist/align-items.js", function(exports, require, module, __filename, __dirname){
+
+'use strict';
+
+var responsiveStyle = require('./responsive-style');
+module.exports = responsiveStyle('alignItems', 'align');
+});
+___scope___.file("dist/justify-content.js", function(exports, require, module, __filename, __dirname){
+
+'use strict';
+
+var responsiveStyle = require('./responsive-style');
+module.exports = responsiveStyle('justifyContent', 'justify');
+});
+___scope___.file("dist/flex-wrap.js", function(exports, require, module, __filename, __dirname){
+
+'use strict';
+
+var responsiveStyle = require('./responsive-style');
+module.exports = responsiveStyle('flexWrap', 'wrap', 'wrap');
+});
+___scope___.file("dist/flex-direction.js", function(exports, require, module, __filename, __dirname){
+
+'use strict';
+
+var responsiveStyle = require('./responsive-style');
+module.exports = responsiveStyle('flexDirection');
+});
+___scope___.file("dist/flex.js", function(exports, require, module, __filename, __dirname){
+
+'use strict';
+
+var responsiveStyle = require('./responsive-style');
+module.exports = responsiveStyle('flex');
+});
+___scope___.file("dist/align-self.js", function(exports, require, module, __filename, __dirname){
+
+'use strict';
+
+var responsiveStyle = require('./responsive-style');
+module.exports = responsiveStyle('alignSelf', 'alignSelf');
+});
+___scope___.file("dist/border-radius.js", function(exports, require, module, __filename, __dirname){
+
+'use strict';
+
+var style = require('./style');
+
+module.exports = style({
+  prop: 'borderRadius',
+  key: 'radii',
+  numberToPx: true
+});
+});
+___scope___.file("dist/border-color.js", function(exports, require, module, __filename, __dirname){
+
+'use strict';
+
+var style = require('./style');
+
+module.exports = style({
+  prop: 'borderColor',
+  key: 'colors'
+});
+});
+___scope___.file("dist/border-width.js", function(exports, require, module, __filename, __dirname){
+
+'use strict';
+
+function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+var style = require('./style');
+
+var getDirectionProp = function getDirectionProp(template) {
+  return function (dir) {
+    return template(dir);
+  };
+};
+var getWidthProp = getDirectionProp(function (dir) {
+  return 'border' + dir + 'Width';
+});
+var getStyleProp = getDirectionProp(function (dir) {
+  return 'border' + dir + 'Style';
+});
+
+var getDirections = function getDirections(props) {
+  var directions = [];
+  if (props.borderTop) directions.push('Top');
+  if (props.borderRight) directions.push('Right');
+  if (props.borderBottom) directions.push('Bottom');
+  if (props.borderLeft) directions.push('Left');
+  return directions.length ? directions : null;
+};
+
+module.exports = function (props) {
+  var directions = getDirections(props);
+  var borderWidths = directions ? directions.map(function (dir) {
+    return style({
+      key: 'borderWidths',
+      prop: 'borderWidth',
+      cssProperty: getWidthProp(dir),
+      numberToPx: true
+    })(props);
+  }) : [style({
+    key: 'borderWidths',
+    prop: 'borderWidth',
+    numberToPx: true
+  })(props)];
+
+  var borderStyles = directions ? directions.map(function (dir) {
+    return _defineProperty({}, getStyleProp(dir), 'solid');
+  }) : [{ borderStyle: 'solid' }];
+
+  return props.borderWidth || props.borderWidth === 0 ? Object.assign.apply(Object, [{}].concat(_toConsumableArray(borderWidths), _toConsumableArray(borderStyles))) : null;
+};
+});
+___scope___.file("dist/box-shadow.js", function(exports, require, module, __filename, __dirname){
+
+'use strict';
+
+var style = require('./style');
+
+module.exports = style({
+  prop: 'boxShadow',
+  key: 'shadows'
+});
+});
+___scope___.file("dist/hover.js", function(exports, require, module, __filename, __dirname){
+
+'use strict';
+
+var pseudoStyle = require('./pseudo-style');
+module.exports = pseudoStyle('hover')({
+  color: 'colors',
+  backgroundColor: 'colors',
+  borderColor: 'colors',
+  boxShadow: 'shadows'
+});
+});
+___scope___.file("dist/focus.js", function(exports, require, module, __filename, __dirname){
+
+'use strict';
+
+var pseudoStyle = require('./pseudo-style');
+module.exports = pseudoStyle('focus')({
+  color: 'colors',
+  backgroundColor: 'colors',
+  borderColor: 'colors',
+  boxShadow: 'shadows'
+});
+});
+___scope___.file("dist/active.js", function(exports, require, module, __filename, __dirname){
+
+'use strict';
+
+var pseudoStyle = require('./pseudo-style');
+module.exports = pseudoStyle('active')({
+  color: 'colors',
+  backgroundColor: 'colors',
+  borderColor: 'colors',
+  boxShadow: 'shadows'
+});
+});
+___scope___.file("dist/disabled.js", function(exports, require, module, __filename, __dirname){
+
+'use strict';
+
+var pseudoStyle = require('./pseudo-style');
+module.exports = pseudoStyle('disabled', 'disabledStyle')({
+  color: 'colors',
+  backgroundColor: 'colors',
+  borderColor: 'colors',
+  boxShadow: 'shadows'
+});
+});
+___scope___.file("dist/theme.js", function(exports, require, module, __filename, __dirname){
+
+'use strict';
+
+// theme getter
+var _require = require('./util'),
+    get = _require.get;
+
+module.exports = function (keys, fallback) {
+  return function (props) {
+    return get(props.theme, keys, fallback);
+  };
+};
+});
+___scope___.file("dist/prop-types.js", function(exports, require, module, __filename, __dirname){
+
+'use strict';
+
+var PropTypes = require('prop-types');
+
+var responsive = PropTypes.oneOfType([PropTypes.number, PropTypes.string, PropTypes.array]);
+
+var responsiveBoolean = PropTypes.oneOfType([PropTypes.bool, PropTypes.array]);
+
+var numberOrString = PropTypes.oneOfType([PropTypes.number, PropTypes.string]);
+
+var width = {
+  width: responsive,
+  w: responsive
+};
+
+var space = {
+  m: responsive,
+  mt: responsive,
+  mr: responsive,
+  mb: responsive,
+  ml: responsive,
+  mx: responsive,
+  my: responsive,
+  p: responsive,
+  pt: responsive,
+  pr: responsive,
+  pb: responsive,
+  pl: responsive,
+  px: responsive,
+  py: responsive
+};
+
+var fontSize = {
+  fontSize: responsive,
+  f: responsive
+};
+
+var color = {
+  color: responsive,
+  bg: responsive
+};
+
+var textAlign = {
+  align: responsive
+};
+
+var fontWeight = {
+  fontWeight: numberOrString
+};
+
+var alignItems = {
+  align: responsive
+};
+
+var justifyContent = {
+  justify: responsive
+};
+
+var flexWrap = {
+  wrap: responsiveBoolean
+};
+
+var flexDirection = {
+  flexDirection: responsive
+};
+
+var flex = {
+  flex: responsive
+};
+
+var alignSelf = {
+  alignSelf: responsive
+};
+
+var borderRadius = {
+  borderRadius: numberOrString
+};
+
+var borderWidth = {
+  borderWidth: numberOrString,
+  borderTop: PropTypes.bool,
+  borderRight: PropTypes.bool,
+  borderBottom: PropTypes.bool,
+  borderLeft: PropTypes.bool
+};
+
+var boxShadow = {
+  boxShadow: PropTypes.string
+};
+
+var hover = {
+  hover: PropTypes.object
+};
+
+var focus = {
+  focus: PropTypes.object
+};
+
+var active = {
+  active: PropTypes.object
+};
+
+var disabled = {
+  disabledStyle: PropTypes.object
+};
+
+var propTypes = {
+  width: width,
+  space: space,
+  fontSize: fontSize,
+  color: color,
+  textAlign: textAlign,
+  fontWeight: fontWeight,
+  alignItems: alignItems,
+  justifyContent: justifyContent,
+  flexWrap: flexWrap,
+  flexDirection: flexDirection,
+  flex: flex,
+  alignSelf: alignSelf,
+  borderRadius: borderRadius,
+  borderWidth: borderWidth,
+  boxShadow: boxShadow,
+  hover: hover,
+  focus: focus,
+  active: active,
+  disabled: disabled
+};
+
+module.exports = propTypes;
+});
+___scope___.file("dist/clean-element.js", function(exports, require, module, __filename, __dirname){
+
+'use strict';
+
+var React = require('react');
+
+var cleanElement = function cleanElement(Component) {
+  var Cleaned = function Cleaned(props) {
+    var next = {};
+    var keys = Object.keys(Cleaned.propTypes || {});
+    for (var key in props) {
+      if (keys.includes(key)) continue;
+      next[key] = props[key];
+    }
+
+    return React.createElement(Component, next);
+  };
+
+  return Cleaned;
+};
+
+module.exports = cleanElement;
+});
+___scope___.file("dist/remove-props.js", function(exports, require, module, __filename, __dirname){
+
+'use strict';
+
+function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
+
+var propTypes = require('./prop-types');
+
+var blacklist = Object.keys(propTypes).reduce(function (a, key) {
+  return [].concat(_toConsumableArray(a), _toConsumableArray(Object.keys(propTypes[key])));
+}, []);
+
+module.exports = function (props) {
+  var next = {};
+
+  for (var key in props) {
+    if (blacklist.includes(key)) continue;
+    next[key] = props[key];
+  }
+
+  return next;
+};
+});
+return ___scope___.entry = "dist/index.js";
+});
+FuseBox.pkg("tag-hoc", {}, function(___scope___){
+___scope___.file("dist/tag.js", function(exports, require, module, __filename, __dirname){
+
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.cleanProps = undefined;
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var tag = function tag() {
+  var blacklist = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
+
+  var clean = cleanProps(blacklist);
+
+  return function (type) {
+    var Base = function Base(props) {
+      var isEl = typeof type === 'string';
+      var Comp = isEl ? props.is || type : type;
+      var next = isEl ? clean(props) : props;
+
+      if (isEl) next.is = null;
+
+      return _react2.default.createElement(Comp, next);
+    };
+
+    return Base;
+  };
+};
+
+var cleanProps = exports.cleanProps = function cleanProps(blacklist) {
+  return function (props) {
+    var next = {};
+    for (var key in props) {
+      if (blacklist.includes(key)) continue;
+      next[key] = props[key];
+    }
+    return next;
+  };
+};
+
+exports.default = tag;
+});
+return ___scope___.entry = "dist/tag.js";
+});
 FuseBox.pkg("react-json-tree", {"react-base16-styling":"0.5.3"}, function(___scope___){
 ___scope___.file("lib/index.js", function(exports, require, module, __filename, __dirname){
 
@@ -56705,2509 +59208,6 @@ module.exports = function debounce(func, wait, immediate){
 
   return debounced;
 };
-
-});
-return ___scope___.entry = "index.js";
-});
-FuseBox.pkg("grid-styled", {}, function(___scope___){
-___scope___.file("dist/index.js", function(exports, require, module, __filename, __dirname){
-
-'use strict';
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _Box = require('./Box');
-
-Object.defineProperty(exports, 'Box', {
-  enumerable: true,
-  get: function get() {
-    return _interopRequireDefault(_Box).default;
-  }
-});
-
-var _Grid = require('./Grid');
-
-Object.defineProperty(exports, 'Grid', {
-  enumerable: true,
-  get: function get() {
-    return _interopRequireDefault(_Grid).default;
-  }
-});
-
-var _Flex = require('./Flex');
-
-Object.defineProperty(exports, 'Flex', {
-  enumerable: true,
-  get: function get() {
-    return _interopRequireDefault(_Flex).default;
-  }
-});
-
-var _Half = require('./Half');
-
-Object.defineProperty(exports, 'Half', {
-  enumerable: true,
-  get: function get() {
-    return _interopRequireDefault(_Half).default;
-  }
-});
-
-var _Third = require('./Third');
-
-Object.defineProperty(exports, 'Third', {
-  enumerable: true,
-  get: function get() {
-    return _interopRequireDefault(_Third).default;
-  }
-});
-
-var _Quarter = require('./Quarter');
-
-Object.defineProperty(exports, 'Quarter', {
-  enumerable: true,
-  get: function get() {
-    return _interopRequireDefault(_Quarter).default;
-  }
-});
-
-var _Golden = require('./Golden');
-
-Object.defineProperty(exports, 'Golden', {
-  enumerable: true,
-  get: function get() {
-    return _interopRequireDefault(_Golden).default;
-  }
-});
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-});
-___scope___.file("dist/Box.js", function(exports, require, module, __filename, __dirname){
-
-'use strict';
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.order = exports.flex = undefined;
-
-var _react = require('react');
-
-var _react2 = _interopRequireDefault(_react);
-
-var _styledComponents = require('styled-components');
-
-var _styledComponents2 = _interopRequireDefault(_styledComponents);
-
-var _styledSystem = require('styled-system');
-
-var _propTypes = require('prop-types');
-
-var _tagHoc = require('tag-hoc');
-
-var _tagHoc2 = _interopRequireDefault(_tagHoc);
-
-var _propTypes2 = require('./propTypes');
-
-var _propTypes3 = _interopRequireDefault(_propTypes2);
-
-var _removeProps = require('./remove-props');
-
-var _removeProps2 = _interopRequireDefault(_removeProps);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var flex = exports.flex = (0, _styledSystem.responsiveStyle)('flex');
-var order = exports.order = (0, _styledSystem.responsiveStyle)('order');
-
-var Tag = (0, _tagHoc2.default)(_removeProps2.default);
-var Base = Tag('div');
-
-var Box = (0, _styledComponents2.default)(Base)([], { boxSizing: 'border-box' }, _styledSystem.width, _styledSystem.space, flex, order);
-Box.displayName = 'Box';
-
-var responsivePropType = (0, _propTypes.oneOfType)([_propTypes.number, _propTypes.string, _propTypes.array]);
-
-Box.propTypes = Object.assign({}, _propTypes3.default, {
-  flex: responsivePropType,
-  order: responsivePropType
-});
-
-exports.default = Box;
-});
-___scope___.file("dist/propTypes.js", function(exports, require, module, __filename, __dirname){
-
-'use strict';
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _propTypes = require('prop-types');
-
-var responsivePropType = (0, _propTypes.oneOfType)([_propTypes.number, _propTypes.string, _propTypes.array]);
-
-var propTypes = {
-  width: responsivePropType,
-  fontSize: responsivePropType,
-  color: responsivePropType,
-  bg: responsivePropType,
-  m: responsivePropType,
-  mt: responsivePropType,
-  mr: responsivePropType,
-  mb: responsivePropType,
-  ml: responsivePropType,
-  mx: responsivePropType,
-  my: responsivePropType,
-  p: responsivePropType,
-  pt: responsivePropType,
-  pr: responsivePropType,
-  pb: responsivePropType,
-  pl: responsivePropType,
-  px: responsivePropType,
-  py: responsivePropType
-};
-
-exports.default = propTypes;
-});
-___scope___.file("dist/remove-props.js", function(exports, require, module, __filename, __dirname){
-
-'use strict';
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = ['width', 'w', 'm', 'mt', 'mr', 'mb', 'ml', 'mx', 'my', 'p', 'pt', 'pr', 'pb', 'pl', 'px', 'py', 'flex', 'order', 'wrap', 'direction', 'align', 'justify', 'column'];
-});
-___scope___.file("dist/Grid.js", function(exports, require, module, __filename, __dirname){
-
-'use strict';
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _styledComponents = require('styled-components');
-
-var _styledComponents2 = _interopRequireDefault(_styledComponents);
-
-var _Box = require('./Box');
-
-var _Box2 = _interopRequireDefault(_Box);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var align = function align(props) {
-  return { verticalAlign: props.align || 'top' };
-};
-
-var Grid = (0, _styledComponents2.default)(_Box2.default)([], {
-  display: 'inline-block'
-}, align);
-Grid.displayName = 'Grid';
-
-exports.default = Grid;
-});
-___scope___.file("dist/Flex.js", function(exports, require, module, __filename, __dirname){
-
-'use strict';
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _react = require('react');
-
-var _react2 = _interopRequireDefault(_react);
-
-var _styledComponents = require('styled-components');
-
-var _styledComponents2 = _interopRequireDefault(_styledComponents);
-
-var _styledSystem = require('styled-system');
-
-var _propTypes = require('prop-types');
-
-var _propTypes2 = require('./propTypes');
-
-var _propTypes3 = _interopRequireDefault(_propTypes2);
-
-var _Box = require('./Box');
-
-var _Box2 = _interopRequireDefault(_Box);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var wrap = (0, _styledSystem.responsiveStyle)('flex-wrap', 'wrap', 'wrap');
-var direction = (0, _styledSystem.responsiveStyle)('flex-direction', 'direction');
-var align = function align(props) {
-  return (0, _styledSystem.responsiveStyle)('align-items', 'align');
-};
-var justify = function justify(props) {
-  return (0, _styledSystem.responsiveStyle)('justify-content', 'justify');
-};
-var column = function column(props) {
-  return props.column ? 'flex-direction:column;' : null;
-};
-
-var Flex = (0, _styledComponents2.default)(_Box2.default)([], { display: 'flex' }, wrap, column, direction, align, justify);
-Flex.displayName = 'Flex';
-
-var responsivePropType = (0, _propTypes.oneOfType)([_propTypes.number, _propTypes.string, _propTypes.array, _propTypes.bool]);
-
-Flex.propTypes = Object.assign({}, _propTypes3.default, {
-  wrap: responsivePropType,
-  direction: responsivePropType,
-  align: responsivePropType,
-  justify: responsivePropType,
-  column: _propTypes.bool
-});
-
-exports.default = Flex;
-});
-___scope___.file("dist/Half.js", function(exports, require, module, __filename, __dirname){
-
-'use strict';
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-var _react = require('react');
-
-var _react2 = _interopRequireDefault(_react);
-
-var _Grid = require('./Grid');
-
-var _Grid2 = _interopRequireDefault(_Grid);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var Half = function Half(props) {
-  return _react2.default.createElement(_Grid2.default, _extends({}, props, { width: [1, 1 / 2] }));
-};
-Half.displayName = 'Half';
-
-exports.default = Half;
-});
-___scope___.file("dist/Third.js", function(exports, require, module, __filename, __dirname){
-
-'use strict';
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-var _react = require('react');
-
-var _react2 = _interopRequireDefault(_react);
-
-var _Grid = require('./Grid');
-
-var _Grid2 = _interopRequireDefault(_Grid);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var Third = function Third(props) {
-  return _react2.default.createElement(_Grid2.default, _extends({}, props, { width: [1, 1 / 3] }));
-};
-Third.displayName = 'Third';
-
-exports.default = Third;
-});
-___scope___.file("dist/Quarter.js", function(exports, require, module, __filename, __dirname){
-
-'use strict';
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-var _react = require('react');
-
-var _react2 = _interopRequireDefault(_react);
-
-var _Grid = require('./Grid');
-
-var _Grid2 = _interopRequireDefault(_Grid);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var Quarter = function Quarter(props) {
-  return _react2.default.createElement(_Grid2.default, _extends({}, props, { width: [1, 1 / 4] }));
-};
-Quarter.displayName = 'Quarter';
-
-exports.default = Quarter;
-});
-___scope___.file("dist/Golden.js", function(exports, require, module, __filename, __dirname){
-
-'use strict';
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.B = exports.A = exports.gb = exports.ga = exports.φ = undefined;
-
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-var _react = require('react');
-
-var _react2 = _interopRequireDefault(_react);
-
-var _Grid = require('./Grid');
-
-var _Grid2 = _interopRequireDefault(_Grid);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var φ = exports.φ = (1 + Math.sqrt(5)) / 2;
-var ga = exports.ga = φ - 1;
-var gb = exports.gb = 1 - ga;
-
-var A = exports.A = function A(props) {
-  return _react2.default.createElement(_Grid2.default, _extends({}, props, { width: [1, ga] }));
-};
-var B = exports.B = function B(props) {
-  return _react2.default.createElement(_Grid2.default, _extends({}, props, { width: [1, gb] }));
-};
-
-var Golden = {
-  A: A,
-  B: B
-};
-Golden.displayName = 'Golden';
-
-exports.default = Golden;
-});
-return ___scope___.entry = "dist/index.js";
-});
-FuseBox.pkg("styled-system", {}, function(___scope___){
-___scope___.file("dist/index.js", function(exports, require, module, __filename, __dirname){
-
-'use strict';
-
-// core
-var space = require('./space');
-var width = require('./width');
-var fontSize = require('./font-size');
-var color = require('./color');
-
-// low-level style function creators
-var style = require('./style');
-var responsiveStyle = require('./responsive-style');
-var pseudoStyle = require('./pseudo-style');
-
-// extras
-var textAlign = require('./text-align');
-var fontWeight = require('./font-weight');
-var alignItems = require('./align-items');
-var justifyContent = require('./justify-content');
-var flexWrap = require('./flex-wrap');
-var flexDirection = require('./flex-direction');
-var flex = require('./flex');
-var alignSelf = require('./align-self');
-var borderRadius = require('./border-radius');
-var borderColor = require('./border-color');
-var borderWidth = require('./border-width');
-var boxShadow = require('./box-shadow');
-var hover = require('./hover');
-var focus = require('./focus');
-var active = require('./active');
-var disabled = require('./disabled');
-
-// other
-var theme = require('./theme');
-var propTypes = require('./prop-types');
-var cleanElement = require('./clean-element');
-var removeProps = require('./remove-props');
-var util = require('./util');
-var constants = require('./constants');
-
-module.exports = {
-  space: space,
-  width: width,
-  fontSize: fontSize,
-  color: color,
-  style: style,
-  responsiveStyle: responsiveStyle,
-  pseudoStyle: pseudoStyle,
-  textAlign: textAlign,
-  fontWeight: fontWeight,
-  alignItems: alignItems,
-  justifyContent: justifyContent,
-  flexWrap: flexWrap,
-  flexDirection: flexDirection,
-  flex: flex,
-  alignSelf: alignSelf,
-  borderRadius: borderRadius,
-  borderColor: borderColor,
-  borderWidth: borderWidth,
-  boxShadow: boxShadow,
-  hover: hover,
-  focus: focus,
-  active: active,
-  disabled: disabled,
-  theme: theme,
-  propTypes: propTypes,
-  cleanElement: cleanElement,
-  removeProps: removeProps,
-  util: util,
-  constants: constants
-};
-});
-___scope___.file("dist/space.js", function(exports, require, module, __filename, __dirname){
-
-'use strict';
-
-var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-var _require = require('./util'),
-    get = _require.get,
-    arr = _require.arr,
-    px = _require.px,
-    neg = _require.neg,
-    num = _require.num,
-    breaks = _require.breaks,
-    dec = _require.dec,
-    media = _require.media,
-    merge = _require.merge;
-
-var _require2 = require('./constants'),
-    space = _require2.space;
-
-var REG = /^[mp][trblxy]?$/;
-
-module.exports = function (props) {
-  var keys = Object.keys(props).filter(function (key) {
-    return REG.test(key);
-  }).sort();
-  var bp = breaks(props);
-  var sc = get(props, 'theme.space', space);
-
-  return keys.map(function (key) {
-    var val = props[key];
-    var p = getProperties(key);
-
-    if (!Array.isArray(val)) {
-      return p.reduce(function (a, b) {
-        return Object.assign(a, _defineProperty({}, b, mx(sc)(val)));
-      }, {});
-    }
-
-    return arr(val).map(mx(sc)).map(dec(p)).map(media(bp)).reduce(merge, {});
-  }).reduce(merge, {});
-};
-
-var mx = function mx(scale) {
-  return function (n) {
-    if (!num(n)) {
-      return n;
-    }
-
-    var value = scale[Math.abs(n)] || Math.abs(n);
-    if (!num(value)) {
-      return value;
-    }
-
-    return px(value * (neg(n) ? -1 : 1));
-  };
-};
-
-var getProperties = function getProperties(key) {
-  var _key$split = key.split(''),
-      _key$split2 = _slicedToArray(_key$split, 2),
-      a = _key$split2[0],
-      b = _key$split2[1];
-
-  var prop = properties[a];
-  var dirs = directions[b] || [''];
-  return dirs.map(function (dir) {
-    return prop + dir;
-  });
-};
-
-var properties = {
-  m: 'margin',
-  p: 'padding'
-};
-
-var directions = {
-  t: ['Top'],
-  r: ['Right'],
-  b: ['Bottom'],
-  l: ['Left'],
-  x: ['Left', 'Right'],
-  y: ['Top', 'Bottom']
-};
-});
-___scope___.file("dist/util.js", function(exports, require, module, __filename, __dirname){
-
-'use strict';
-
-var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
-
-var _require = require('./constants'),
-    breakpoints = _require.breakpoints;
-
-var is = function is(n) {
-  return n !== undefined && n !== null;
-};
-var num = function num(n) {
-  return typeof n === 'number' && !isNaN(n);
-};
-var px = function px(n) {
-  return num(n) ? n + 'px' : n;
-};
-var em = function em(n) {
-  return num(n) ? n + 'em' : n;
-};
-var neg = function neg(n) {
-  return n < 0;
-};
-var arr = function arr(n) {
-  return Array.isArray(n) ? n : [n];
-};
-
-var get = function get(obj, path, fallback) {
-  return path.split('.').reduce(function (a, b) {
-    return a && a[b] ? a[b] : null;
-  }, obj) || fallback;
-};
-
-var mq = function mq(n) {
-  return '@media screen and (min-width: ' + em(n) + ')';
-};
-
-var breaks = function breaks(props) {
-  return [null].concat(_toConsumableArray(get(props, 'theme.breakpoints', breakpoints).map(mq)));
-};
-
-var dec = function dec(props) {
-  return function (val) {
-    return arr(props).reduce(function (acc, prop) {
-      return acc[prop] = val, acc;
-    }, {});
-  };
-};
-
-var media = function media(bp) {
-  return function (d, i) {
-    return is(d) ? bp[i] ? _defineProperty({}, bp[i], d) : d : null;
-  };
-};
-
-var merge = function merge(a, b) {
-  return Object.assign({}, a, b, Object.keys(b).reduce(function (obj, key) {
-    return Object.assign(obj, _defineProperty({}, key, a[key] !== null && _typeof(a[key]) === 'object' ? merge(a[key], b[key]) : b[key]));
-  }, {}));
-};
-
-// keeping for backwards-compatibility only
-var idx = function idx(keys, obj) {
-  return get(obj, keys.join('.')) || null;
-};
-
-module.exports = {
-  get: get,
-  is: is,
-  px: px,
-  em: em,
-  neg: neg,
-  num: num,
-  arr: arr,
-  idx: idx,
-  breaks: breaks,
-  media: media,
-  dec: dec,
-  merge: merge,
-  mq: mq
-};
-});
-___scope___.file("dist/constants.js", function(exports, require, module, __filename, __dirname){
-
-"use strict";
-
-var breakpoints = [40, 52, 64];
-
-var space = [0, 8, 16, 32, 64];
-
-var fontSizes = [12, 14, 16, 20, 24, 32, 48, 64, 72];
-
-module.exports = {
-  breakpoints: breakpoints,
-  space: space,
-  fontSizes: fontSizes
-};
-});
-___scope___.file("dist/width.js", function(exports, require, module, __filename, __dirname){
-
-'use strict';
-
-var _require = require('./util'),
-    is = _require.is,
-    arr = _require.arr,
-    num = _require.num,
-    px = _require.px,
-    breaks = _require.breaks,
-    dec = _require.dec,
-    media = _require.media,
-    merge = _require.merge;
-
-module.exports = function (props) {
-  var n = is(props.width) ? props.width : props.width || props.w;
-  if (!is(n)) return null;
-
-  if (!Array.isArray(n)) {
-    return {
-      width: wx(n)
-    };
-  }
-
-  var bp = breaks(props);
-
-  return n.map(wx).map(dec('width')).map(media(bp)).reduce(merge, {});
-};
-
-var wx = function wx(n) {
-  return !num(n) || n > 1 ? px(n) : n * 100 + '%';
-};
-});
-___scope___.file("dist/font-size.js", function(exports, require, module, __filename, __dirname){
-
-'use strict';
-
-var _require = require('./util'),
-    get = _require.get,
-    is = _require.is,
-    arr = _require.arr,
-    num = _require.num,
-    px = _require.px,
-    breaks = _require.breaks,
-    dec = _require.dec,
-    media = _require.media,
-    merge = _require.merge;
-
-var _require2 = require('./constants'),
-    fontSizes = _require2.fontSizes;
-
-module.exports = function (props) {
-  var n = is(props.fontSize) ? props.fontSize : props.fontSize || props.f;
-  if (!is(n)) return null;
-
-  var scale = get(props, 'theme.fontSizes', fontSizes);
-
-  if (!Array.isArray(n)) {
-    return {
-      fontSize: fx(scale)(n)
-    };
-  }
-
-  var bp = breaks(props);
-
-  return n.map(fx(scale)).map(dec('fontSize')).map(media(bp)).reduce(merge, {});
-};
-
-var fx = function fx(scale) {
-  return function (n) {
-    return num(n) ? px(scale[n] || n) : n;
-  };
-};
-});
-___scope___.file("dist/color.js", function(exports, require, module, __filename, __dirname){
-
-'use strict';
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-var _require = require('./util'),
-    get = _require.get,
-    breaks = _require.breaks,
-    merge = _require.merge,
-    arr = _require.arr,
-    dec = _require.dec,
-    media = _require.media;
-
-var REG = /^color|bg$/;
-
-module.exports = function (props) {
-  var keys = Object.keys(props).filter(function (key) {
-    return REG.test(key);
-  });
-  var bp = breaks(props);
-  var palette = get(props, 'theme.colors', {});
-
-  return keys.map(function (key) {
-    var val = props[key];
-    var prop = properties[key] || key;
-
-    if (!Array.isArray(val)) {
-      return _defineProperty({}, prop, cx(palette)(val));
-    }
-
-    return val.map(cx(palette)).map(dec(prop)).map(media(bp)).reduce(merge, {});
-  }).reduce(merge, {});
-};
-
-var cx = function cx(obj) {
-  return function (n) {
-    return get(obj, n + '', n);
-  };
-};
-
-var properties = {
-  bg: 'backgroundColor'
-};
-});
-___scope___.file("dist/style.js", function(exports, require, module, __filename, __dirname){
-
-'use strict';
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-var _require = require('./util'),
-    get = _require.get,
-    is = _require.is,
-    px = _require.px;
-
-module.exports = function (_ref) {
-  var key = _ref.key,
-      prop = _ref.prop,
-      cssProperty = _ref.cssProperty,
-      numberToPx = _ref.numberToPx;
-  return function (props) {
-    var n = props[prop];
-    if (!is(n)) return null;
-    var val = get(props, ['theme', key, n].join('.'), n);
-    var value = numberToPx ? px(val) : val;
-
-    return _defineProperty({}, cssProperty || prop, value);
-  };
-};
-});
-___scope___.file("dist/responsive-style.js", function(exports, require, module, __filename, __dirname){
-
-'use strict';
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-var _require = require('./util'),
-    get = _require.get,
-    is = _require.is,
-    arr = _require.arr,
-    num = _require.num,
-    px = _require.px,
-    breaks = _require.breaks,
-    dec = _require.dec,
-    media = _require.media,
-    merge = _require.merge;
-
-module.exports = function () {
-  for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
-    args[_key] = arguments[_key];
-  }
-
-  return function (props) {
-    // support for legacy API
-    var arg = args[0],
-        _prop = args[1],
-        _bool = args[2];
-
-    var _ref = typeof arg === 'string' ? { cssProperty: arg, prop: _prop, boolValue: _bool } : arg,
-        cssProperty = _ref.cssProperty,
-        prop = _ref.prop,
-        boolValue = _ref.boolValue,
-        key = _ref.key,
-        numberToPx = _ref.numberToPx;
-
-    prop = prop || cssProperty;
-    var n = props[prop];
-    if (!is(n)) return null;
-
-    var bp = breaks(props);
-    var scale = get(props, ['theme', key || prop].join('.'), {});
-    var sx = function sx(val) {
-      return get(scale, '' + val, numberToPx ? px(val) : val);
-    };
-
-    if (!Array.isArray(n)) {
-      return _defineProperty({}, cssProperty, sx(bool(boolValue)(n)));
-    }
-
-    var val = arr(n);
-    return val.map(bool(boolValue)).map(sx).map(dec(cssProperty)).map(media(bp)).reduce(merge, {});
-  };
-};
-
-var bool = function bool(val) {
-  return function (n) {
-    return n === true ? val : n;
-  };
-};
-});
-___scope___.file("dist/pseudo-style.js", function(exports, require, module, __filename, __dirname){
-
-'use strict';
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-var _require = require('./util'),
-    get = _require.get,
-    px = _require.px;
-
-module.exports = function (pseudoclass, prop) {
-  return function () {
-    var keys = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-    return function (props) {
-      var style = props[prop || pseudoclass];
-      var numberToPx = keys.numberToPx || {};
-      for (var key in style) {
-        var toPx = numberToPx[key];
-
-        if (!keys[key] && !toPx) continue;
-        var themeKey = [keys[key], style[key]].join('.');
-        style[key] = get(props.theme, themeKey, style[key]);
-
-        if (toPx) style[key] = px(style[key]);
-      }
-
-      return _defineProperty({}, '&:' + pseudoclass, style);
-    };
-  };
-};
-});
-___scope___.file("dist/text-align.js", function(exports, require, module, __filename, __dirname){
-
-'use strict';
-
-var responsiveStyle = require('./responsive-style');
-module.exports = responsiveStyle('textAlign', 'align');
-});
-___scope___.file("dist/font-weight.js", function(exports, require, module, __filename, __dirname){
-
-'use strict';
-
-var style = require('./style');
-
-module.exports = style({
-  prop: 'fontWeight',
-  key: 'fontWeights'
-});
-});
-___scope___.file("dist/align-items.js", function(exports, require, module, __filename, __dirname){
-
-'use strict';
-
-var responsiveStyle = require('./responsive-style');
-module.exports = responsiveStyle('alignItems', 'align');
-});
-___scope___.file("dist/justify-content.js", function(exports, require, module, __filename, __dirname){
-
-'use strict';
-
-var responsiveStyle = require('./responsive-style');
-module.exports = responsiveStyle('justifyContent', 'justify');
-});
-___scope___.file("dist/flex-wrap.js", function(exports, require, module, __filename, __dirname){
-
-'use strict';
-
-var responsiveStyle = require('./responsive-style');
-module.exports = responsiveStyle('flexWrap', 'wrap', 'wrap');
-});
-___scope___.file("dist/flex-direction.js", function(exports, require, module, __filename, __dirname){
-
-'use strict';
-
-var responsiveStyle = require('./responsive-style');
-module.exports = responsiveStyle('flexDirection');
-});
-___scope___.file("dist/flex.js", function(exports, require, module, __filename, __dirname){
-
-'use strict';
-
-var responsiveStyle = require('./responsive-style');
-module.exports = responsiveStyle('flex');
-});
-___scope___.file("dist/align-self.js", function(exports, require, module, __filename, __dirname){
-
-'use strict';
-
-var responsiveStyle = require('./responsive-style');
-module.exports = responsiveStyle('alignSelf', 'alignSelf');
-});
-___scope___.file("dist/border-radius.js", function(exports, require, module, __filename, __dirname){
-
-'use strict';
-
-var style = require('./style');
-
-module.exports = style({
-  prop: 'borderRadius',
-  key: 'radii',
-  numberToPx: true
-});
-});
-___scope___.file("dist/border-color.js", function(exports, require, module, __filename, __dirname){
-
-'use strict';
-
-var style = require('./style');
-
-module.exports = style({
-  prop: 'borderColor',
-  key: 'colors'
-});
-});
-___scope___.file("dist/border-width.js", function(exports, require, module, __filename, __dirname){
-
-'use strict';
-
-function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-var style = require('./style');
-
-var getDirectionProp = function getDirectionProp(template) {
-  return function (dir) {
-    return template(dir);
-  };
-};
-var getWidthProp = getDirectionProp(function (dir) {
-  return 'border' + dir + 'Width';
-});
-var getStyleProp = getDirectionProp(function (dir) {
-  return 'border' + dir + 'Style';
-});
-
-var getDirections = function getDirections(props) {
-  var directions = [];
-  if (props.borderTop) directions.push('Top');
-  if (props.borderRight) directions.push('Right');
-  if (props.borderBottom) directions.push('Bottom');
-  if (props.borderLeft) directions.push('Left');
-  return directions.length ? directions : null;
-};
-
-module.exports = function (props) {
-  var directions = getDirections(props);
-  var borderWidths = directions ? directions.map(function (dir) {
-    return style({
-      key: 'borderWidths',
-      prop: 'borderWidth',
-      cssProperty: getWidthProp(dir),
-      numberToPx: true
-    })(props);
-  }) : [style({
-    key: 'borderWidths',
-    prop: 'borderWidth',
-    numberToPx: true
-  })(props)];
-
-  var borderStyles = directions ? directions.map(function (dir) {
-    return _defineProperty({}, getStyleProp(dir), 'solid');
-  }) : [{ borderStyle: 'solid' }];
-
-  return props.borderWidth || props.borderWidth === 0 ? Object.assign.apply(Object, [{}].concat(_toConsumableArray(borderWidths), _toConsumableArray(borderStyles))) : null;
-};
-});
-___scope___.file("dist/box-shadow.js", function(exports, require, module, __filename, __dirname){
-
-'use strict';
-
-var style = require('./style');
-
-module.exports = style({
-  prop: 'boxShadow',
-  key: 'shadows'
-});
-});
-___scope___.file("dist/hover.js", function(exports, require, module, __filename, __dirname){
-
-'use strict';
-
-var pseudoStyle = require('./pseudo-style');
-module.exports = pseudoStyle('hover')({
-  color: 'colors',
-  backgroundColor: 'colors',
-  borderColor: 'colors',
-  boxShadow: 'shadows'
-});
-});
-___scope___.file("dist/focus.js", function(exports, require, module, __filename, __dirname){
-
-'use strict';
-
-var pseudoStyle = require('./pseudo-style');
-module.exports = pseudoStyle('focus')({
-  color: 'colors',
-  backgroundColor: 'colors',
-  borderColor: 'colors',
-  boxShadow: 'shadows'
-});
-});
-___scope___.file("dist/active.js", function(exports, require, module, __filename, __dirname){
-
-'use strict';
-
-var pseudoStyle = require('./pseudo-style');
-module.exports = pseudoStyle('active')({
-  color: 'colors',
-  backgroundColor: 'colors',
-  borderColor: 'colors',
-  boxShadow: 'shadows'
-});
-});
-___scope___.file("dist/disabled.js", function(exports, require, module, __filename, __dirname){
-
-'use strict';
-
-var pseudoStyle = require('./pseudo-style');
-module.exports = pseudoStyle('disabled', 'disabledStyle')({
-  color: 'colors',
-  backgroundColor: 'colors',
-  borderColor: 'colors',
-  boxShadow: 'shadows'
-});
-});
-___scope___.file("dist/theme.js", function(exports, require, module, __filename, __dirname){
-
-'use strict';
-
-// theme getter
-var _require = require('./util'),
-    get = _require.get;
-
-module.exports = function (keys, fallback) {
-  return function (props) {
-    return get(props.theme, keys, fallback);
-  };
-};
-});
-___scope___.file("dist/prop-types.js", function(exports, require, module, __filename, __dirname){
-
-'use strict';
-
-var PropTypes = require('prop-types');
-
-var responsive = PropTypes.oneOfType([PropTypes.number, PropTypes.string, PropTypes.array]);
-
-var responsiveBoolean = PropTypes.oneOfType([PropTypes.bool, PropTypes.array]);
-
-var numberOrString = PropTypes.oneOfType([PropTypes.number, PropTypes.string]);
-
-var width = {
-  width: responsive,
-  w: responsive
-};
-
-var space = {
-  m: responsive,
-  mt: responsive,
-  mr: responsive,
-  mb: responsive,
-  ml: responsive,
-  mx: responsive,
-  my: responsive,
-  p: responsive,
-  pt: responsive,
-  pr: responsive,
-  pb: responsive,
-  pl: responsive,
-  px: responsive,
-  py: responsive
-};
-
-var fontSize = {
-  fontSize: responsive,
-  f: responsive
-};
-
-var color = {
-  color: responsive,
-  bg: responsive
-};
-
-var textAlign = {
-  align: responsive
-};
-
-var fontWeight = {
-  fontWeight: numberOrString
-};
-
-var alignItems = {
-  align: responsive
-};
-
-var justifyContent = {
-  justify: responsive
-};
-
-var flexWrap = {
-  wrap: responsiveBoolean
-};
-
-var flexDirection = {
-  flexDirection: responsive
-};
-
-var flex = {
-  flex: responsive
-};
-
-var alignSelf = {
-  alignSelf: responsive
-};
-
-var borderRadius = {
-  borderRadius: numberOrString
-};
-
-var borderWidth = {
-  borderWidth: numberOrString,
-  borderTop: PropTypes.bool,
-  borderRight: PropTypes.bool,
-  borderBottom: PropTypes.bool,
-  borderLeft: PropTypes.bool
-};
-
-var boxShadow = {
-  boxShadow: PropTypes.string
-};
-
-var hover = {
-  hover: PropTypes.object
-};
-
-var focus = {
-  focus: PropTypes.object
-};
-
-var active = {
-  active: PropTypes.object
-};
-
-var disabled = {
-  disabledStyle: PropTypes.object
-};
-
-var propTypes = {
-  width: width,
-  space: space,
-  fontSize: fontSize,
-  color: color,
-  textAlign: textAlign,
-  fontWeight: fontWeight,
-  alignItems: alignItems,
-  justifyContent: justifyContent,
-  flexWrap: flexWrap,
-  flexDirection: flexDirection,
-  flex: flex,
-  alignSelf: alignSelf,
-  borderRadius: borderRadius,
-  borderWidth: borderWidth,
-  boxShadow: boxShadow,
-  hover: hover,
-  focus: focus,
-  active: active,
-  disabled: disabled
-};
-
-module.exports = propTypes;
-});
-___scope___.file("dist/clean-element.js", function(exports, require, module, __filename, __dirname){
-
-'use strict';
-
-var React = require('react');
-
-var cleanElement = function cleanElement(Component) {
-  var Cleaned = function Cleaned(props) {
-    var next = {};
-    var keys = Object.keys(Cleaned.propTypes || {});
-    for (var key in props) {
-      if (keys.includes(key)) continue;
-      next[key] = props[key];
-    }
-
-    return React.createElement(Component, next);
-  };
-
-  return Cleaned;
-};
-
-module.exports = cleanElement;
-});
-___scope___.file("dist/remove-props.js", function(exports, require, module, __filename, __dirname){
-
-'use strict';
-
-function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
-
-var propTypes = require('./prop-types');
-
-var blacklist = Object.keys(propTypes).reduce(function (a, key) {
-  return [].concat(_toConsumableArray(a), _toConsumableArray(Object.keys(propTypes[key])));
-}, []);
-
-module.exports = function (props) {
-  var next = {};
-
-  for (var key in props) {
-    if (blacklist.includes(key)) continue;
-    next[key] = props[key];
-  }
-
-  return next;
-};
-});
-return ___scope___.entry = "dist/index.js";
-});
-FuseBox.pkg("tag-hoc", {}, function(___scope___){
-___scope___.file("dist/tag.js", function(exports, require, module, __filename, __dirname){
-
-'use strict';
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.cleanProps = undefined;
-
-var _react = require('react');
-
-var _react2 = _interopRequireDefault(_react);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var tag = function tag() {
-  var blacklist = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
-
-  var clean = cleanProps(blacklist);
-
-  return function (type) {
-    var Base = function Base(props) {
-      var isEl = typeof type === 'string';
-      var Comp = isEl ? props.is || type : type;
-      var next = isEl ? clean(props) : props;
-
-      if (isEl) next.is = null;
-
-      return _react2.default.createElement(Comp, next);
-    };
-
-    return Base;
-  };
-};
-
-var cleanProps = exports.cleanProps = function cleanProps(blacklist) {
-  return function (props) {
-    var next = {};
-    for (var key in props) {
-      if (blacklist.includes(key)) continue;
-      next[key] = props[key];
-    }
-    return next;
-  };
-};
-
-exports.default = tag;
-});
-return ___scope___.entry = "dist/tag.js";
-});
-FuseBox.pkg("styled-spinkit", {}, function(___scope___){
-___scope___.file("lib/index.js", function(exports, require, module, __filename, __dirname){
-
-'use strict';
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.RotaingPlaneLoading = exports.DoubleDounceLoading = exports.WaveLoading = exports.WanderingCubes = exports.FoldingCube = exports.ThreeBounce = exports.FadingCircle = exports.Pulse = exports.CubeGrid = exports.Circle = exports.ChasingDots = undefined;
-
-var _ChasingDots = require('./ChasingDots');
-
-var _ChasingDots2 = _interopRequireDefault(_ChasingDots);
-
-var _FadingCircle = require('./FadingCircle');
-
-var _FadingCircle2 = _interopRequireDefault(_FadingCircle);
-
-var _ThreeBounce = require('./ThreeBounce');
-
-var _ThreeBounce2 = _interopRequireDefault(_ThreeBounce);
-
-var _Circle = require('./Circle');
-
-var _Circle2 = _interopRequireDefault(_Circle);
-
-var _FoldingCube = require('./FoldingCube');
-
-var _FoldingCube2 = _interopRequireDefault(_FoldingCube);
-
-var _WanderingCubes = require('./WanderingCubes');
-
-var _WanderingCubes2 = _interopRequireDefault(_WanderingCubes);
-
-var _CubeGrid = require('./CubeGrid');
-
-var _CubeGrid2 = _interopRequireDefault(_CubeGrid);
-
-var _Pulse = require('./Pulse');
-
-var _Pulse2 = _interopRequireDefault(_Pulse);
-
-var _WaveLoading = require('./WaveLoading');
-
-var _WaveLoading2 = _interopRequireDefault(_WaveLoading);
-
-var _DoubleDounceLoading = require('./DoubleDounceLoading');
-
-var _DoubleDounceLoading2 = _interopRequireDefault(_DoubleDounceLoading);
-
-var _RotaingPlaneLoading = require('./RotaingPlaneLoading');
-
-var _RotaingPlaneLoading2 = _interopRequireDefault(_RotaingPlaneLoading);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-exports.ChasingDots = _ChasingDots2.default;
-exports.Circle = _Circle2.default;
-exports.CubeGrid = _CubeGrid2.default;
-exports.Pulse = _Pulse2.default;
-exports.FadingCircle = _FadingCircle2.default;
-exports.ThreeBounce = _ThreeBounce2.default;
-exports.FoldingCube = _FoldingCube2.default;
-exports.WanderingCubes = _WanderingCubes2.default;
-exports.WaveLoading = _WaveLoading2.default;
-exports.DoubleDounceLoading = _DoubleDounceLoading2.default;
-exports.RotaingPlaneLoading = _RotaingPlaneLoading2.default;
-});
-___scope___.file("lib/ChasingDots/index.js", function(exports, require, module, __filename, __dirname){
-
-'use strict';
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = require('react');
-
-var _react2 = _interopRequireDefault(_react);
-
-var _styles = require('./styles');
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var ChangeDots = function (_React$PureComponent) {
-  _inherits(ChangeDots, _React$PureComponent);
-
-  function ChangeDots() {
-    _classCallCheck(this, ChangeDots);
-
-    return _possibleConstructorReturn(this, (ChangeDots.__proto__ || Object.getPrototypeOf(ChangeDots)).apply(this, arguments));
-  }
-
-  _createClass(ChangeDots, [{
-    key: 'render',
-    value: function render() {
-      return _react2.default.createElement(
-        _styles.StyledChangeDots,
-        this.props,
-        _react2.default.createElement(_styles.Child, null),
-        _react2.default.createElement(_styles.Child, { second: true })
-      );
-    }
-  }]);
-
-  return ChangeDots;
-}(_react2.default.PureComponent);
-
-ChangeDots.defaultProps = {
-  size: 40,
-  color: '#eee'
-};
-ChangeDots.displayName = '__styled-spinkit__ChangeDots';
-ChangeDots.propTypes = {
-  size: require('prop-types').number.isRequired,
-  color: require('prop-types').string.isRequired
-};
-exports.default = ChangeDots;
-});
-___scope___.file("lib/ChasingDots/styles.js", function(exports, require, module, __filename, __dirname){
-
-'use strict';
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.StyledChangeDots = exports.Child = undefined;
-
-var _styledComponents = require('styled-components');
-
-var _styledComponents2 = _interopRequireDefault(_styledComponents);
-
-var _util = require('../util');
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var rotate = (0, _styledComponents.keyframes)(['100% {transform: rotate(360deg);}']);
-
-var bounce = (0, _styledComponents.keyframes)(['0%, 100% {transform: scale(0);}50% {transform: scale(1.0);}']);
-
-var duration = 2;
-
-var Child = exports.Child = _styledComponents2.default.div(['', 'display: inline-block;position: absolute;top: 0;border-radius: 100%;animation: ', ' ', 's infinite ease-in-out;', ''], (0, _util.size)('60%'), bounce, duration, function (p) {
-  return p.second && (0, _styledComponents.css)(['top: auto;bottom: 0;', ''], (0, _util.animationDelay)(-duration / 2));
-});
-
-var StyledChangeDots = exports.StyledChangeDots = _styledComponents2.default.div(['', '', 'position: relative;text-align: center;animation: ', ' ', 's infinite linear;> ', ' {', '}'], _util.propSize, _util.propMargin, rotate, duration, Child, _util.propBgColor);
-});
-___scope___.file("lib/util/index.js", function(exports, require, module, __filename, __dirname){
-
-'use strict';
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.getRange = exports.propDelay = exports.animationDelay = exports.propMargin = exports.propBgColor = exports.propSize = exports.sizePx = exports.size = undefined;
-
-var _styledComponents = require('styled-components');
-
-function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
-
-var size = exports.size = function size(width) {
-  var height = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : width;
-  return (0, _styledComponents.css)(['width: ', ';height: ', ';'], width, height);
-};
-
-var sizePx = exports.sizePx = function sizePx(n) {
-  return size(n + 'px');
-};
-
-var propSize = exports.propSize = function propSize(_ref) {
-  var size = _ref.size;
-  return sizePx(size);
-};
-
-var propBgColor = exports.propBgColor = function propBgColor(_ref2) {
-  var color = _ref2.color;
-  return (0, _styledComponents.css)(['background-color: ', ';'], color);
-};
-
-var propMargin = exports.propMargin = function propMargin(_ref3) {
-  var _ref3$size = _ref3.size,
-      size = _ref3$size === undefined ? 0 : _ref3$size;
-  return (0, _styledComponents.css)(['margin: ', 'px auto;'], size);
-};
-
-var animationDelay = exports.animationDelay = function animationDelay(n) {
-  return (0, _styledComponents.css)(['animation-delay: ', 's;'], n);
-};
-
-var propDelay = exports.propDelay = function propDelay(_ref4) {
-  var delay = _ref4.delay;
-  return animationDelay(delay);
-};
-
-var getRange = exports.getRange = function getRange(n) {
-  return [].concat(_toConsumableArray(Array(n).keys()));
-};
-});
-___scope___.file("lib/FadingCircle/index.js", function(exports, require, module, __filename, __dirname){
-
-'use strict';
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = require('react');
-
-var _react2 = _interopRequireDefault(_react);
-
-var _roundTo = require('round-to');
-
-var _roundTo2 = _interopRequireDefault(_roundTo);
-
-var _util = require('../util');
-
-var _styles = require('./styles');
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var ForldingCircle = function (_React$PureComponent) {
-  _inherits(ForldingCircle, _React$PureComponent);
-
-  function ForldingCircle() {
-    _classCallCheck(this, ForldingCircle);
-
-    return _possibleConstructorReturn(this, (ForldingCircle.__proto__ || Object.getPrototypeOf(ForldingCircle)).apply(this, arguments));
-  }
-
-  _createClass(ForldingCircle, [{
-    key: 'render',
-    value: function render() {
-      var count = 12;
-      var range = 1.2;
-      var circles = (0, _util.getRange)(count).map(function (v) {
-        return _react2.default.createElement(_styles.Child, {
-          key: v,
-          rotate: (0, _roundTo2.default)(360 / count * v, 1),
-          delay: (0, _roundTo2.default)(range - range / count * v, 2)
-        });
-      });
-
-      return _react2.default.createElement(
-        _styles.StyledForldingCircle,
-        this.props,
-        circles
-      );
-    }
-  }]);
-
-  return ForldingCircle;
-}(_react2.default.PureComponent);
-
-ForldingCircle.defaultProps = {
-  size: 40,
-  color: '#333'
-};
-ForldingCircle.displayName = '__styled-spinkit__ForldingCircle';
-ForldingCircle.propTypes = {
-  size: require('prop-types').number.isRequired,
-  color: require('prop-types').string.isRequired
-};
-exports.default = ForldingCircle;
-});
-___scope___.file("lib/FadingCircle/styles.js", function(exports, require, module, __filename, __dirname){
-
-'use strict';
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.StyledForldingCircle = exports.Child = undefined;
-
-var _styledComponents = require('styled-components');
-
-var _styledComponents2 = _interopRequireDefault(_styledComponents);
-
-var _util = require('../util');
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-// @Flow
-var opacity = (0, _styledComponents.keyframes)(['0%,39%,100% {opacity: 0;}40% {opacity: 1;}']);
-
-var Child = exports.Child = _styledComponents2.default.div(['', 'position: absolute;left: 0;top: 0;transform: rotate(', 'deg);&::before {content: \'\';display: block;margin: 0 auto;', 'border-radius: 100%;animation: ', ' 1.2s infinite ease-in-out both -', 's;}'], (0, _util.size)('100%'), function (p) {
-  return p.rotate;
-}, (0, _util.size)('15%'), opacity, function (p) {
-  return p.delay;
-});
-
-var StyledForldingCircle = exports.StyledForldingCircle = _styledComponents2.default.div(['', '', 'position: relative;> ', ' {&::before {', '}}'], _util.propSize, _util.propMargin, Child, _util.propBgColor);
-});
-___scope___.file("lib/ThreeBounce/index.js", function(exports, require, module, __filename, __dirname){
-
-'use strict';
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = require('react');
-
-var _react2 = _interopRequireDefault(_react);
-
-var _styles = require('./styles');
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var ThreeBounce = function (_React$PureComponent) {
-  _inherits(ThreeBounce, _React$PureComponent);
-
-  function ThreeBounce() {
-    _classCallCheck(this, ThreeBounce);
-
-    return _possibleConstructorReturn(this, (ThreeBounce.__proto__ || Object.getPrototypeOf(ThreeBounce)).apply(this, arguments));
-  }
-
-  _createClass(ThreeBounce, [{
-    key: 'render',
-    value: function render() {
-      return _react2.default.createElement(
-        _styles.StyledThreeBounce,
-        this.props,
-        _react2.default.createElement(_styles.Child, { delay: -0.32 }),
-        _react2.default.createElement(_styles.Child, { delay: -0.16 }),
-        _react2.default.createElement(_styles.Child, { delay: 0 })
-      );
-    }
-  }]);
-
-  return ThreeBounce;
-}(_react2.default.PureComponent);
-
-ThreeBounce.defaultProps = {
-  color: '#333',
-  size: 40
-};
-ThreeBounce.displayName = '__styled-spinkit__ThreeBounce';
-ThreeBounce.propTypes = {
-  size: require('prop-types').number.isRequired,
-  color: require('prop-types').string.isRequired
-};
-exports.default = ThreeBounce;
-});
-___scope___.file("lib/ThreeBounce/styles.js", function(exports, require, module, __filename, __dirname){
-
-'use strict';
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.StyledThreeBounce = exports.Child = undefined;
-
-var _styledComponents = require('styled-components');
-
-var _styledComponents2 = _interopRequireDefault(_styledComponents);
-
-var _util = require('../util');
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var bounce = (0, _styledComponents.keyframes)(['0%,80%,100% {transform: scale(0);}40% {transform: scale(1);}']);
-
-var Child = exports.Child = _styledComponents2.default.div(['border-radius: 100%;display: inline-block;animation: ', ' 1.4s ease-in-out ', 's infinite both;'], bounce, function (p) {
-  return p.delay;
-});
-
-var StyledThreeBounce = exports.StyledThreeBounce = _styledComponents2.default.div(['width: ', 'px;', 'text-align: center;border-radius: 100%;> ', ' {', '', '}'], function (p) {
-  return p.size;
-}, _util.propMargin, Child, function (p) {
-  return (0, _util.sizePx)(p.size / 4);
-}, _util.propBgColor);
-});
-___scope___.file("lib/Circle/index.js", function(exports, require, module, __filename, __dirname){
-
-'use strict';
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = require('react');
-
-var _react2 = _interopRequireDefault(_react);
-
-var _roundTo = require('round-to');
-
-var _roundTo2 = _interopRequireDefault(_roundTo);
-
-var _util = require('../util');
-
-var _styles = require('./styles');
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var Circle = function (_React$PureComponent) {
-  _inherits(Circle, _React$PureComponent);
-
-  function Circle() {
-    _classCallCheck(this, Circle);
-
-    return _possibleConstructorReturn(this, (Circle.__proto__ || Object.getPrototypeOf(Circle)).apply(this, arguments));
-  }
-
-  _createClass(Circle, [{
-    key: 'render',
-    value: function render() {
-      var count = 12;
-      var speed = 1.2;
-
-      var circles = (0, _util.getRange)(count).map(function (k) {
-        var transform = (0, _roundTo2.default)(360 / count * (k + 1), 1);
-        var delay = (0, _roundTo2.default)(-speed + speed / count * k, 1);
-        return _react2.default.createElement(_styles.Child, { key: delay, delay: delay, transform: transform });
-      });
-
-      return _react2.default.createElement(
-        _styles.StyledCircle,
-        this.props,
-        circles
-      );
-    }
-  }]);
-
-  return Circle;
-}(_react2.default.PureComponent);
-
-Circle.defaultProps = {
-  color: '#333',
-  size: 40
-};
-Circle.displayName = '__styled-spinkit__Circle';
-Circle.propTypes = {
-  size: require('prop-types').number.isRequired,
-  color: require('prop-types').string.isRequired
-};
-exports.default = Circle;
-});
-___scope___.file("lib/Circle/styles.js", function(exports, require, module, __filename, __dirname){
-
-'use strict';
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.StyledCircle = exports.Child = undefined;
-
-var _styledComponents = require('styled-components');
-
-var _styledComponents2 = _interopRequireDefault(_styledComponents);
-
-var _util = require('../util');
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var scale = (0, _styledComponents.keyframes)(['0%,80%,100% {transform: scale(0);}40% {transform: scale(1);}']);
-
-var Child = exports.Child = _styledComponents2.default.div(['', 'position: absolute;top: 0;left: 0;transform: rotate(', 'deg);&::before {content: \'\';display: block;margin: 0 auto;', 'border-radius: 100%;animation: ', ' 1.2s ease-in-out ', 's infinite both;}'], (0, _util.size)('100%'), function (p) {
-  return p.transform;
-}, (0, _util.size)('15%'), scale, function (p) {
-  return p.delay;
-});
-
-var StyledCircle = exports.StyledCircle = _styledComponents2.default.div(['', '', ';position: relative;> ', ' {&::before {', '}}'], _util.propMargin, _util.propSize, Child, _util.propBgColor);
-});
-___scope___.file("lib/FoldingCube/index.js", function(exports, require, module, __filename, __dirname){
-
-'use strict';
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = require('react');
-
-var _react2 = _interopRequireDefault(_react);
-
-var _roundTo = require('round-to');
-
-var _roundTo2 = _interopRequireDefault(_roundTo);
-
-var _styles = require('./styles');
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var FoldingCube = function (_React$PureComponent) {
-  _inherits(FoldingCube, _React$PureComponent);
-
-  function FoldingCube() {
-    _classCallCheck(this, FoldingCube);
-
-    return _possibleConstructorReturn(this, (FoldingCube.__proto__ || Object.getPrototypeOf(FoldingCube)).apply(this, arguments));
-  }
-
-  _createClass(FoldingCube, [{
-    key: 'render',
-    value: function render() {
-      var duration = 2.4;
-      var range = duration / 2;
-      var cubeCount = 4;
-
-      var cubes = [0, 1, 3, 2].map(function (v) {
-        return _react2.default.createElement(_styles.Child, {
-          scale: 90 * v,
-          key: v,
-          delay: (0, _roundTo2.default)(range / cubeCount * v, 2),
-          duration: duration
-        });
-      });
-
-      return _react2.default.createElement(
-        _styles.StyledFoldingCube,
-        this.props,
-        cubes
-      );
-    }
-  }]);
-
-  return FoldingCube;
-}(_react2.default.PureComponent);
-
-FoldingCube.defaultProps = {
-  size: 40,
-  color: '#333'
-};
-FoldingCube.displayName = '__styled-spinkit__FoldingCube';
-FoldingCube.propTypes = {
-  size: require('prop-types').number.isRequired,
-  color: require('prop-types').string.isRequired
-};
-exports.default = FoldingCube;
-});
-___scope___.file("lib/FoldingCube/styles.js", function(exports, require, module, __filename, __dirname){
-
-'use strict';
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.StyledFoldingCube = exports.Child = undefined;
-
-var _styledComponents = require('styled-components');
-
-var _styledComponents2 = _interopRequireDefault(_styledComponents);
-
-var _util = require('../util');
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var locate = (0, _styledComponents.keyframes)(['0%,10% {transform: perspective(140px) rotateX(-180deg);opacity: 0;}25%,75% {transform: perspective(140px) rotateX(0deg);opacity: 1;}90%,100% {transform: perspective(140px) rotateY(180deg);opacity: 0;}']);
-
-var Child = exports.Child = _styledComponents2.default.div(['float: left;', 'position: relative;transform: scale(1.1) rotateZ(', 'deg);&:before {content: \'\';position: absolute;top: 0;left: 0;', 'animation: ', ' ', 's infinite linear both ', 's;transform-origin: 100% 100%;}'], (0, _util.size)('50%'), function (p) {
-  return p.scale;
-}, (0, _util.size)('100%'), locate, function (p) {
-  return p.duration;
-}, function (p) {
-  return p.delay;
-});
-
-var StyledFoldingCube = exports.StyledFoldingCube = _styledComponents2.default.div(['', '', 'position: relative;transform: rotateZ(45deg);> ', ' {&:before {', '}}'], _util.propSize, _util.propMargin, Child, _util.propBgColor);
-});
-___scope___.file("lib/WanderingCubes/index.js", function(exports, require, module, __filename, __dirname){
-
-'use strict';
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = require('react');
-
-var _react2 = _interopRequireDefault(_react);
-
-var _roundTo = require('round-to');
-
-var _roundTo2 = _interopRequireDefault(_roundTo);
-
-var _styles = require('./styles');
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var WanderingCubes = function (_React$PureComponent) {
-  _inherits(WanderingCubes, _React$PureComponent);
-
-  function WanderingCubes() {
-    _classCallCheck(this, WanderingCubes);
-
-    return _possibleConstructorReturn(this, (WanderingCubes.__proto__ || Object.getPrototypeOf(WanderingCubes)).apply(this, arguments));
-  }
-
-  _createClass(WanderingCubes, [{
-    key: 'render',
-    value: function render() {
-      var speed = 1.8;
-      var cubeSize = (0, _roundTo2.default)(this.props.size / 4, 2); // eslint-disable-line react/prop-types
-
-      return _react2.default.createElement(
-        _styles.StyledWanderingCubes,
-        _extends({ speed: speed }, this.props),
-        _react2.default.createElement(_styles.Child, { delay: speed, size: cubeSize }),
-        _react2.default.createElement(_styles.Child, { delay: speed / 2, size: cubeSize })
-      );
-    }
-  }]);
-
-  return WanderingCubes;
-}(_react2.default.PureComponent);
-
-WanderingCubes.defaultProps = {
-  color: '#333',
-  size: 40
-};
-WanderingCubes.displayName = '__styled-spinkit__WanderingCubes';
-WanderingCubes.propTypes = {
-  size: require('prop-types').number.isRequired,
-  color: require('prop-types').string.isRequired
-};
-exports.default = WanderingCubes;
-});
-___scope___.file("lib/WanderingCubes/styles.js", function(exports, require, module, __filename, __dirname){
-
-'use strict';
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.StyledWanderingCubes = exports.Child = undefined;
-
-var _styledComponents = require('styled-components');
-
-var _styledComponents2 = _interopRequireDefault(_styledComponents);
-
-var _roundTo = require('round-to');
-
-var _roundTo2 = _interopRequireDefault(_roundTo);
-
-var _util = require('../util');
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var createAnim = function createAnim() {
-  var cubeDistance = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 42;
-  return (0, _styledComponents.keyframes)(['0% {transform: rotate(0deg);}25% {transform: translateX(', 'px) rotate(-90deg) scale(0.5);}50% {/* Hack to make FF rotate in the right direction */transform: translateX(', 'px) translateY(', 'px) rotate(-179deg);}50.1% {transform: translateX(', 'px) translateY(', 'px) rotate(-180deg);}75% {transform: translateX(0) translateY(', 'px) rotate(-270deg) scale(0.5);}100% {transform: rotate(-360deg);}'], cubeDistance, cubeDistance, cubeDistance, cubeDistance, cubeDistance, cubeDistance);
-};
-var Child = exports.Child = _styledComponents2.default.div(['', 'position: absolute;top: 0;left: 0;', 'animation-timing-function: ease-in-out;animation-iteration-count: infinite;animation-fill-mode: both;'], _util.propSize, _util.propDelay);
-
-var StyledWanderingCubes = exports.StyledWanderingCubes = _styledComponents2.default.div(['margin: ', 'px auto;', 'text-align: center;font-size: 10px;position: relative;> ', ' {', 'animation-name: ', ';animation-duration: ', 's;}'], function (p) {
-  return (0, _roundTo2.default)(p.size * 0.8, 1);
-}, _util.propSize, Child, _util.propBgColor, function (p) {
-  return createAnim((0, _roundTo2.default)(p.size * 0.8, 1));
-}, function (p) {
-  return p.speed;
-});
-});
-___scope___.file("lib/CubeGrid/index.js", function(exports, require, module, __filename, __dirname){
-
-'use strict';
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = require('react');
-
-var _react2 = _interopRequireDefault(_react);
-
-var _roundTo = require('round-to');
-
-var _roundTo2 = _interopRequireDefault(_roundTo);
-
-var _styles = require('./styles');
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var CubeGrid = function (_React$PureComponent) {
-  _inherits(CubeGrid, _React$PureComponent);
-
-  function CubeGrid() {
-    _classCallCheck(this, CubeGrid);
-
-    return _possibleConstructorReturn(this, (CubeGrid.__proto__ || Object.getPrototypeOf(CubeGrid)).apply(this, arguments));
-  }
-
-  _createClass(CubeGrid, [{
-    key: 'render',
-    value: function render() {
-      var range = 0.4;
-      var cubes = [0.5, 0.75, 1, 0.25, 0.5, 0.75, 0, 0.25, 0.5].map(function (v) {
-        return (0, _roundTo2.default)(range * v, 2);
-      }).map(function (v, k) {
-        return _react2.default.createElement(_styles.Child, { key: k, delay: v });
-      });
-
-      return _react2.default.createElement(
-        _styles.StyledCubeGrid,
-        this.props,
-        cubes
-      );
-    }
-  }]);
-
-  return CubeGrid;
-}(_react2.default.PureComponent);
-
-CubeGrid.defaultProps = {
-  size: 40,
-  color: '#333'
-};
-CubeGrid.displayName = '__styled-spinkit__CubeGrid';
-CubeGrid.propTypes = {
-  size: require('prop-types').number.isRequired,
-  color: require('prop-types').string.isRequired
-};
-exports.default = CubeGrid;
-});
-___scope___.file("lib/CubeGrid/styles.js", function(exports, require, module, __filename, __dirname){
-
-'use strict';
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.StyledCubeGrid = exports.Child = undefined;
-
-var _styledComponents = require('styled-components');
-
-var _styledComponents2 = _interopRequireDefault(_styledComponents);
-
-var _util = require('../util');
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var scale = (0, _styledComponents.keyframes)(['0%,70%,100% {transform: scale3d(1, 1, 1);}35% {transform: scale3d(0, 0, 1);}']);
-
-var Child = exports.Child = _styledComponents2.default.div(['', 'float: left;animation: ', ' 1.3s infinite ease-in-out ', 's;'], (0, _util.size)('33.33%'), scale, function (p) {
-  return p.delay;
-});
-
-var StyledCubeGrid = exports.StyledCubeGrid = _styledComponents2.default.div(['', '', '> ', ' {', '}'], _util.propSize, _util.propMargin, Child, _util.propBgColor);
-});
-___scope___.file("lib/Pulse/index.js", function(exports, require, module, __filename, __dirname){
-
-'use strict';
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = require('react');
-
-var _react2 = _interopRequireDefault(_react);
-
-var _styles = require('./styles');
-
-var _styles2 = _interopRequireDefault(_styles);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var Pulse = function (_React$PureComponent) {
-  _inherits(Pulse, _React$PureComponent);
-
-  function Pulse() {
-    _classCallCheck(this, Pulse);
-
-    return _possibleConstructorReturn(this, (Pulse.__proto__ || Object.getPrototypeOf(Pulse)).apply(this, arguments));
-  }
-
-  _createClass(Pulse, [{
-    key: 'render',
-    value: function render() {
-      return _react2.default.createElement(_styles2.default, this.props);
-    }
-  }]);
-
-  return Pulse;
-}(_react2.default.PureComponent);
-
-Pulse.defaultProps = {
-  size: 40,
-  color: '#333'
-};
-Pulse.displayName = '__styled-spinkit__Pulse';
-Pulse.propTypes = {
-  size: require('prop-types').number.isRequired,
-  color: require('prop-types').string.isRequired
-};
-exports.default = Pulse;
-});
-___scope___.file("lib/Pulse/styles.js", function(exports, require, module, __filename, __dirname){
-
-'use strict';
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _styledComponents = require('styled-components');
-
-var _styledComponents2 = _interopRequireDefault(_styledComponents);
-
-var _util = require('../util');
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var scaleOut = (0, _styledComponents.keyframes)(['0% {transform: scale(0);}100% {opacity: 0;transform: scale(1);}']);
-
-var StyledPulse = _styledComponents2.default.div(['', '', '', 'border-radius: 100%;animation: ', ' 1s ease-in-out infinite;'], _util.propSize, _util.propBgColor, _util.propMargin, scaleOut);
-
-exports.default = StyledPulse;
-});
-___scope___.file("lib/WaveLoading/index.js", function(exports, require, module, __filename, __dirname){
-
-'use strict';
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = require('react');
-
-var _react2 = _interopRequireDefault(_react);
-
-var _roundTo = require('round-to');
-
-var _roundTo2 = _interopRequireDefault(_roundTo);
-
-var _util = require('../util');
-
-var _styles = require('./styles');
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var Wave = function (_React$PureComponent) {
-  _inherits(Wave, _React$PureComponent);
-
-  function Wave() {
-    _classCallCheck(this, Wave);
-
-    return _possibleConstructorReturn(this, (Wave.__proto__ || Object.getPrototypeOf(Wave)).apply(this, arguments));
-  }
-
-  _createClass(Wave, [{
-    key: 'render',
-    value: function render() {
-      var speed = 1.2;
-      var rectCount = 5;
-      var delayRange = 0.4;
-
-      var rects = (0, _util.getRange)(rectCount).map(function (v) {
-        return _react2.default.createElement(_styles.Rect, {
-          delay: (0, _roundTo2.default)(-speed + delayRange / (rectCount - 1) * v, 1),
-          key: v
-        });
-      });
-
-      return _react2.default.createElement(
-        _styles.StyledWave,
-        _extends({ speed: speed }, this.props),
-        rects
-      );
-    }
-  }]);
-
-  return Wave;
-}(_react2.default.PureComponent);
-
-Wave.defaultProps = {
-  color: '#333',
-  size: 40
-};
-Wave.displayName = '__styled-spinkit__Wave';
-Wave.propTypes = {
-  size: require('prop-types').number.isRequired,
-  color: require('prop-types').string.isRequired
-};
-exports.default = Wave;
-});
-___scope___.file("lib/WaveLoading/styles.js", function(exports, require, module, __filename, __dirname){
-
-'use strict';
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.StyledWave = exports.Rect = undefined;
-
-var _styledComponents = require('styled-components');
-
-var _styledComponents2 = _interopRequireDefault(_styledComponents);
-
-var _util = require('../util');
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var anim = (0, _styledComponents.keyframes)(['0%,40%,100% {transform: scaleY(0.4);}20% {transform: scaleY(1);}']);
-
-var Rect = exports.Rect = _styledComponents2.default.div(['', 'margin: 0 3px 0 0;display: inline-block;', ''], (0, _util.size)('7px', '100%'), _util.propDelay);
-
-var StyledWave = exports.StyledWave = _styledComponents2.default.div(['', '', 'text-align: center;font-size: 10px;> ', ' {', 'animation-name: ', ';animation-duration: ', 's;animation-timing-function: ease-in-out;animation-iteration-count: infinite;}'], _util.propMargin, function (p) {
-  return (0, _util.size)(p.size * 1.25 + 'px', p.size + 'px');
-}, Rect, _util.propBgColor, anim, function (p) {
-  return p.speed;
-});
-});
-___scope___.file("lib/DoubleDounceLoading/index.js", function(exports, require, module, __filename, __dirname){
-
-'use strict';
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = require('react');
-
-var _react2 = _interopRequireDefault(_react);
-
-var _styles = require('./styles');
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var DoubleBounce = function (_React$PureComponent) {
-  _inherits(DoubleBounce, _React$PureComponent);
-
-  function DoubleBounce() {
-    _classCallCheck(this, DoubleBounce);
-
-    return _possibleConstructorReturn(this, (DoubleBounce.__proto__ || Object.getPrototypeOf(DoubleBounce)).apply(this, arguments));
-  }
-
-  _createClass(DoubleBounce, [{
-    key: 'render',
-    value: function render() {
-      return _react2.default.createElement(
-        _styles.StyledDoubleBounce,
-        this.props,
-        _react2.default.createElement(_styles.Child, null),
-        _react2.default.createElement(_styles.Child, { isDelay: true })
-      );
-    }
-  }]);
-
-  return DoubleBounce;
-}(_react2.default.PureComponent);
-
-DoubleBounce.defaultProps = {
-  color: '#333',
-  size: 40
-};
-DoubleBounce.displayName = '__styled-spinkit__DoubleBounce';
-DoubleBounce.propTypes = {
-  size: require('prop-types').number.isRequired,
-  color: require('prop-types').string.isRequired
-};
-exports.default = DoubleBounce;
-});
-___scope___.file("lib/DoubleDounceLoading/styles.js", function(exports, require, module, __filename, __dirname){
-
-'use strict';
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.StyledDoubleBounce = exports.Child = undefined;
-
-var _styledComponents = require('styled-components');
-
-var _styledComponents2 = _interopRequireDefault(_styledComponents);
-
-var _util = require('../util');
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var debounce = (0, _styledComponents.keyframes)(['0%,100% {transform: scale(0);}50% {transform: scale(1);}']);
-
-var Child = exports.Child = _styledComponents2.default.div(['', 'border-radius: 50%;position: absolute;opacity: 0.6;top: 0;left: 0;animation: ', ' 2s infinite ease-in-out;', ''], (0, _util.size)('100%'), debounce, function (p) {
-  return p.isDelay && (0, _util.animationDelay)(-1);
-});
-
-var StyledDoubleBounce = exports.StyledDoubleBounce = _styledComponents2.default.div(['', 'position: relative;', '> ', ' {', '}'], _util.propSize, _util.propMargin, Child, _util.propBgColor);
-});
-___scope___.file("lib/RotaingPlaneLoading/index.js", function(exports, require, module, __filename, __dirname){
-
-'use strict';
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = require('react');
-
-var _react2 = _interopRequireDefault(_react);
-
-var _styles = require('./styles');
-
-var _styles2 = _interopRequireDefault(_styles);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var speed = 1.2;
-
-var RotaingPlain = function (_React$PureComponent) {
-  _inherits(RotaingPlain, _React$PureComponent);
-
-  function RotaingPlain() {
-    _classCallCheck(this, RotaingPlain);
-
-    return _possibleConstructorReturn(this, (RotaingPlain.__proto__ || Object.getPrototypeOf(RotaingPlain)).apply(this, arguments));
-  }
-
-  _createClass(RotaingPlain, [{
-    key: 'render',
-    value: function render() {
-      return _react2.default.createElement(_styles2.default, _extends({}, this.props, { speed: speed }));
-    }
-  }]);
-
-  return RotaingPlain;
-}(_react2.default.PureComponent);
-
-RotaingPlain.defaultProps = {
-  color: '#333',
-  size: 40
-};
-RotaingPlain.displayName = '__styled-spinkit__RotaingPlain';
-RotaingPlain.propTypes = {
-  size: require('prop-types').number.isRequired,
-  color: require('prop-types').string.isRequired
-};
-exports.default = RotaingPlain;
-});
-___scope___.file("lib/RotaingPlaneLoading/styles.js", function(exports, require, module, __filename, __dirname){
-
-'use strict';
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _styledComponents = require('styled-components');
-
-var _styledComponents2 = _interopRequireDefault(_styledComponents);
-
-var _util = require('../util');
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var spin = (0, _styledComponents.keyframes)(['0% {transform: perspective(120px) rotateX(0deg) rotateY(0deg);}50% {transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg);}100% {transform: perspective(120px) rotateX(-180deg) rotateY(-179.9deg);}']);
-
-var StyledRotaingPlain = _styledComponents2.default.div(['', '', '', 'animation: ', ' ', 's infinite ease-in-out;'], _util.propSize, _util.propBgColor, _util.propMargin, spin, function (p) {
-  return p.speed;
-});
-
-exports.default = StyledRotaingPlain;
-});
-return ___scope___.entry = "lib/index.js";
-});
-FuseBox.pkg("round-to", {}, function(___scope___){
-___scope___.file("index.js", function(exports, require, module, __filename, __dirname){
-
-'use strict';
-
-function round(fn, val, precision) {
-	if (typeof val !== 'number') {
-		throw new TypeError('Expected value to be a number');
-	}
-
-	if (!Number.isInteger(precision)) {
-		throw new TypeError('Expected precision to be an integer');
-	}
-
-	const exponent = precision > 0 ? 'e' : 'e-';
-	const exponentNeg = precision > 0 ? 'e-' : 'e';
-	precision = Math.abs(precision);
-
-	if (fn === 'round') {
-		return Number(Math.sign(val) * (Math.round(Math.abs(val) + exponent + precision) + exponentNeg + precision));
-	}
-
-	return Number(Math[fn](val + exponent + precision) + exponentNeg + precision);
-}
-
-module.exports = round.bind(null, 'round');
-module.exports.up = round.bind(null, 'ceil');
-module.exports.down = round.bind(null, 'floor');
 
 });
 return ___scope___.entry = "index.js";
