@@ -68,6 +68,7 @@ class Connector {
   async createAndSave(config = {}) {
     const job = this.create(config);
     const saved = await this.register(job);
+    this.emitter.emit("job:create", saved);
     return saved;
   }
 

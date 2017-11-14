@@ -206,6 +206,10 @@ var _Jobs = require("./Jobs");
 
 var _Jobs2 = _interopRequireDefault(_Jobs);
 
+var _Logs = require("./Logs");
+
+var _Logs2 = _interopRequireDefault(_Logs);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
@@ -221,7 +225,8 @@ exports.default = function () {
       null,
       _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: "/", component: _Overview2.default }),
       _react2.default.createElement(_reactRouterDom.Route, { path: "/job/:id", component: _Job2.default }),
-      _react2.default.createElement(_reactRouterDom.Route, { path: "/jobs/:status?", component: _Jobs2.default })
+      _react2.default.createElement(_reactRouterDom.Route, { path: "/jobs/:status?", component: _Jobs2.default }),
+      _react2.default.createElement(_reactRouterDom.Route, { path: "/logs/:range?", component: _Logs2.default })
     )
   );
 };
@@ -799,9 +804,11 @@ var Jobs = function (_Component) {
     value: function render() {
       var match = this.props.match;
 
-      return _react2.default.createElement(_JobList2.default, {
-        status: match.params.status || null,
+      return _react2.default.createElement(_JobList2.default, { status: match.params.status || null,
         columns: [{
+          field: "id",
+          label: "ID"
+        }, {
           field: "type",
           label: "Type"
         }, {
@@ -811,13 +818,13 @@ var Jobs = function (_Component) {
           field: "data.started_at",
           label: "Start Time",
           format: function format(f) {
-            return (0, _moment2.default)(f.started_at).format("h:mm:ssA MM/DD/YYYY");
+            return (0, _moment2.default)(f.data.started_at).format("h:mm:ssA MM/DD/YYYY");
           }
         }, {
           field: "data.completed_at",
           label: "End Time",
           format: function format(f) {
-            return (0, _moment2.default)(f.completed_at).format("h:mm:ssA MM/DD/YYYY");
+            return (0, _moment2.default)(f.data.completed_at).format("h:mm:ssA MM/DD/YYYY");
           }
         }, {
           feld: "data.result",
@@ -827,8 +834,7 @@ var Jobs = function (_Component) {
             return JSON.stringify(f.result).substr(0, 55);
           }
         }],
-        endpoint: "/api/jobs"
-      });
+        endpoint: "/api/jobs" });
     }
   }]);
 
@@ -838,6 +844,65 @@ var Jobs = function (_Component) {
 exports.default = Jobs;
 });
 ___scope___.file("components/JobList.jsx", function(exports, require, module, __filename, __dirname){
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = require("react");
+
+var _react2 = _interopRequireDefault(_react);
+
+var _DataTable = require("./DataTable");
+
+var _DataTable2 = _interopRequireDefault(_DataTable);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var JobList = function (_Component) {
+  _inherits(JobList, _Component);
+
+  function JobList() {
+    var _ref;
+
+    var _temp, _this, _ret;
+
+    _classCallCheck(this, JobList);
+
+    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = JobList.__proto__ || Object.getPrototypeOf(JobList)).call.apply(_ref, [this].concat(args))), _this), _this.onStatusChange = function (e) {
+      _this.props.history.push("/jobs/" + e.target.value);
+    }, _temp), _possibleConstructorReturn(_this, _ret);
+  }
+
+  _createClass(JobList, [{
+    key: "render",
+    value: function render() {
+      return _react2.default.createElement(_DataTable2.default, _extends({ onStatusChange: this.onStatusChange }, this.props));
+    }
+  }]);
+
+  return JobList;
+}(_react.Component);
+
+exports.default = JobList;
+});
+___scope___.file("components/DataTable.jsx", function(exports, require, module, __filename, __dirname){
 
 "use strict";
 
@@ -907,21 +972,21 @@ var Footer = _styledComponents2.default.div(_templateObject4);
 
 var Content = _styledComponents2.default.div(_templateObject5);
 
-var JobList = function (_Component) {
-  _inherits(JobList, _Component);
+var DataTable = function (_Component) {
+  _inherits(DataTable, _Component);
 
-  function JobList() {
+  function DataTable() {
     var _ref;
 
     var _temp, _this, _ret;
 
-    _classCallCheck(this, JobList);
+    _classCallCheck(this, DataTable);
 
     for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
       args[_key] = arguments[_key];
     }
 
-    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = JobList.__proto__ || Object.getPrototypeOf(JobList)).call.apply(_ref, [this].concat(args))), _this), _this.interval = false, _this.state = {
+    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = DataTable.__proto__ || Object.getPrototypeOf(DataTable)).call.apply(_ref, [this].concat(args))), _this), _this.interval = false, _this.state = {
       data: {},
       loading: true,
       sorting: {},
@@ -929,7 +994,7 @@ var JobList = function (_Component) {
       search: "",
       page: 1,
       pageSize: 25
-    }, _this.loadJobs = (0, _debounce2.default)(function () {
+    }, _this.load = (0, _debounce2.default)(function () {
       var _this$state = _this.state,
           status = _this$state.status,
           search = _this$state.search,
@@ -973,7 +1038,7 @@ var JobList = function (_Component) {
         if (_this.props.onSearchChange) {
           _this.props.onSearchChange(e);
         }
-        _this.loadJobs();
+        _this.load();
       });
     }, _this.onStatusChange = function (e) {
       _this.setState({
@@ -983,15 +1048,14 @@ var JobList = function (_Component) {
       if (_this.props.onStatusChange) {
         _this.props.onStatusChange(e);
       }
-      _this.props.history.push("/jobs/" + e.target.value);
     }, _this.onPageChange = function (page) {
       _this.setState({ page: page, loading: true }, function () {
-        _this.loadJobs();
+        _this.load();
       });
     }, _temp), _possibleConstructorReturn(_this, _ret);
   }
 
-  _createClass(JobList, [{
+  _createClass(DataTable, [{
     key: "componentDidMount",
     value: function componentDidMount() {
       if (this.props.status) {
@@ -999,8 +1063,8 @@ var JobList = function (_Component) {
           status: this.props.status
         });
       }
-      this.loadJobs();
-      this.interval = setInterval(this.loadJobs, 5000);
+      this.load();
+      this.interval = setInterval(this.load, 5000);
     }
   }, {
     key: "componentWillReceiveProps",
@@ -1011,7 +1075,7 @@ var JobList = function (_Component) {
         this.setState({
           status: status
         });
-        this.loadJobs();
+        this.load();
       }
     }
   }, {
@@ -1021,8 +1085,8 @@ var JobList = function (_Component) {
     }
   }, {
     key: "formatCol",
-    value: function formatCol(col, job) {
-      return col.format ? col.format(job, col) : job[col.field];
+    value: function formatCol(col, row) {
+      return col.format ? col.format(row, col) : row[col.field];
     }
   }, {
     key: "sortToggle",
@@ -1121,13 +1185,6 @@ var JobList = function (_Component) {
                 _react2.default.createElement(
                   _Table.Row,
                   null,
-                  _react2.default.createElement(
-                    _Table.HCol,
-                    { onClick: function onClick(e) {
-                        return _this2.sortToggle("id");
-                      } },
-                    "Job ID"
-                  ),
                   this.props.columns.map(function (col) {
                     return _react2.default.createElement(
                       _Table.HCol,
@@ -1158,25 +1215,20 @@ var JobList = function (_Component) {
               ) : _react2.default.createElement(
                 _Table.TBody,
                 null,
-                this.state.data.records && this.state.data.records.length ? [this.state.data.records.map(function (job) {
-                  return job ? _react2.default.createElement(
+                this.state.data.records && this.state.data.records.length ? [this.state.data.records.map(function (row) {
+                  return row ? _react2.default.createElement(
                     _Table.Row,
                     {
-                      key: "job." + job.id,
+                      key: "row." + row.id,
                       onClick: function onClick(e) {
-                        _this2.props.history.push("/job/" + job.id);
+                        return _this2.props.onRecordClick ? _this2.props.onRecordClick(row, e) : null;
                       }
                     },
-                    _react2.default.createElement(
-                      _Table.HCol,
-                      { key: "job." + job.id + ".id" },
-                      job.id
-                    ),
                     _this2.props.columns.map(function (col) {
                       return _react2.default.createElement(
                         _Table.Col,
-                        { key: "job." + job.id + "." + col.field },
-                        _this2.formatCol(col, job)
+                        { key: "row." + row.id + "." + col.field },
+                        _this2.formatCol(col, row)
                       );
                     })
                   ) : null;
@@ -1206,10 +1258,10 @@ var JobList = function (_Component) {
     }
   }]);
 
-  return JobList;
+  return DataTable;
 }(_react.Component);
 
-exports.default = (0, _reactRouterDom.withRouter)(JobList);
+exports.default = (0, _reactRouterDom.withRouter)(DataTable);
 });
 ___scope___.file("components/Paginator.jsx", function(exports, require, module, __filename, __dirname){
 
@@ -1470,6 +1522,96 @@ var Select = function Select(_ref2) {
   );
 };
 exports.Select = Select;
+});
+___scope___.file("routes/Logs.jsx", function(exports, require, module, __filename, __dirname){
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = require("react");
+
+var _react2 = _interopRequireDefault(_react);
+
+var _moment = require("moment");
+
+var _moment2 = _interopRequireDefault(_moment);
+
+var _axios = require("axios");
+
+var _axios2 = _interopRequireDefault(_axios);
+
+var _JobList = require("../components/JobList");
+
+var _JobList2 = _interopRequireDefault(_JobList);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Logs = function (_Component) {
+  _inherits(Logs, _Component);
+
+  function Logs() {
+    var _ref;
+
+    var _temp, _this, _ret;
+
+    _classCallCheck(this, Logs);
+
+    for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Logs.__proto__ || Object.getPrototypeOf(Logs)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
+      logs: [],
+      loading: true
+    }, _temp), _possibleConstructorReturn(_this, _ret);
+  }
+
+  _createClass(Logs, [{
+    key: "render",
+    value: function render() {
+      return _react2.default.createElement(_JobList2.default, {
+        columns: [{
+          field: "pid",
+          label: "PID"
+        }, {
+          field: "name",
+          label: "Application"
+        }, {
+          field: "hostname",
+          label: "Hostname"
+        }, {
+          field: "level",
+          label: "Level"
+        }, {
+          field: "timestamp",
+          label: "Timestamp",
+          format: function format(f) {
+            return (0, _moment2.default)(f["@timestamp"]).format("h:mm:ssA MM/DD/YYYY");
+          }
+        }, {
+          field: "message",
+          label: "Message"
+        }],
+        endpoint: "/api/logs"
+      });
+    }
+  }]);
+
+  return Logs;
+}(_react.Component);
+
+exports.default = Logs;
 });
 return ___scope___.entry = "app.js";
 });

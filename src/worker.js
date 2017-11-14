@@ -2,10 +2,17 @@ const Job = require("./job");
 const fs = require("fs");
 const moment = require("moment");
 const Connector = require("./connector");
+const bunyan = require("bunyan");
+const { get } = require("lodash");
 
 class Worker {
-  constructor(connector_config = {}, config = {}) {
+  constructor(config = {}) {
+    const connector_config = get(config, "connector", {});
     this.connector = new Connector(connector_config);
+
+    const logger_config = get(config, "logger", {});
+    this.logger = bunyan.createLogger(logger_config);
+
     this.jobHandlers = new Map();
     this.config = config;
     this.listening = false;
@@ -40,7 +47,15 @@ class Worker {
       numberOfKeys: 1
     });
 
+    this.connector.emitter.on("job:create", async job => {
+      this.logger.info("job created", job);
+    });
+
     this.connector.emitter.on("job:saved", async job => {
+      if (job.type !== "ping") {
+        this.logger.info("job " + job.status, { id: job.id, type: job.type });
+      }
+
       if (job.status == "complete") {
         await this.connector.pub.complete(job.id, 1);
       }
@@ -53,6 +68,10 @@ class Worker {
         pong: moment().format("x")
       };
     });
+
+    if (config.init) {
+      config.init(this);
+    }
   }
 
   async claim(type) {
@@ -129,6 +148,7 @@ class Worker {
 
   listen(scanInterval = 500) {
     if (!this.listening) {
+      this.logger.info("worker listening");
       this.interval = setInterval(async () => {
         if (!this.scanning) {
           const timed_out = await this.connector.pub.timeout(
@@ -146,6 +166,7 @@ class Worker {
   }
 
   stopListening() {
+    this.logger.info("worker stopped listening");
     clearInterval(this.interval);
   }
 

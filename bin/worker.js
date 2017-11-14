@@ -15,25 +15,12 @@ if (!fs.existsSync(configPath)) {
 }
 
 console.log("Loading queue configuration at '" + configPath + "'");
+
 const config = require(configPath);
-
-const sync = argv.pgsql
-  ? require("../src/sync/pgsql")()
-  : require("../src/sync/elasticsearch")({
-      host: "localhost:9200"
-    });
-
-const queue = new Worker(
-  {},
-  {
-    debug: false,
-    sync
-  }
-);
+const queue = new Worker(config);
 
 async function main() {
   console.log("Initializing queue...");
-  config(queue);
 
   console.log("Scanning for stalled jobs");
   await queue.scan();

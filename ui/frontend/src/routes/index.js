@@ -5,6 +5,7 @@ import styled from "styled-components";
 import Overview from "./Overview";
 import Job from "./Job";
 import Jobs from "./Jobs";
+import Logs from "./Logs";
 
 const Wrapper = styled.div`
   padding: 8px;
@@ -20,6 +21,7 @@ export default () => (
       <Route exact path="/" component={Overview} />
       <Route path="/job/:id" component={Job} />
       <Route path="/jobs/:status?" component={Jobs} />
+      <Route path="/logs/:range?" component={Logs} />
     </Switch>
   </Wrapper>
 );

@@ -3,7 +3,6 @@ const moment = require("moment");
 
 module.exports.default = (router, v) => {
   router.get("/status", async (ctx, next) => {
-    console.log("status");
     const index = await ctx.queue.pub.get("queue:index");
 
     const pending = (await ctx.getIds("queue:jobs:pending", 0, -1)).length;
